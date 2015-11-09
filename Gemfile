@@ -40,6 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'mocha'
   gem 'simplecov'
+  gem 'rspec-rails'
 end
 
 group :development do
