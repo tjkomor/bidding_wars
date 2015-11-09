@@ -41,6 +41,7 @@ group :development, :test do
   gem 'mocha'
   gem 'simplecov'
   gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :development do

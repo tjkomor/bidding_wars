@@ -4,14 +4,14 @@
 require 'rails_helper'
 
 feature "View items" do
-  background "create items" do
-    item_one = Item.create(name: 'Canon 7d',
-                       description: 'The best camera ever (NOT)',
-                       price: 15)
-    item_two = Item.create(name: 'Sony a7r',
-                           description: 'Robbies camera',
-                           price: 12)
-  end
+
+    let!(:item_one) {Item.create(name: 'Canon 7d',
+                                 description: 'The best camera ever (NOT)',
+                                 price: 15)}
+
+    let!(:item_two) {Item.create(name: 'Sony a7r',
+                                 description: 'Robbies camera',
+                                 price: 12)}
 
   scenario "visitor can view items" do
     visit "/items"
@@ -19,7 +19,7 @@ feature "View items" do
     within("#heading") do
       expect(page).to have_content("Items")
     end
-
+    
     within("#item_#{item_one.id}") do
       expect(page).to have_content(item_one.name)
       expect(page).to have_content(item_one.description)
