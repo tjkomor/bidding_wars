@@ -45,6 +45,15 @@ nav {
   background-color: rgb(255, 255, 255);
 }
 
+.flash_notice {
+  text-align: center;
+  color: green;
+}
+
+.item {
+  margin-bottom: 25px;
+}
+
 .items {
   text-align: center;
 }
@@ -61,4 +70,13 @@ nav {
 
 nav ul li a {
   color: black;
+}
+
+.item_cart {
+  max-height: 75px;
+  max-width: 75px;
+}
+
+.cart_total {
+  float: right;
 }

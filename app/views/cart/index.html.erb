@@ -1,10 +1,30 @@
-<%= @items.each do |item| %>
-  <%= item.name %>
-  <%= item.description %>
-  $<%= item.price %> per day
-  <%= image_tag(item.image_url) %>
-<% end %>
+<table class="bordered">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Item Name</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Price per day</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+      <td><%= item.name %></td>
+      <td><%= @cart.quantity_of(item.id) %>
+      <td><%= item.description %></td>
+      <td>$<%= item.price %> per day</td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="4"></td>
+    <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
+  </tr>
+  </tbody>
+</table>
 
-$<%= @total_price %> total
+
 
 <%= flash[:notice] %>
