@@ -1,6 +1,6 @@
 == README
 
-[![Throughput Graph](https://graphs.waffle.io/robbielane/lens_lease/throughput.svg)](https://waffle.io/robbielane/lens_lease/metrics)
+[Throughput Graph](https://graphs.waffle.io/robbielane/lens_lease/throughput.svg)(https://waffle.io/robbielane/lens_lease/metrics)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
