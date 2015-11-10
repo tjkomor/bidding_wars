@@ -2,6 +2,7 @@
   <% @items.each do |item| %>
     <div id="item_<%= item.id %>">
       <%= item.name %>
+      <%= image_tag(item.image_url) %>
       <%= item.description %>
       <%= item.price %>
     </div>
