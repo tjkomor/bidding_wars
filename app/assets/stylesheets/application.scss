@@ -37,14 +37,28 @@ strong {
   font-weight: 700;
 }
 
+// .nav-wrapper {
+//   opacity: 0.2;
+// }
+
 nav {
-  background-color: rgb(100, 100, 100);
-  opacity: 0.3;
+  background-color: rgb(255, 255, 255);
 }
+
 .items {
   text-align: center;
 }
+
 .items img {
   max-width: 150px;
   max-height: 150px;
+}
+
+.logo img {
+  max-width: 30%;
+  max-height: 30%;
+}
+
+nav ul li a {
+  color: black;
 }
