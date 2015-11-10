@@ -24,4 +24,13 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  def create_category
+    let!(:category) { Category.create(name: 'Lenses') }
+  end
+
+  def create_items
+    let!(:item_one) { Item.create(name: '70-200 Canon L', description: "portrait lens", price: 12, category_id: 1) }
+    let!(:item_two) { Item.create(name: '16-35 Canon L', description: "wide angle lens", price: 14, category_id: 1) }
+  end
 end
