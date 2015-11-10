@@ -3,12 +3,12 @@ require "rails_helper"
 RSpec.describe "VisitorCanViewItems", type: :feature do
   feature "View items" do
     let!(:item_one) {Item.create(name: "Canon 7d",
-                                  description: "The best camera ever (NOT)",
-                                  price: 15)}
+                                 description: "The best camera ever (NOT)",
+                                 price: 15)}
 
     let!(:item_two) {Item.create(name: "Sony a7r",
-                                  description: "Robbies camera",
-                                  price: 12)}
+                                 description: "Robbies camera",
+                                 price: 12)}
 
     scenario "visitor can view items" do
       visit "/items"
