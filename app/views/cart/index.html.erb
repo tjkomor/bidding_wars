@@ -1,4 +1,10 @@
-<%= @cart_items.each do |item| %>
-  <%= item.first %>
-  <%= item.last %>
+<%= @items.each do |item| %>
+  <%= item.name %>
+  <%= item.description %>
+  $<%= item.price %> per day
+  <%= image_tag(item.image_url) %>
 <% end %>
+
+$<%= @total_price %> total
+
+<%= flash[:notice] %>

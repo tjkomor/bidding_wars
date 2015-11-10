@@ -18,4 +18,8 @@ class Cart
     items[item_id.to_s]
   end
 
+  def total_price
+    
+  end
+
 end
