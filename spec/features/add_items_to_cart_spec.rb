@@ -11,10 +11,10 @@ RSpec.describe "VisitorCanAddItemToCart", type: :feature do
       end
       click_link "View Cart"
       expect(current_path).to eq(cart_path)
-      expect page.to have_content("#{item_one.name}")
-      expect page.to have_content("#{item_one.description}")
-      expect page.to have_content("$#{item_one.price} per day")
-      expect page.to have_content("$#{item_one.price} total")
+      expect(page).to have_content("#{item_one.name}")
+      expect(page).to have_content("#{item_one.description}")
+      expect(page).to have_content("$#{item_one.price} per day")
+      expect(page).to have_content("$#{item_one.price} total")
     end
   end
 end

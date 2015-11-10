@@ -1,6 +1,7 @@
 <div id="heading" class="">
   <h1>Items</h1>
 </div>
+
 <div class="items">
   <% @items.each do |item|  %>
     <div id="item_<%= item.id %>">
@@ -8,6 +9,7 @@
       <%= image_tag(item.image_url) %>
       <%= item.description %>
       <%= item.price %>
+      <%= button_to "Add to Cart", cart_items_path %>
     </div>
   <% end %>
 </div>
