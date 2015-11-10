@@ -24,15 +24,27 @@
 
 // font-family: 'Quicksand', sans-serif;
 
+body {
+  font-family: "Titillium Web", sans-serif;
+}
+
 h1 {
   font-family: "Lobster";
+}
+
+strong {
+  color:  #c62828;
+  font-weight: 700;
 }
 
 nav {
   background-color: rgb(100, 100, 100);
   opacity: 0.3;
 }
+.items {
+  text-align: center;
+}
 .items img {
-  max-width: 256px;
-  max-height: 256px;
+  max-width: 150px;
+  max-height: 150px;
 }
