@@ -24,4 +24,13 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  def create_category
+    let!(:category) { Category.create(name: 'Lenses') }
+  end
+
+  def create_items
+    let!(:item_one) { Item.create(name: '70-200 Canon L', description: "portrait lens", price: 12, category_id: 1, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+    let!(:item_two) { Item.create(name: '16-35 Canon L', description: "wide angle lens", price: 14, category_id: 1, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+  end
 end
