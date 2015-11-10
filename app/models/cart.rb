@@ -10,6 +10,10 @@ class Cart
     items[item_id.to_s] += 1
   end
 
+  def remove_item(item_id)
+    items.delete(item_id.to_s)
+  end
+
   def total
     items.values.sum
   end
