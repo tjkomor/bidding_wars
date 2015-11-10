@@ -11,4 +11,13 @@ class CartItemsController < ApplicationController
   def index
 
   end
+
+  def destroy
+    item = Item.find(params[:id])
+    @cart.remove_item(item.id)
+    session[:cart] = @cart.items
+    # flash[:notice] = "Successfully removed #{link_to(item.name, item_path(item))} from your cart."
+    flash[:notice] = "Successfully removed <a href='items/#{item.id}'>#{item.name}</a> from your cart."
+    redirect_to cart_path
+  end
 end

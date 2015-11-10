@@ -10,7 +10,7 @@
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down logo">
-        <a href="/" class="brand-logo center"><%= image_tag('lens-lease-logo')%></a>
+        <!-- <a href="/" class="brand-logo center"><%= image_tag('lens-lease-logo')%></a> -->
         <li><a href="/items">Items</a></li>
         <li><a href="/">Home</a></li>
       </ul>
@@ -22,7 +22,7 @@
 
   <div class="container">
     <% flash.each do |type, msg| %>
-      <%= content_tag :p, msg, class: "flash_#{type}" %>
+      <%= content_tag :p, sanitize(msg), class: "flash_#{type}" %>
       <% end %>
     <%= yield %>
   </div>
