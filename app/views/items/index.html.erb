@@ -9,7 +9,7 @@
       <%= image_tag(item.image_url) %>
       <%= item.description %>
       <%= item.price %>
-      <%= button_to "Add to Cart", cart_items_path %>
+      <%= button_to "Add to Cart", cart_items_path(item_id: item.id) %>
     </div>
   <% end %>
 </div>
