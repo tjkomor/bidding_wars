@@ -2,14 +2,16 @@
   <h1>Items</h1>
 </div>
 
-<div class="items">
-  <% @items.each do |item|  %>
-    <div id="item_<%= item.id %>">
-      <%= item.name %>
-      <%= image_tag(item.image_url) %>
-      <%= item.description %>
-      <%= item.price %>
-      <%= button_to "Add to Cart", cart_items_path(item_id: item.id) %>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="items">
+    <% @items.each do |item|  %>
+      <div class="col m4" id="item_<%= item.id %>">
+        <h5><%= item.name %></h5>
+        <%= image_tag(item.image_url) %>
+        <p><%= item.description %></p>
+        <p>Price per day: <strong><%= item.price %></strong></p>
+        <%= button_to "Add to Cart", cart_items_path(item_id: item.id) %>
+      </div>
+    <% end %>
+  </div>
 </div>
