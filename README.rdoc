@@ -1,5 +1,7 @@
 == README
 
+{<img alt='Stories in Ready' src='https://badge.waffle.io/robbielane/lens_lease.svg?label=ready&title=Ready' />}[https://waffle.io/robbielane/lens_lease]
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
