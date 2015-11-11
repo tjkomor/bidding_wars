@@ -77,11 +77,6 @@ nav {
   max-height: 90%;
 }
 
-.logo img {
-  max-width: 30%;
-  max-height: 30%;
-}
-
 nav ul li a {
   color: black;
 }
@@ -96,7 +91,6 @@ nav ul li a {
 }
 
 tr input[type=text] {
-  margin-right: -20px;
   width: 50px;
   text-align: center;
 }
@@ -107,4 +101,18 @@ tr input[type=text] {
   height: 25px;
   padding: 0 .5rem .5rem;
   font-size: 8px;
+}
+
+.sidebar {
+  margin-top: 135px;
+  height: 100%;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+.brand-logo {
+  color: black;
+  font-family: "Lobster";
 }

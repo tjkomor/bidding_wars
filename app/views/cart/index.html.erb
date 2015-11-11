@@ -1,33 +1,38 @@
-<table class="bordered">
-  <thead>
+<div class="col m9">
+  <div class="items">
+    <h1>Cart</h1>
+  </div>
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>Item Name</th>
+        <th colspan="2">Quantity</th>
+        <th>Description</th>
+        <th>Price per day</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @items.each do |item| %>
+      <tr id="item_row_<%= item.id %>">
+        <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+        <td><%= item.name %></td>
+        <%= form_tag cart_item_path(item), method: :patch do %>
+        <td>
+          <%= label_tag :quantity %>
+          <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", class: 'quantity_field' %>
+        </td>
+        <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+        <% end %>
+        <td><%= item.description %></td>
+        <td>$<%= @cart.subtotal(item.id, item.price) %> per day</td>
+        <td> <%= link_to "Remove", cart_item_path(item), method: :delete %>
+      </tr>
+    <% end %>
     <tr>
-      <th colspan="1"></th>
-      <th>Item Name</th>
-      <th colspan="2">Quantity</th>
-      <th>Description</th>
-      <th>Price per day</th>
+      <td colspan="4"></td>
+      <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
     </tr>
-  </thead>
-  <tbody>
-  <% @items.each do |item| %>
-    <tr id="item_row_<%= item.id %>">
-      <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
-      <td><%= item.name %></td>
-      <%= form_tag cart_item_path(item), method: :patch do %>
-      <td>
-        <%= label_tag :quantity %>
-        <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", class: 'quantity_field' %>
-      </td>
-      <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
-      <% end %>
-      <td><%= item.description %></td>
-      <td>$<%= @cart.subtotal(item.id, item.price) %> per day</td>
-      <td> <%= link_to "Remove", cart_item_path(item), method: :delete %>
-    </tr>
-  <% end %>
-  <tr>
-    <td colspan="4"></td>
-    <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
-  </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
