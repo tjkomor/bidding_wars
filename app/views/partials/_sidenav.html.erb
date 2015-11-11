@@ -2,3 +2,8 @@
 <% categories.each do |category|  %>
   <%= link_to category.name, category_path(category) %><br>
 <% end %>
+
+<h4> Brands </h4>
+<% brands.each do |brand| %>
+  <%= link_to brand.name, brand_path(brand) %><br>
+<% end %>
