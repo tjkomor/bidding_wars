@@ -20,4 +20,11 @@ class CartItemsController < ApplicationController
     flash[:notice] = "Successfully removed <a href='items/#{item.id}'>#{item.name}</a> from your cart."
     redirect_to cart_path
   end
+
+  def update
+    item = Item.find(params[:id])
+    @cart.update_item(item.id, params[:quantity])
+    redirect_to :back
+  end
+
 end

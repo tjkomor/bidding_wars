@@ -22,4 +22,12 @@ class Cart
     items[item_id.to_s]
   end
 
+  def update_item(item_id, quantity)
+    items[item_id.to_s] = quantity.to_i
+  end
+
+  def subtotal(item_id, price)
+    price * quantity_of(item_id)
+  end
+
 end
