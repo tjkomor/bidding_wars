@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User", type: :feature do
   create_category
+  create_brand
   create_items
   feature "Cart" do
     it "can adjust quantity of item" do

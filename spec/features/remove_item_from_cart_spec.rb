@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Visitor', type: :feature do
   feature 'Cart' do
     create_category
+    create_brand
     create_items
     it 'can remove item' do
       visit items_path
