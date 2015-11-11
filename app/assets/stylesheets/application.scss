@@ -59,6 +59,10 @@ nav {
   margin-bottom: 25px;
 }
 
+.item a {
+  color: #666;
+}
+
 .items {
   text-align: center;
 }
@@ -66,6 +70,11 @@ nav {
 .items img {
   max-width: 150px;
   max-height: 150px;
+}
+
+.item_show {
+  max-width: 90%;
+  max-height: 90%;  
 }
 
 .logo img {
