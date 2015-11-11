@@ -1,0 +1,14 @@
+<div class="col m9">
+  <div class="row">
+    <div class="col m6 offset-m3 top-margin">
+      <h4>Login</h4>
+      <%= form_for :session, url: login_path do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <%= f.submit "Login", class: 'btn blue' %>
+      <% end %>
+    </div>
+  </div>
+</div>
