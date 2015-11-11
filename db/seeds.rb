@@ -22,3 +22,8 @@ Item.create!([
   {name: 'Gitzo GT1542T Carbon Fiber Tripod', description: '17.6 lb Load Capacity', price: 10, image_url: 'http://static.bhphoto.com/images/images500x500/Gitzo_GT1542T_Series_1_Traveler_6x_1300897009000_759477.jpg', category_id: 3, brand_id: 3},
   {name: 'LEE Filters 100 x 100mm Big Stopper', description: 'Increase exposure length, helps to convey movement', price: 2, image_url: 'http://static.bhphoto.com/images/multiple_images/images500x500/1409837414000_IMG_420938.jpg', category_id: 3, brand_id: 4}
   ])
+
+User.create!([
+  {username: 'admin', password: 'admin'}
+  {username: 'rossedfort', password: 'password'}
+  ])

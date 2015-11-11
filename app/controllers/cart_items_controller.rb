@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
     @cart.remove_item(item.id)
     session[:cart] = @cart.items
     flash[:notice] = "Successfully removed <a href='items/#{item.id}'>#{item.name}</a> from your cart."
-    session.clear if session[:cart].keys.count == 1
+    session.delete(:cart) if @cart.items.keys.count == 1
     redirect_to cart_path
   end
 
