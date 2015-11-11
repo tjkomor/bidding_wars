@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111200952) do
+ActiveRecord::Schema.define(version: 20151111232534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,28 @@ ActiveRecord::Schema.define(version: 20151111200952) do
   add_index "items", ["brand_id"], name: "index_items_on_brand_id", using: :btree
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
 
+  create_table "rental_items", force: :cascade do |t|
+    t.integer  "rental_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "quantity"
+  end
+
+  add_index "rental_items", ["item_id"], name: "index_rental_items_on_item_id", using: :btree
+  add_index "rental_items", ["rental_id"], name: "index_rental_items_on_rental_id", using: :btree
+
+  create_table "rentals", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "days_rented"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "total_price"
+  end
+
+  add_index "rentals", ["user_id"], name: "index_rentals_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -51,4 +73,7 @@ ActiveRecord::Schema.define(version: 20151111200952) do
 
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "rental_items", "items"
+  add_foreign_key "rental_items", "rentals"
+  add_foreign_key "rentals", "users"
 end
