@@ -5,20 +5,18 @@ RSpec.describe "User", type: :feature do
   create_brand
   create_items
   feature "Cart" do
-    it "can adjust quantity of item" do
+    it "can specify number of days for rental" do
       visit items_path
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"
       end
       click_link "View Cart"
-      within "#item_row_#{item_one.id}" do
-        fill_in 'quantity-field', with: "3"
+      within "#num_of_days" do
+        fill_in "days-field", with: "5"
         click_button "Update"
       end
-      within "#item_row_#{item_one.id}" do
-        expect(page).to have_content(item_one.name)
-        expect(page).to have_field("quantity-field", with: "3")
-      end
+      expect(page).to have_content("Rent for 5 days")
+      expect(page).to have_content("Total: $60")
     end
   end
 end

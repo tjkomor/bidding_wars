@@ -19,8 +19,7 @@
         <td><%= item.name %></td>
         <%= form_tag cart_item_path(item), method: :patch do %>
         <td>
-          <%= label_tag :quantity %>
-          <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", class: 'quantity_field' %>
+          <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", id: 'quantity-field' %>
         </td>
         <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
         <% end %>
@@ -29,10 +28,25 @@
         <td> <%= link_to "Remove", cart_item_path(item), method: :delete %>
       </tr>
     <% end %>
-    <tr>
-      <td colspan="4"></td>
-      <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
-    </tr>
     </tbody>
   </table>
+  <div class="row">
+    <div class="col m4 offset-m8">
+      <table class="bordered centered">
+        <tr id="num_of_days">
+          <%= form_tag cart_item_path(1), method: :patch do %>
+          <td>
+            <%= text_field_tag :days, "#{@cart.number_of_days}", id: 'days-field' %>
+          </td>
+          <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+          <td>Rent for <%= @cart.number_of_days %> days</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>

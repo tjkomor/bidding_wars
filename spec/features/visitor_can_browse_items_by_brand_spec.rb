@@ -6,7 +6,7 @@ RSpec.describe "VisitorCanBrowseItemsByBrands", type: :feature do
     create_brand
     create_items
 
-    it "can browse items by category" do
+    it "can browse items by brand" do
       visit root_path
       click_link "Canon"
 

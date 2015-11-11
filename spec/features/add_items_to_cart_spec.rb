@@ -16,7 +16,6 @@ RSpec.describe "Visitor", type: :feature do
       expect(page).to have_content("#{item_one.name}")
       expect(page).to have_content("#{item_one.description}")
       expect(page).to have_content("$#{item_one.price} per day")
-      expect(page).to have_content("Total: $#{item_one.price}")
     end
     feature "cart error" do
       it "returns error message when cart is empty" do
