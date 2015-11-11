@@ -22,9 +22,14 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    @cart.update_item(item.id, params[:quantity])
-    redirect_to :back
+    if params[:quantity]
+      item = Item.find(params[:id])
+      @cart.update_item(item.id, params[:quantity])
+      redirect_to :back
+    elsif params[:days]
+      @cart.update_number_of_days(params[:days])
+      redirect_to :back
+    end
   end
 
 end

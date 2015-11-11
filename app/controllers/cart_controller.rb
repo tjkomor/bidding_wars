@@ -5,7 +5,7 @@ class CartController < ApplicationController
     if cart_items?
       item_ids = session[:cart].keys.map { |key| key.to_i }
       @items = Item.where(id: item_ids)
-      @total_price = @items.map { |item| item.price * session[:cart].fetch(item.id.to_s) }.reduce(:+)
+      @total_price = @items.map { |item| item.price * session[:cart].fetch(item.id.to_s) }.reduce(:+) * @cart.number_of_days
     else
       flash[:error] = "Cart is empty. Please add items."
       redirect_to :back

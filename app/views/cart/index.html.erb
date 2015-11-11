@@ -28,9 +28,19 @@
         <td>$<%= @cart.subtotal(item.id, item.price) %> per day</td>
         <td> <%= link_to "Remove", cart_item_path(item), method: :delete %>
       </tr>
+      <tr id="num_of_days">
+        <%= form_tag cart_item_path(item), method: :patch do %>
+        <td>
+          <%= label_tag :days %>
+          <%= text_field_tag :days, "#{@cart.number_of_days}", class: 'quantity_field' %>
+        </td>
+        <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+        <% end %>
+      </tr>
     <% end %>
     <tr>
-      <td colspan="4"></td>
+      <td colspan="3"></td>
+      <td>Rent for <%= @cart.number_of_days %> days</td>
       <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
     </tr>
     </tbody>

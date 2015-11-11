@@ -30,4 +30,12 @@ class Cart
     price * quantity_of(item_id)
   end
 
+  def number_of_days
+    @items['days'] ||= 0
+  end
+
+  def update_number_of_days(days)
+    @items['days'] = days.to_i
+  end
+
 end
