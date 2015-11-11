@@ -41,4 +41,9 @@ RSpec.configure do |config|
   def create_user
     let!(:user_one) { User.create(username: 'rossedfort', password: 'password') }
   end
+
+  def add_item_to_cart
+    visit items_path
+    first(:button, "Add to Cart").click
+  end
 end
