@@ -74,7 +74,7 @@ nav {
 
 .item_show {
   max-width: 90%;
-  max-height: 90%;  
+  max-height: 90%;
 }
 
 .logo img {
@@ -93,4 +93,18 @@ nav ul li a {
 
 .cart_total {
   float: right;
+}
+
+tr input[type=text] {
+  margin-right: -20px;
+  width: 50px;
+  text-align: center;
+}
+
+.btn-small {
+  margin-right: 50px;
+  line-height: 25px;
+  height: 25px;
+  padding: 0 .5rem .5rem;
+  font-size: 8px;
 }

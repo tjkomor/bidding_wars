@@ -3,19 +3,25 @@
     <tr>
       <th colspan="1"></th>
       <th>Item Name</th>
-      <th>Quantity</th>
+      <th colspan="2">Quantity</th>
       <th>Description</th>
       <th>Price per day</th>
     </tr>
   </thead>
   <tbody>
   <% @items.each do |item| %>
-    <tr>
+    <tr id="item_row_<%= item.id %>">
       <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
       <td><%= item.name %></td>
-      <td><%= @cart.quantity_of(item.id) %>
+      <%= form_tag cart_item_path(item), method: :patch do %>
+      <td>
+        <%= label_tag :quantity %>
+        <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", class: 'quantity_field' %>
+      </td>
+      <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+      <% end %>
       <td><%= item.description %></td>
-      <td>$<%= item.price %> per day</td>
+      <td>$<%= @cart.subtotal(item.id, item.price) %> per day</td>
       <td> <%= link_to "Remove", cart_item_path(item), method: :delete %>
     </tr>
   <% end %>
