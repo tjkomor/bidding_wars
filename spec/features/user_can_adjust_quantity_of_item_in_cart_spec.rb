@@ -12,12 +12,12 @@ RSpec.describe "User", type: :feature do
       end
       click_link "View Cart"
       within "#item_row_#{item_one.id}" do
-        fill_in 'Quantity', with: "3"
+        fill_in 'quantity-field', with: "3"
+        click_button "Update"
       end
-      click_button "Update"
       within "#item_row_#{item_one.id}" do
         expect(page).to have_content(item_one.name)
-        expect(page).to have_field("Quantity", with: "3")
+        expect(page).to have_field("quantity-field", with: "3")
       end
     end
   end
