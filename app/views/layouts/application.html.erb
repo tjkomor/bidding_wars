@@ -9,8 +9,8 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <ul id="nav-mobile" class="left hide-on-med-and-down logo">
-        <!-- <a href="/" class="brand-logo center"><%= image_tag('lens-lease-logo')%></a> -->
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <a href="/" class="brand-logo center black-text">Lense-Lease</a>
         <li><a href="/items">Items</a></li>
         <li><a href="/">Home</a></li>
       </ul>
@@ -24,8 +24,12 @@
     <% flash.each do |type, msg| %>
       <%= content_tag :p, sanitize(msg), class: "flash_#{type}" %>
       <% end %>
+    <div class="row">
+      <div class="sidebar col m3">
+        <%= render partial: 'partials/sidenav' %>
+      </div>
     <%= yield %>
+    </div>
   </div>
-
 </body>
 </html>
