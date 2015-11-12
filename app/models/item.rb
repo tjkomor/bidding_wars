@@ -4,4 +4,5 @@ class Item < ActiveRecord::Base
   belongs_to :brand
   has_many :rental_items
   has_many :rentals, through: :rental_items
+  scope :new_arivals, -> { order(created_at: :desc).limit(6) }
 end
