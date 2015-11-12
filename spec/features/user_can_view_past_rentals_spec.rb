@@ -20,8 +20,8 @@ RSpec.describe 'User', type: :feature do
       visit user_rentals_path(user_one)
 
       expect(page).to have_content(rental_one.id)
-      expect(page).to have_content('Nov. 11 2015')
-      expect(page).to have_content($60)
+      expect(page).to have_content('November 11, 2015')
+      expect(page).to have_content('$89')
     end
   end
 end
