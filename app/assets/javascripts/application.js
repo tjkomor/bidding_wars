@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require_tree .
+
+
+jQuery(document).ready(function($) {
+    $(".clickable").click(function() {
+        window.document.location = $(this).data("url");
+    });
+});

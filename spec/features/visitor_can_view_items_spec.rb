@@ -5,12 +5,14 @@ RSpec.describe "VisitorCanViewItems", type: :feature do
     let!(:item_one) {Item.create(name: "Canon 7d",
                                  description: "The best camera ever (NOT)",
                                  price: 15,
-                                 image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg')}
+                                 image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg',
+                                 retired: false)}
 
     let!(:item_two) {Item.create(name: "Sony a7r",
                                  description: "Robbies camera",
                                  price: 12,
-                                 image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg')}
+                                 image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg',
+                                 retired: false)}
 
     scenario "visitor can view items" do
       visit "/items"
