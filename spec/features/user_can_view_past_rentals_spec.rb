@@ -7,7 +7,6 @@ RSpec.describe 'User', type: :feature do
   create_user
   create_rental
 
-
   feature 'viewing past rentals' do
     it 'shows list of past rentals' do
       create_rental_items

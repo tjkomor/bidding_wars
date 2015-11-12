@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe RentalItem, type: :model do
   let!(:rental_item) { RentalItem.new( rental_id: 1, item_id: 3, quantity: 1) }
 

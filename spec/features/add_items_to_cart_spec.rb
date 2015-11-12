@@ -4,8 +4,10 @@ RSpec.describe "Visitor", type: :feature do
   create_category
   create_brand
   create_items
+  create_user
   feature "cart" do
     it "can add an item" do
+      login_user
       visit items_path
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"
