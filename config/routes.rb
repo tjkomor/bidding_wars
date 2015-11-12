@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     resources :rentals, only: [:index]
   end
+  namespace :admin do
+    resources :categories, only: [:new]
+  end
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'
