@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Visitor', type: :feature do
+  create_user
   feature 'Cart' do
     create_category
     create_brand
     create_items
     it 'can remove item' do
+    login_user
       visit items_path
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"

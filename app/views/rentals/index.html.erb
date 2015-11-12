@@ -18,5 +18,26 @@
         <% end %>
     </tbody>
   </table>
-
+  <div class="col m9 top-margin">
+    <div class="items left">
+      <h4>Most Recent Order</h4>
+    </div>
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Item Name</th>
+          <th colspan="2">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% most_recent_rental.each do |item| %>
+        <tr id="item_row_<%= item.id %>">
+          <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+          <td><%= item.name %></td>
+          <td colspan="2"><%= item.description %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 </div>
