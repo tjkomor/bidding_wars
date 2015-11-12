@@ -7,7 +7,8 @@ RSpec.describe "VisitorCanBrowseItemsByCategories", type: :feature do
                                   description: "portrait lens",
                                   price: 12,
                                   category_id: category.id,
-                                  image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+                                  image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg',
+                                  retired: false) }
 
     it "can browse items by category" do
       visit root_path

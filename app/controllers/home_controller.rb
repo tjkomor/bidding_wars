@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @categories = Category.all
+    @new_items = Item.new_arivals.available
   end
 end

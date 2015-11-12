@@ -23,6 +23,12 @@ class RentalsController < ApplicationController
     end
   end
 
+  def show
+    @rental = current_user.rentals.find(params[:id])
+  end
+
+  private
+
   def most_recent_rental
     if session[:cart]
       find_items
@@ -42,10 +48,7 @@ class RentalsController < ApplicationController
     @total_price = (price_per_day * session[:cart]['days'])
   end
 
-  private
-
   def rental_params
     {user_id: session[:user_id], days_rented: session[:cart]['days'], total_price: @total_price}
   end
-
 end

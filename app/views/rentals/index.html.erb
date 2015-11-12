@@ -10,8 +10,8 @@
     </thead>
     <tbody>
       <% @rentals.each do |rental| %>
-        <tr>
-          <td><%= rental.id %> </td>
+        <tr class="clickable" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(id: rental.id) %>">
+          <td><%= link_to rental.id, user_rental_path(id: rental.id), class: 'black-text' %> </td>
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
           <td>$<%= rental.total_price %></td>
         </tr>

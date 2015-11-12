@@ -34,8 +34,9 @@ RSpec.configure do |config|
   end
 
   def create_items
-    let!(:item_one) { Item.create(name: '70-200 Canon L', description: "portrait lens", price: 12, brand_id: Brand.last.id, category_id: Category.last.id, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
-    let!(:item_two) { Item.create(name: '16-35 Canon L', description: "wide angle lens", price: 14, brand_id: Brand.last.id, category_id: Category.last.id, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+    let!(:item_one) { Item.create(name: '70-200 Canon L', description: "portrait lens", price: 12, brand_id: Brand.last.id, category_id: Category.last.id, retired: false, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+    let!(:item_two) { Item.create(name: '16-35 Canon L', description: "wide angle lens", price: 14, brand_id: Brand.last.id, category_id: Category.last.id, retired: false, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
+    let!(:item_three) { Item.create(name: 'Canon EOS Rebel T5 DSLR', description: '18 MP APS-C CMOS Sensor', price: 14, image_url: 'http://static.bhphoto.com/images/images500x500/canon_9126b003_eos_a_rebel_t5_dslr_1392227429000_1030209.jpg', category_id:  Category.last.id, brand_id:  Brand.last.id, retired: true) }
   end
 
   def create_user
@@ -43,12 +44,14 @@ RSpec.configure do |config|
   end
 
   def create_rental
-    let!(:rental_one) { Rental.create(user_id: User.last.id, days_rented: 5, total_price: 89, created_at: "2015-11-11 15:29:36") }
+    let!(:rental_one) { Rental.create(user_id: User.last.id, days_rented: 5, total_price: 190, status: 'Completed', created_at: "2015-11-11 15:29:36") }
+    let!(:rental_two) { Rental.create(user_id: User.last.id, days_rented: 2, total_price: 28, status: 'Completed', created_at: "2015-11-11 15:29:36") }
   end
 
   def create_rental_items
     RentalItem.create(rental_id: rental_one.id, item_id: item_one.id, quantity: 2)
     RentalItem.create(rental_id: rental_one.id, item_id: item_two.id, quantity: 1)
+    RentalItem.create(rental_id: rental_two.id, item_id: item_three.id, quantity: 1)
   end
 
   def add_item_to_cart

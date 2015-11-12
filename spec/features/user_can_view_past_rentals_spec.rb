@@ -15,7 +15,7 @@ RSpec.describe 'User', type: :feature do
 
       expect(page).to have_content(rental_one.id)
       expect(page).to have_content('November 11, 2015')
-      expect(page).to have_content('$89')
+      expect(page).to have_content('$190')
     end
   end
 end
