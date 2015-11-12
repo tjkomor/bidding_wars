@@ -24,6 +24,18 @@ Item.create!([
   ])
 
 User.create!([
-  {username: 'admin', password: 'admin'}
+  {username: 'admin', password: 'admin'},
   {username: 'rossedfort', password: 'password'}
+  ])
+
+Rental.create!([
+  {user_id: 2, days_rented: 5, total_price: 78},
+  {user_id: 2, days_rented: 3, total_price: 79}
+  ])
+
+RentalItem.create!([
+  {rental_id: 1, item_id: 3, quantity: 1},
+  {rental_id: 1, item_id: 2, quantity: 2},
+  {rental_id: 2, item_id: 1, quantity: 1},
+  {rental_id: 2, item_id: 5, quantity: 1}
   ])

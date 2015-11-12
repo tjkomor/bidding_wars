@@ -42,8 +42,24 @@ RSpec.configure do |config|
     let!(:user_one) { User.create(username: 'rossedfort', password: 'password') }
   end
 
+  def create_rental
+    let!(:rental_one) { Rental.create(user_id: User.last.id, days_rented: 5, total_price: 89, created_at: "2015-11-11 15:29:36") }
+  end
+
+  def create_rental_items
+    RentalItem.create(rental_id: rental_one.id, item_id: item_one.id, quantity: 2)
+    RentalItem.create(rental_id: rental_one.id, item_id: item_two.id, quantity: 1)
+  end
+
   def add_item_to_cart
     visit items_path
     first(:button, "Add to Cart").click
+  end
+
+  def login_user
+    visit login_path
+    fill_in 'Username', with: 'rossedfort'
+    fill_in 'Password', with: 'password'
+    click_button "Login"
   end
 end
