@@ -42,7 +42,6 @@ group :development, :test do
   gem 'simplecov'
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'poltergeist'
 end
 
 group :development do
