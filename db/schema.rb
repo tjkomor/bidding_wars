@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111232534) do
+ActiveRecord::Schema.define(version: 20151112064649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151111232534) do
     t.integer  "category_id"
     t.string   "image_url"
     t.integer  "brand_id"
+    t.boolean  "retired"
   end
 
   add_index "items", ["brand_id"], name: "index_items_on_brand_id", using: :btree
@@ -54,12 +55,12 @@ ActiveRecord::Schema.define(version: 20151111232534) do
   add_index "rental_items", ["rental_id"], name: "index_rental_items_on_rental_id", using: :btree
 
   create_table "rentals", force: :cascade do |t|
-    t.string   "name"
     t.integer  "days_rented"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "total_price"
+    t.string   "status"
   end
 
   add_index "rentals", ["user_id"], name: "index_rentals_on_user_id", using: :btree

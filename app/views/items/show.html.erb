@@ -8,6 +8,11 @@
     <h3><%= @item.name %></h3>
     <p><%= @item.description %></p>
     <p>$<%= @item.price %> per day</p>
-    <%= button_to('Add to cart', cart_items_path(item_id: @item.id), class: 'btn blue') %>
+    <% if @item.retired %>
+      <small class="item_no">Item no longer available</small><br>
+      <%= button_to('Add to cart', cart_items_path(item_id: @item.id), disabled: true, class: 'btn blue disabled') %>
+    <% else %>
+      <%= button_to('Add to cart', cart_items_path(item_id: @item.id), class: 'btn blue') %>
+    <% end %>
   </div>
 </div>

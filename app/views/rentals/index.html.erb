@@ -1,6 +1,6 @@
 <div class="col m9 top-margin">
   <h4>Rental History</h4>
-  <table class="bordered">
+  <table class="bordered highlight">
     <thead>
       <tr>
         <th>Rental Id</th>
@@ -10,13 +10,34 @@
     </thead>
     <tbody>
       <% @rentals.each do |rental| %>
-        <tr>
-          <td><%= rental.id %> </td>
-          <td><%= rental.created_at.strftime("%b. %d %Y") %></td>
-          <td><%= rental.total_price %></td>
+        <tr class="clickable" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(id: rental.id) %>">
+          <td><%= link_to rental.id, user_rental_path(id: rental.id), class: 'black-text' %> </td>
+          <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
+          <td>$<%= rental.total_price %></td>
         </tr>
         <% end %>
     </tbody>
   </table>
-
+  <div class="col m9 top-margin">
+    <div class="items left">
+      <h4>Most Recent Order</h4>
+    </div>
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Item Name</th>
+          <th colspan="2">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% most_recent_rental.each do |item| %>
+        <tr id="item_row_<%= item.id %>">
+          <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+          <td><%= item.name %></td>
+          <td colspan="2"><%= item.description %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 </div>
