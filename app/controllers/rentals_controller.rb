@@ -1,4 +1,5 @@
-class RentalsController < ApplicationController
+class RentalsController < UsersBaseController
+  before_action :require_user
   helper_method :most_recent_rental
 
   def index

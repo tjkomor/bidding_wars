@@ -4,7 +4,7 @@
       <div id="heading" class="">
         <h1><%= @brand.name %></h1>
       </div>
-      <%= render @items %>
+      <%= render partial: 'partials/item', collection: @items %>
     </div>
   </div>
 </div>

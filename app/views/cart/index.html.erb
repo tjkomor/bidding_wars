@@ -13,6 +13,9 @@
       </tr>
     </thead>
     <tbody>
+    <% if @cart.items.empty? %>
+      <p> Cart Empty </p>
+      <% else %>
     <% @items.each do |item| %>
       <tr id="item_row_<%= item.id %>">
         <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
@@ -43,11 +46,16 @@
         </tr>
         <tr>
           <td colspan="2"></td>
-          <td class='cart_total'>Total: <strong>$<%= @total_price %></strong></td>
+          <td class='cart_total'>Total: <strong>$<%= @cart.total_price %></strong></td>
         </tr>
         <% end %>
       </table>
     </div>
   </div>
-  <%= button_to "Checkout", user_rentals_path(@user), class: 'btn blue' %>
+  <% if current_user %>
+    <%= button_to "Checkout", user_rentals_path(@user), class: 'btn blue' %>
+  <% else %>
+    <%= button_to "Checkout", login_path, method: :get, class: 'btn blue' %>
+  <% end %>
 </div>
+  <% end %>
