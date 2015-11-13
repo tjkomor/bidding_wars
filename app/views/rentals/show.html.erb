@@ -31,5 +31,5 @@
       </tr>
     </tbody>
   </table>
-  <p>Order placed at: <%= @rental.created_at.strftime("%I:%M%p - %m/%d/%Y") %></p>
+  <p>Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
 </div>
