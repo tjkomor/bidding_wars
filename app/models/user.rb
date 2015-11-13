@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def recent_rental
-    self.rentals.last.items
+    if self.rentals.empty?
+      false
+    else
+      self.rentals.last.items
+    end
   end
 end
