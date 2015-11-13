@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   has_many :rentals
   has_secure_password
+
+  def recent_rental
+    self.rentals.last.items
+  end
 end
