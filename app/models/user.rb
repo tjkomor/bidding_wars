@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   enum role: %w(default admin)
+
+  def recent_rental
+    self.rentals.last.items
+  end
 end

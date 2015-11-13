@@ -1,5 +1,27 @@
 <div class="col m9 top-margin">
-  <h4>Rental History</h4>
+  <div class="items left">
+    <h4>Most Recent Rental</h4>
+  </div>
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>Item Name</th>
+        <th colspan="2">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% current_user.recent_rental.each do |item| %>
+      <tr id="item_row_<%= item.id %>">
+        <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+        <td><%= item.name %></td>
+        <td colspan="2"><%= item.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h4 class="small-top-margin">Rental History</h4>
   <table class="bordered highlight">
     <thead>
       <tr>
@@ -18,26 +40,4 @@
         <% end %>
     </tbody>
   </table>
-  <div class="col m9 top-margin">
-    <div class="items left">
-      <h4>Most Recent Order</h4>
-    </div>
-    <table class="bordered">
-      <thead>
-        <tr>
-          <th colspan="1"></th>
-          <th>Item Name</th>
-          <th colspan="2">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% most_recent_rental.each do |item| %>
-        <tr id="item_row_<%= item.id %>">
-          <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
-          <td><%= item.name %></td>
-          <td colspan="2"><%= item.description %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
 </div>
