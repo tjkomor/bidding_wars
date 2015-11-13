@@ -20,7 +20,7 @@ RSpec.describe 'User', type: :feature do
       expect(page).to have_content("$120")
       expect(page).to have_content("Status: Completed")
       expect(page).to have_content("Total: $190")
-      expect(page).to have_content("Order placed at: 03:29PM - 11/11/2015")
+      expect(page).to have_content("Order placed at: 08:29AM - 11/11/2015")
     end
 
     it 'shows retired items' do

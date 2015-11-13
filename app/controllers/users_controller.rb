@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < UsersBaseController
   def new
     @user = User.new
   end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(session[:user_id])
   end
-  
+
   private
 
   def user_params

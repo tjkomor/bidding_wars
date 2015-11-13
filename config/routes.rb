@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :brands, only: [:show]
   resources :cart_items, only: [:create, :destroy, :update]
+  patch '/cart_quantity', to: 'cart_items#quantity'
   resources :users, only: [:new, :create] do
     resources :rentals, only: [:index, :create, :show]
   end
