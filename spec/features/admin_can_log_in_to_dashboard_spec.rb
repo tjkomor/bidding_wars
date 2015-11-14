@@ -1,13 +1,20 @@
 require 'rails_helper'
 RSpec.describe 'Admin', type: :feature do
   user = create_user
-  admin = create_admin
   feature 'admin' do
     it 'can log in and view dashboard page' do
-      ApplicationController.any_instance.stubs(:current_user).returns(user)
+      admin = User.create(username: 'admin', password: 'admin', role: 1)
+      visit root_path
+      click_link "Login"
+
+      fill_in 'Username', with: 'admin'
+      fill_in 'Password', with: 'admin'
+
+
+      click_button 'Login'
 
       visit admin_dashboard_path
-
+      
       assert page.has_content?("Admin Dashboard")
     end
 
