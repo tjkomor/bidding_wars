@@ -41,7 +41,11 @@ RSpec.configure do |config|
   end
 
   def create_user
-    let!(:user_one) { User.create(username: 'rossedfort', password: 'password') }
+    let!(:user_one) { User.create(username: 'rossedfort', password: 'password', role: 0) }
+  end
+
+  def create_admin
+    let!(:admin_one) { User.create(username: 'admin', password: 'admin', role: 1) }
   end
 
   def create_rental
