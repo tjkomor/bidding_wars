@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories, only: [:new]
   end
+  get '/admin/dashboard', to: 'admin#show'
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'

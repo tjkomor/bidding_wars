@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+#       As a registered user
+#       When I visit "/admin/dashboard"
+#       I get a 404
+#       As an unregistered user
+#       When I visit "/admin/dashboard"
+#       I get a 404
 
 RSpec.describe 'Access', type: :feature do
   create_user
@@ -16,10 +22,11 @@ RSpec.describe 'Access', type: :feature do
 
       visit new_admin_category_path
 
-      expect(page).to have_content("404 Page Not Found")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
 
     it 'cannot visit another users rental history' do
+      skip
       user_three = User.create(username: "bob",
                                password: "whatsup")
       visit root_path
@@ -32,7 +39,7 @@ RSpec.describe 'Access', type: :feature do
 
       visit user_rentals_path(user_one.id)
 
-      expect(page).to have_content('404 Error')
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end
