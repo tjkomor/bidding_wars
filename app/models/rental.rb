@@ -5,4 +5,8 @@ class Rental < ActiveRecord::Base
   validates :user_id, :days_rented, :total_price, presence: true
 
   default_scope -> { order('created_at DESC') }
+  scope :completed, -> { where(status: 'Completed') }
+  scope :ordered, -> { where(status: 'Ordered') }
+  scope :paid, -> { where(status: 'Paid') }
+  scope :cancelled, -> { where(status: 'Cancelled') }
 end

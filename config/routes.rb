@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'admin#show'
     resources :categories, only: [:new]
+    resources :rentals, only: [:show, :update]
+    get '/dashboard/completed', to: 'admin#completed'
+    get '/dashboard/ordered', to: 'admin#ordered'
+    get '/dashboard/cancelled', to: 'admin#cancelled'
+    get '/dashboard/paid', to: 'admin#paid'
   end
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
