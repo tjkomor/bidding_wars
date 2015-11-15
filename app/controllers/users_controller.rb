@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      @user.addresses.create(address_params)
+      binding.pry
       redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages.join(", ")
@@ -36,6 +38,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+  end
+
+  def address_params
+    params.require(:info).permit(:line_one, :line_two, :city, :state, :zip, :country)
   end
 end
