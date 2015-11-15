@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :rentals, only: [:index, :create, :show]
   end
   namespace :admin do
+    get '/dashboard', to: 'admin#show'
     resources :categories, only: [:new]
   end
-  get '/admin/dashboard', to: 'admin#show'
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'

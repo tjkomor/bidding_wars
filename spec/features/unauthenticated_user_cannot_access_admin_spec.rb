@@ -16,7 +16,7 @@ RSpec.describe 'Unauthenticated user', type: :feature do
     end
 
     it 'cannot access another users info' do
-      visit user_rentals_path(user_one.id)
+      visit user_rentals_path(user_one)
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
 

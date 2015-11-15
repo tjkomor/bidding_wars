@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Access', type: :feature do
+  create_category
+  create_brand
+  create_items
   create_user
+  create_rental
+
     feature 'user' do
       it 'cannot access admin screens' do
 
@@ -15,32 +20,24 @@ RSpec.describe 'Access', type: :feature do
 
       visit new_admin_category_path
 
-      expect(page).to have_content("404 Page Not Found")
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
 
     it 'cannot visit another users rental history' do
-      skip
-      user_three = User.create(username: "bob",
+      create_rental_items
+
+      user_two = User.create(username: "bob",
                                password: "whatsup")
       visit root_path
       click_link "Login"
 
-      fill_in "Username", with: user_three.username
+      fill_in "Username", with: user_two.username
       fill_in "Password", with: 'whatsup'
 
       click_button "Login"
-
-      visit user_rentals_path(user_one.id)
+      visit user_rentals_path(user_one)
 
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end
-
-# Background: An authenticated user and the ability to add an admin user
-#       As an Authenticated User
-#       I cannot view another user's private data (current or past orders, etc)
-#       I cannot view the administrator screens or use admin functionality
-#       I cannot make myself an admin
-#
-#
