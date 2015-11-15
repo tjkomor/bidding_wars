@@ -10,9 +10,9 @@
     <p>$<%= @item.price %> per day</p>
     <% if @item.retired %>
       <small class="item_no">Item no longer available</small><br>
-      <%= button_to('Add to cart', cart_items_path(item_id: @item.id), disabled: true, class: 'btn blue disabled') %>
+      <%= button_to('Add to cart', cart_items_path(id: @item.id), disabled: true, class: 'btn blue disabled') %>
     <% else %>
-      <%= button_to('Add to cart', cart_items_path(item_id: @item.id), class: 'btn blue') %>
+      <%= button_to('Add to cart', cart_items_path(id: @item.id), class: 'btn blue') %>
     <% end %>
   </div>
 </div>

@@ -3,22 +3,16 @@ class RentalsController < UsersBaseController
   helper_method :most_recent_rental
 
   def index
-    if current_user
-      @rentals = current_user.rentals
-    else
-      redirect_to root_path
-    end
+    @rentals = current_user.rentals
   end
 
   def create
     @rental = Rental.new(rental_params)
     if @rental.save
-      @cart.contents.each do |item|
-        RentalItem.create(item_id: item.id, rental_id: @rental.id, quantity: @cart.quantity_of(item.id))
-      end
+      create_rental_items
       flash[:notice] = "Order was successfully placed"
-      redirect_to user_rentals_path(@user)
       session.delete(:cart)
+      redirect_to user_rentals_path
     else
       flash.now[:error] = "Please submit a valid order"
       render cart_path
@@ -34,4 +28,11 @@ class RentalsController < UsersBaseController
   def rental_params
     {user_id: session[:user_id], days_rented: session[:cart]['days'], total_price: @cart.total_price, status: 'order placed'}
   end
+
+  def create_rental_items
+    @cart.contents.each do |item|
+      RentalItem.create(item_id: item.id, rental_id: @rental.id, quantity: @cart.quantity_of(item.id))
+    end
+  end
+
 end

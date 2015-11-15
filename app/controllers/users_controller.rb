@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < UsersBaseController
   def new
     @user = User.new
   end
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       @user.addresses.create(address_params)
-      binding.pry
       redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages.join(", ")

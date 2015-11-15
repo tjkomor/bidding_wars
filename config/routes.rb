@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :brands, only: [:show]
   resources :cart_items, only: [:create, :destroy, :update]
-  resources :users, only: [:new, :create, :edit, :update, :destroy] do
+
+  patch '/cart_quantity', to: 'cart_items#quantity'
+
+  resources :users, only: [:new, :create, :destroy, :edit, :update] do
     resources :rentals, only: [:index, :create, :show]
+    resources :addresses, only: [:edit, :update]
   end
+
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'
