@@ -11,7 +11,8 @@ RSpec.describe "User", type: :feature do
       create_rental_items
       login_user
       visit dashboard_path
-      click_link "Edit"
+
+      click_link_or_button "Edit Info"
 
       expect(current_path).to eq(edit_user_path(user_one))
 

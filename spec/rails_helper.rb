@@ -41,11 +41,11 @@ RSpec.configure do |config|
   end
 
   def create_user
-    let!(:user_one) { User.create(username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024') }
+    let!(:user_one) { User.create(username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', role: 0) }
   end
 
   def create_admin
-    let!(:admin_one) { User.create(username: 'admin', password: 'admin', role: 1) }
+    let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'tyler', last_name: 'komoroske', email_address: 'tjk@yahoo.com', phone_number: '518-339-1255', role: 1) }
   end
 
   def create_rental
