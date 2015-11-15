@@ -25,7 +25,7 @@ class UsersController < UsersBaseController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(edit_user_params)
       flash[:message] = 'User Updated!'
       redirect_to dashboard_path
     else
@@ -38,6 +38,10 @@ class UsersController < UsersBaseController
 
   def user_params
     params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+  end
+
+  def edit_user_params
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
   end
 
   def address_params

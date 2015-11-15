@@ -9,7 +9,7 @@ RSpec.describe 'Access', type: :feature do
 
     feature 'user' do
       it 'cannot access admin screens' do
-
+      create_rental_items
       visit root_path
       click_link "Login"
 
