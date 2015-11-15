@@ -25,8 +25,8 @@ Item.create!([
   ])
 
 User.create!([
-  {username: 'admin', password: 'admin'},
-  {username: 'rossedfort', password: 'password'}
+  {username: 'admin', password: 'admin', role: 1},
+  {username: 'rossedfort', password: 'password', role: 0}
   ])
 
 Rental.create!([

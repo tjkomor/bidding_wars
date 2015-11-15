@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     resources :rentals, only: [:index, :create, :show]
   end
+  namespace :admin do
+    get '/dashboard', to: 'admin#show'
+    resources :categories, only: [:new]
+  end
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'
