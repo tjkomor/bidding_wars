@@ -45,7 +45,7 @@ RSpec.describe 'Admin', type: :feature do
       expect(page).to have_content("Status: Completed")
     end
 
-    it 'can update the status of an order' do
+    it 'can update the status of an order to paid' do
       create_rental_items
 
       visit login_path
@@ -60,6 +60,42 @@ RSpec.describe 'Admin', type: :feature do
       end
       within("#row_rental_#{rental_one.id}") do
         expect(page).to have_content("Paid")
+      end
+    end
+
+    it 'can update the status of an order to cancelled' do
+      create_rental_items
+
+      visit login_path
+
+      fill_in "Username", with: 'admin'
+      fill_in "Password", with: 'admin'
+
+      click_button "Login"
+
+      within("#row_rental_#{rental_one.id}") do
+        click_button "Cancel"
+      end
+      within("#row_rental_#{rental_one.id}") do
+        expect(page).to have_content("Cancelled")
+      end
+    end
+
+    it 'can update the status of an order to cancelled' do
+      create_rental_items
+
+      visit login_path
+
+      fill_in "Username", with: 'admin'
+      fill_in "Password", with: 'admin'
+
+      click_button "Login"
+
+      within("#row_rental_#{rental_one.id}") do
+        click_button "Complete"
+      end
+      within("#row_rental_#{rental_one.id}") do
+        expect(page).to have_content("Completed")
       end
     end
   end

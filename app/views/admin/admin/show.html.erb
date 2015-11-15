@@ -26,6 +26,8 @@
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
           <td>$<%= rental.total_price %></td>
           <td> <%= button_to "Mark as Paid", admin_rental_path(status: 'Paid', id: rental.id), method: :patch %> </td>
+          <td> <%= button_to "Cancel", admin_rental_path(status: 'Cancelled', id: rental.id), method: :patch %> </td>
+          <td> <%= button_to "Complete", admin_rental_path(status: 'Completed', id: rental.id), method: :patch %> </td>
         </tr>
         <% end %>
     </tbody>
