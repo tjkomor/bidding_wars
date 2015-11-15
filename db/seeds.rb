@@ -25,8 +25,12 @@ Item.create!([
   ])
 
 User.create!([
-  {username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678'},
-  {username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024'}
+  {username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678', role: 1},
+  {username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', role: 0}
+  ])
+
+Address.create!([
+  {line_one: '1234 Oak Street', line_two: 'Apartment 27', city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: User.last.id}
   ])
 
 Rental.create!([
