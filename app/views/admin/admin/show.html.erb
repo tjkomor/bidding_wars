@@ -1,1 +1,24 @@
 <h1>Admin Dashboard</h1>
+
+<h4 class="small-top-margin">All Rentals</h4>
+<table class="bordered highlight">
+  <thead>
+    <tr>
+      <th>Rental Id</th>
+      <th>Status</th>
+      <th>Placed On</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rentals.each do |rental| %>
+      <tr class="clickable" id="row_rental_<%= rental.id %>">
+        <td><%= rental.id %> </td>
+        <td><%= rental.status %></td>
+        <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
+        <td>$<%= rental.total_price %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>
