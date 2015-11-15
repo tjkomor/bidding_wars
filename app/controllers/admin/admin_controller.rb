@@ -17,7 +17,7 @@ class Admin::AdminController < Admin::BaseController
     render :show
   end
 
-  def in_progress
+  def cancelled
     @rentals = Rental.in_progress
     @count = Rental.all
     render :show

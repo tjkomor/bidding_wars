@@ -1,10 +1,10 @@
-<h3 class="center top-margin">Admin Dashboard</h3>
-<div class="col m9">
+<div class="col m9 small-top-margin">
+<h3 class="center">Admin Dashboard</h3>
 <div class="row">
   <div class="collection col m6 offset-m3 status_counts">
-    <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"><%= @count.ordered.count %></span></a>
+    <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"> <%= @count.ordered.count %></span></a>
     <a href="<%= admin_dashboard_completed_path %>" class="collection-item">Completed<span class="badge"> <%= @count.completed.count %></span></a>
-    <a href="<%= admin_dashboard_in_progress_path %>" class="collection-item">In Progress<span class="badge"> <%= @count.in_progress.count %></span></a>
+    <a href="<%= admin_dashboard_cancelled_path %>" class="collection-item">Cancelled<span class="badge"> <%= @count.cancelled.count %></span></a>
     <a href="<%= admin_dashboard_paid_path %>" class="collection-item">Paid<span class="badge"> <%= @count.paid.count %></span></a>
   </div>
 </div>
@@ -25,9 +25,10 @@
           <td><%= rental.status %></td>
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
           <td>$<%= rental.total_price %></td>
-          <td> <%= button_to "Mark as Paid", admin_rental_path(status: 'Paid', id: rental.id), method: :patch %> </td>
-          <td> <%= button_to "Cancel", admin_rental_path(status: 'Cancelled', id: rental.id), method: :patch %> </td>
-          <td> <%= button_to "Complete", admin_rental_path(status: 'Completed', id: rental.id), method: :patch %> </td>
+          <td>
+            <%= button_to "Mark as Paid", admin_rental_path(status: 'Paid', id: rental.id), method: :patch, class: 'btn btn-small blue' %>
+            <%= button_to "Cancel", admin_rental_path(status: 'Cancelled', id: rental.id), method: :patch, class: 'btn btn-small red' %>
+            <%= button_to "Complete", admin_rental_path(status: 'Completed', id: rental.id), method: :patch, class: 'btn btn-small green' %> </td>
         </tr>
         <% end %>
     </tbody>
