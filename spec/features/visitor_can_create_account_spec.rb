@@ -1,12 +1,3 @@
-# As a visitor
-#     When I visit "/"
-#     Then I should see a link for "Login"
-#     And when I click link "Create Account"
-#     Then my current page should be "/dashboard"
-#     And I should see a message in the navbar that says "Logged in as SOME_USER"
-#     And I should see my profile information
-#     And I should not see a link for "Login"
-#     And I should see a link for "Logout"
 require 'rails_helper'
 
 RSpec.describe "visitor can create account" do
@@ -45,7 +36,6 @@ RSpec.describe "visitor can create account" do
 
       expect(page).to have_content("Login")
       expect(page).to_not have_content("Logout")
-
     end
   end
 end

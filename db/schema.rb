@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20151114192209) do
     t.string   "last_name"
     t.string   "email_address"
     t.string   "phone_number"
+    t.integer  "role"
   end
 
   add_foreign_key "addresses", "users"

@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     resources :rentals, only: [:index, :create, :show]
     resources :addresses, only: [:edit, :update]
   end
-
+  namespace :admin do
+    get '/dashboard', to: 'admin#show'
+    resources :categories, only: [:new]
+  end
   get '/dashboard', to: 'users#show'
   get '/cart', to: 'cart#index'
   get '/login', to: 'sessions#new'

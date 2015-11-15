@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :addresses
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
@@ -7,7 +8,8 @@ class User < ActiveRecord::Base
   validates :email_address, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true
   has_many :rentals
-  has_secure_password
+
+  enum role: %w(default admin)
 
   def recent_rental
     if self.rentals.empty?

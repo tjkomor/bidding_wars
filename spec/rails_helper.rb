@@ -4,6 +4,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require "database_cleaner"
+require "mocha/mini_test"
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -41,6 +42,10 @@ RSpec.configure do |config|
 
   def create_user
     let!(:user_one) { User.create(username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024') }
+  end
+
+  def create_admin
+    let!(:admin_one) { User.create(username: 'admin', password: 'admin', role: 1) }
   end
 
   def create_rental
