@@ -27,7 +27,7 @@ RSpec.describe 'Access', type: :feature do
       create_rental_items
 
       user_two = User.create(username: "bob",
-                               password: "whatsup")
+                             password: "whatsup")
       visit root_path
       click_link "Login"
 
@@ -35,6 +35,7 @@ RSpec.describe 'Access', type: :feature do
       fill_in "Password", with: 'whatsup'
 
       click_button "Login"
+
       visit user_rentals_path(user_one)
 
       expect(page).to have_content("The page you were looking for doesn't exist.")
