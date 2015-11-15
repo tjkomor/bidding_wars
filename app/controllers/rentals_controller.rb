@@ -3,7 +3,7 @@ class RentalsController < UsersBaseController
   helper_method :most_recent_rental
 
   def index
-      @rentals = current_user.rentals
+    @rentals = current_user.rentals
   end
 
   def create

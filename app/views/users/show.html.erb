@@ -1,5 +1,28 @@
 <div class="col m9">
   <div class="row top-margin center">
-    <h4>Hello <%= @user.username %>!</h4>
+    <h4>Hello <%= @user.first_name %>!</h4>
+  </div>
+  <% if @user.recent_rental %>
+    <div class="small-top-margin center">
+      <h5>Are you enjoying your <%= @user.recent_rental.first.name %>?</h5>
+    </div>
+  <% else %>
+  <div class="small-top-margin center">
+    <h5>Please place an order!</h5>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col m3 small-top-margin">
+      <%= button_to "Edit Info", edit_user_path(@user), method: :get, class: 'btn blue' %>
+    </div>
+    <div class="col m3 small-top-margin">
+      <%= button_to "Edit Address", edit_user_address_path(@user, id: 1), method: :get, class: 'btn blue' %>
+    </div>
+    <div class="col m3 small-top-margin">
+      <%= button_to "Rental History", user_rentals_path(@user), method: :get, class: 'btn blue' %>
+    </div>
+    <div class="col m3 small-top-margin">
+      <%= button_to "Delete Account", user_path(@user), method: :delete, class: 'btn blue' %>
+    </div>
   </div>
 </div>

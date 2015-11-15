@@ -17,6 +17,10 @@ RSpec.describe "visitor can create account" do
 
       fill_in "Username", with: 'rossedfort'
       fill_in "Password", with: 'rickross'
+      fill_in 'First name', with: 'Ross'
+      fill_in 'Last name', with: 'Edfort'
+      fill_in 'Email address', with: 'email_address@fake.com'
+      fill_in 'Phone number', with: '101-101-1001'
 
       click_button "Create Account"
 
