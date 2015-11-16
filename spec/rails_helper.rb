@@ -5,6 +5,9 @@ require 'spec_helper'
 require 'rspec/rails'
 require "database_cleaner"
 require "mocha/mini_test"
+require "simplecov"
+
+SimpleCov.start
 
 ActiveRecord::Migration.maintain_test_schema!
 

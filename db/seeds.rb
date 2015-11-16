@@ -8,7 +8,8 @@ Brand.create!([
   {name: 'Canon'},
   {name: 'Sony'},
   {name: 'Gitzo'},
-  {name: 'Lee'}
+  {name: 'Lee'},
+  {name: 'Zeiss'}
   ])
 
 Item.create!([
@@ -21,7 +22,10 @@ Item.create!([
   {name: 'Canon Speedlite 600EX-RT', description: 'Compatible with Canon E-TTL / E-TTL II', price: 8, image_url: 'http://static.bhphoto.com/images/images500x500/Canon_5296B002_Speedlite_600EX_1330619741000_847537.jpg', category_id: 3, brand_id: 1, retired: false},
   {name: 'Gitzo GT1542T Carbon Fiber Tripod', description: '17.6 lb Load Capacity', price: 10, image_url: 'http://static.bhphoto.com/images/images500x500/Gitzo_GT1542T_Series_1_Traveler_6x_1300897009000_759477.jpg', category_id: 3, brand_id: 3, retired: false},
   {name: 'LEE Filters 100 x 100mm Big Stopper', description: 'Increase exposure length, helps to convey movement', price: 2, image_url: 'http://static.bhphoto.com/images/multiple_images/images500x500/1409837414000_IMG_420938.jpg', category_id: 3, brand_id: 4, retired: false},
-  {name: 'Canon EOS Rebel T5 DSLR', description: '18 MP APS-C CMOS Sensor', price: 14, image_url: 'http://static.bhphoto.com/images/images500x500/canon_9126b003_eos_a_rebel_t5_dslr_1392227429000_1030209.jpg', category_id: 2, brand_id: 1, retired: true}
+  {name: 'Canon EOS Rebel T5 DSLR', description: '18 MP APS-C CMOS Sensor', price: 14, image_url: 'http://static.bhphoto.com/images/images500x500/canon_9126b003_eos_a_rebel_t5_dslr_1392227429000_1030209.jpg', category_id: 2, brand_id: 1, retired: true},
+  {name: 'Sony FE 70-200mm f/4.0', description: 'Optical SteadyShot Image Stabilization', price: 14, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel70200g_70_200mm_f_4_5_6_g_lens_1029862.jpg', category_id: 1, brand_id: 2, retired: false},
+  {name: 'Zeiss Loxia 35mm f/2', description: 'Biogon Optical Design', price: 16, image_url: 'http://static.bhphoto.com/images/images500x500/zeiss_2103_749_loxia_35mm_f_2_biogon_1410188713000_1080388.jpg', category_id: 1, brand_id: 5, retired: false},
+  {name: 'Sony Distagon T* FE 35mm f/1.4', description: 'Direct Drive Super Sonic Wave AF System', price: 16, image_url: 'http://static.bhphoto.com/images/images500x500/sony_sel35f14z_distagon_t_fe_35mm_1425440738000_1126137.jpg', category_id: 1, brand_id: 2, retired: false},
   ])
 
 User.create!([
@@ -30,6 +34,7 @@ User.create!([
   ])
 
 Address.create!([
+  {line_one: '1510 Blake Street', line_two: nil, city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: User.first.id},
   {line_one: '1234 Oak Street', line_two: 'Apartment 27', city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: User.last.id}
   ])
 
