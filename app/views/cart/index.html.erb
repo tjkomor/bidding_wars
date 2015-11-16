@@ -24,7 +24,7 @@
         <td>
           <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", id: 'quantity-field' %>
         </td>
-        <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+        <td><%= submit_tag "Update", class: 'btn blue btn-small btn-margin'%></td>
         <% end %>
         <td><%= item.description %></td>
         <td>$<%= @cart.subtotal(item.id, item.price) %> per day</td>
@@ -41,7 +41,7 @@
           <td>
             <%= text_field_tag :days, "#{@cart.number_of_days}", id: 'days-field' %>
           </td>
-          <td><%= submit_tag "Update", class: 'btn blue btn-small'%></td>
+          <td><%= submit_tag "Update", class: 'btn blue btn-small btn-margin' %></td>
           <td>Rent for <%= @cart.number_of_days %> days</td>
         </tr>
         <tr>

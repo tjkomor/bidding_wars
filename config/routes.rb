@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :rentals, only: [:show, :update]
     get '/dashboard/completed', to: 'admin#completed'
     get '/dashboard/ordered', to: 'admin#ordered'
+    get '/dashboard/out', to: 'admin#out'
     get '/dashboard/cancelled', to: 'admin#cancelled'
     get '/dashboard/paid', to: 'admin#paid'
   end

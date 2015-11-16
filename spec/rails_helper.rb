@@ -5,6 +5,9 @@ require 'spec_helper'
 require 'rspec/rails'
 require "database_cleaner"
 require "mocha/mini_test"
+require "simplecov"
+
+SimpleCov.start
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -42,6 +45,7 @@ RSpec.configure do |config|
 
   def create_user
     let!(:user_one) { User.create(username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', role: 0) }
+    let!(:address) { user_one.addresses.create(line_one: "1510 Blake Street", line_two: nil, city: "Denver", state: 'CO', zip: '80202', country: "USA" )}
   end
 
   def create_admin

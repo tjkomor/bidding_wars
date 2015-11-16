@@ -8,5 +8,6 @@ class Rental < ActiveRecord::Base
   scope :completed, -> { where(status: 'Completed') }
   scope :ordered, -> { where(status: 'Ordered') }
   scope :paid, -> { where(status: 'Paid') }
+  scope :out, -> { where(status: 'Out') }
   scope :cancelled, -> { where(status: 'Cancelled') }
 end
