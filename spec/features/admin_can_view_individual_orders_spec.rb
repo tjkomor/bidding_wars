@@ -18,12 +18,16 @@ RSpec.describe 'Admin', type: :feature do
       click_button "Login"
 
       click_link rental_one.id
-      # save_and_open_page
-      expect(page).to have_content('70-200 Canon L')
+      within("#rental_item_row_#{rental_one.items.first.id}") do
+        expect(page).to have_content('70-200 Canon L')
+        expect(page).to have_content("1")
+        expect(page).to have_content("12")
+      end
       expect(page).to have_content("Ross Edfort")
       expect(page).to have_content('$120')
       expect(page).to have_content('Completed')
       expect(page).to have_content("1510 Blake Street Denver CO, 80202")
+      expect(page).to have_content("08:29AM - 11/11/2015")
     end
   end
 end
