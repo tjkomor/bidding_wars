@@ -26,7 +26,7 @@ class UsersController < UsersBaseController
   def update
     @user = User.find(params[:id])
     if @user.update(edit_user_params)
-      flash[:message] = 'User Updated!'
+      flash[:notice] = 'User Updated!'
       redirect_to dashboard_path
     else
       flash.now[:errors] = @user.errors.full_messages.join(", ")
