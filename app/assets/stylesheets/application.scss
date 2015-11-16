@@ -153,3 +153,27 @@ tr input[type=text] {
   padding-right: 10px;
   padding-left: 10px;
 }
+
+.bottom-border {
+  border-bottom: 1px solid #ccc;
+}
+
+.cancelled {
+  background-color: #ffebee;
+}
+
+.paid {
+  background-color: #e1f5fe;
+}
+
+.completed {
+  background-color: #e8f5e9;
+}
+
+.ordered {
+  background-color: #fff8e1;
+}
+
+.collection {
+  border: none;
+}

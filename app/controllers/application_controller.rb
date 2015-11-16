@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart
-  helper_method :categories, :brands, :current_user, :current_admin?
+  helper_method :categories, :brands, :rentals, :current_user, :current_admin?
 
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def brands
     Brand.all
+  end
+
+  def rentals
+    Rental.all
   end
 
   def current_user
