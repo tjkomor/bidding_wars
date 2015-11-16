@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <% @rental.items.each do |item| %>
-      <tr>
+      <tr id="rental_item_row_<%= item.id %>">
         <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
         <td>
           <%= link_to item.name, item_path(item) %><br>
@@ -33,4 +33,6 @@
   </table>
   <p>Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
   <p>Updated at: <%= @rental.updated_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
+  <p>Ordered by: <%= @rental.user.first_name %> <%= @rental.user.last_name %></p>
+  <p>Address: <%= @rental.user.addresses.first.formatted_address %></p>
 </div>
