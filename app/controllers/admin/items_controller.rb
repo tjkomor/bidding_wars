@@ -5,12 +5,18 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
+    if @item.save
+      flash[:notice] = "Item Created!"
+      redirect_to admin_dashboard_path
+    else
+      flash.now[:error] = @item.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image)
+    params.require(:item).permit(:name, :description, :price, :image_url, :brand_id, :category_id)
   end
 end

@@ -15,6 +15,4 @@ class Item < ActiveRecord::Base
   def subtotal_of_rental_item(rental)
     self.price * rental.days_rented * quantity_of_rental_item(rental.id).to_i
   end
-
-
 end

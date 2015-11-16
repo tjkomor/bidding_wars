@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 20151114192209) do
     t.string   "name"
     t.string   "description"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "category_id"
     t.string   "image_url"
     t.integer  "brand_id"
-    t.boolean  "retired"
+    t.boolean  "retired",     default: false
   end
 
   add_index "items", ["brand_id"], name: "index_items_on_brand_id", using: :btree

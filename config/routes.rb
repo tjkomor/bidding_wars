@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'admin#show'
     resources :categories, only: [:new]
     resources :rentals, only: [:show, :update]
+    resources :items, only: [:new, :create]
     get '/dashboard/completed', to: 'admin#completed'
     get '/dashboard/ordered', to: 'admin#ordered'
     get '/dashboard/out', to: 'admin#out'
