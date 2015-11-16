@@ -3,6 +3,10 @@ class Admin::ItemsController < Admin::BaseController
     @item = Item.new
   end
 
+  def index
+    @items = Item.all
+  end
+
   def create
     @item = Item.new(item_params)
     if @item.save
