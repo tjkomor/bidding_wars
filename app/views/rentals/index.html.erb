@@ -28,6 +28,7 @@
       <tr>
         <th>Rental Id</th>
         <th>Placed On</th>
+        <th>Status</th>
         <th>Total</th>
       </tr>
     </thead>
@@ -36,6 +37,7 @@
         <tr class="clickable" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(id: rental.id) %>">
           <td><%= link_to rental.id, user_rental_path(id: rental.id), class: 'black-text' %> </td>
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
+          <td><%= rental.status %></td>
           <td>$<%= rental.total_price %></td>
         </tr>
         <% end %>

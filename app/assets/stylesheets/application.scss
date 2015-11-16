@@ -93,13 +93,25 @@ tr input[type=text] {
 }
 
 .btn-small {
-  margin-right: 50px;
   line-height: 25px;
   height: 25px;
   padding: 0 .5rem .5rem;
   font-size: 8px;
   width: 75px;
   margin-bottom: 3px;
+}
+
+.btn-margin {
+  margin-right: 50px;
+}
+
+.dash-btn {
+  width: 50%;
+  margin: 15px 0 ;
+}
+
+.bordered-div {
+  border: 1px solid #ccc;
 }
 
 .sidebar {
