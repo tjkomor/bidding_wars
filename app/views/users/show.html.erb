@@ -12,17 +12,15 @@
   </div>
   <% end %>
   <div class="row">
-    <div class="col m3 small-top-margin">
-      <%= button_to "Edit Info", edit_user_path(@user), method: :get, class: 'btn blue' %>
+    <div class="col m6 small-top-margin center">
+      <h5>Edit Account Info</h5>
+      <%= button_to "Edit Info", edit_user_path(@user), method: :get, class: 'btn blue dash-btn' %>
+      <%= button_to "Edit Address", edit_user_address_path(@user, id: 1), method: :get, class: 'btn blue dash-btn' %>
     </div>
-    <div class="col m3 small-top-margin">
-      <%= button_to "Edit Address", edit_user_address_path(@user, id: 1), method: :get, class: 'btn blue' %>
-    </div>
-    <div class="col m3 small-top-margin">
-      <%= button_to "Rental History", user_rentals_path(@user), method: :get, class: 'btn blue' %>
-    </div>
-    <div class="col m3 small-top-margin">
-      <%= button_to "Delete Account", user_path(@user), method: :delete, class: 'btn blue' %>
+    <div class="col m6 small-top-margin center">
+      <h5>Account Details</h5>
+      <%= button_to "Rental History", user_rentals_path(@user), method: :get, class: 'btn blue dash-btn' %>
+      <%= button_to "Delete Account", user_path(@user), method: :delete, class: 'btn blue dash-btn' %>
     </div>
   </div>
 </div>

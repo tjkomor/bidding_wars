@@ -26,7 +26,7 @@ class RentalsController < UsersBaseController
   private
 
   def rental_params
-    {user_id: session[:user_id], days_rented: session[:cart]['days'], total_price: @cart.total_price, status: 'order placed'}
+    {user_id: session[:user_id], days_rented: session[:cart]['days'], total_price: @cart.total_price, status: 'Ordered'}
   end
 
   def create_rental_items

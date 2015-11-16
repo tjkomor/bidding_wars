@@ -25,14 +25,20 @@
       <% end %>
       <tr>
         <td></td>
-        <td>Status: <%= @rental.status %></td>
+        <td>Status: <strong><%= @rental.status %></strong></td>
         <td>Rental Length: <%= @rental.days_rented %> days</td>
         <td>Total: $<%= @rental.total_price %></td>
       </tr>
     </tbody>
   </table>
-  <p>Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
-  <p>Updated at: <%= @rental.updated_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
-  <p>Ordered by: <%= @rental.user.first_name %> <%= @rental.user.last_name %></p>
-  <p>Address: <%= @rental.user.addresses.first.formatted_address %></p>
+  <div class="row small-top-margin">
+    <div class="col m6">
+      <p class="bottom-border">Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
+      <p class="bottom-border">Updated at: <%= @rental.updated_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
+    </div>
+    <div class="col m6">
+      <p class="bottom-border">Ordered by: <strong><%= @rental.user.first_name %> <%= @rental.user.last_name %></strong></p>
+      <p class="bottom-border">Address: <strong><%= @rental.user.addresses.first.formatted_address %></strong></p>
+    </div>
+  </div>
 </div>

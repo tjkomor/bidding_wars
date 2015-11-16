@@ -1,9 +1,24 @@
-<h4> Categories </h4>
-<% categories.each do |category|  %>
-  <%= link_to category.name, category_path(category) %><br>
+<% if current_admin? %>
+  <div class="collection with-header status_counts">
+    <h5 class="collection-header"> Admin </h5>
+    <a href="<%= admin_dashboard_path %>" class="collection-item">All<span class="badge"> <%= rentals.count %></span></a>
+    <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"> <%= rentals.ordered.count %></span></a>
+    <a href="<%= admin_dashboard_completed_path %>" class="collection-item">Completed<span class="badge"> <%= rentals.completed.count %></span></a>
+    <a href="<%= admin_dashboard_cancelled_path %>" class="collection-item">Cancelled<span class="badge"> <%= rentals.cancelled.count %></span></a>
+    <a href="<%= admin_dashboard_paid_path %>" class="collection-item">Paid<span class="badge"> <%= rentals.paid.count %></span></a>
+  </div>
 <% end %>
 
-<h4> Brands </h4>
-<% brands.each do |brand| %>
-  <%= link_to brand.name, brand_path(brand) %><br>
-<% end %>
+<div class="collection with-header">
+  <h5 class="collection-header"> Categories </h5>
+  <% categories.each do |category| %>
+    <%= link_to category.name, category_path(category), class: 'collection-item'%>
+  <% end %>
+</div>
+
+<div class="collection with-header">
+  <h5 class="collection-header"> Brands </h5>
+  <% brands.each do |brand| %>
+    <%= link_to brand.name, brand_path(brand), class: 'collection-item'%>
+  <% end %>
+</div>
