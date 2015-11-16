@@ -14,7 +14,7 @@ RSpec.describe "VisitorCanBrowseItemsByCategories", type: :feature do
       visit root_path
       click_link "Lenses"
 
-      expect(current_path).to eq(category_path(category))
+      expect(current_path).to eq("/#{category.name}")
       within('.items') do
         expect(page).to have_content(item_one.name)
         expect(page).to have_content(item_one.description)
