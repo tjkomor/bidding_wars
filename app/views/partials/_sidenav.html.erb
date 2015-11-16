@@ -3,6 +3,7 @@
     <h5 class="collection-header"> Admin </h5>
     <a href="<%= admin_dashboard_path %>" class="collection-item">All<span class="badge"> <%= rentals.count %></span></a>
     <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"> <%= rentals.ordered.count %></span></a>
+    <a href="<%= admin_dashboard_out_path %>" class="collection-item">Out<span class="badge"> <%= rentals.out.count %></span></a>
     <a href="<%= admin_dashboard_completed_path %>" class="collection-item">Completed<span class="badge"> <%= rentals.completed.count %></span></a>
     <a href="<%= admin_dashboard_cancelled_path %>" class="collection-item">Cancelled<span class="badge"> <%= rentals.cancelled.count %></span></a>
     <a href="<%= admin_dashboard_paid_path %>" class="collection-item">Paid<span class="badge"> <%= rentals.paid.count %></span></a>

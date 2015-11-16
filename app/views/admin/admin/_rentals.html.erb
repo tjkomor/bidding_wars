@@ -1,13 +1,6 @@
 <div class="col m9 small-top-margin">
 <h3 class="center">Admin Dashboard</h3>
 <div class="row">
-  <!-- <div class="collection col m6 offset-m3 status_counts">
-    <a href="<%= admin_dashboard_path %>" class="collection-item">All<span class="badge"> <%= @rentals.count %></span></a>
-    <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"> <%= @rentals.ordered.count %></span></a>
-    <a href="<%= admin_dashboard_completed_path %>" class="collection-item">Completed<span class="badge"> <%= @rentals.completed.count %></span></a>
-    <a href="<%= admin_dashboard_cancelled_path %>" class="collection-item">Cancelled<span class="badge"> <%= @rentals.cancelled.count %></span></a>
-    <a href="<%= admin_dashboard_paid_path %>" class="collection-item">Paid<span class="badge"> <%= @rentals.paid.count %></span></a>
-  </div> -->
 </div>
   <h5 class="small-top-margin center">Rentals</h5>
   <table class="bordered highlight centered">
@@ -17,7 +10,7 @@
         <th>Status</th>
         <th>Placed On</th>
         <th>Total</th>
-        <th colspan="2"></th>
+        <th colspan="2">Change Status</th>
       </tr>
     </thead>
     <tbody>
@@ -28,9 +21,16 @@
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
           <td>$<%= rental.total_price %></td>
           <td class="center">
-            <%= button_to "Mark as Paid", admin_rental_path(status: 'Paid', id: rental.id), method: :patch, class: 'btn btn-small blue' %>
-            <%= button_to "Cancel", admin_rental_path(status: 'Cancelled', id: rental.id), method: :patch, class: 'btn btn-small red' %>
-            <%= button_to "Complete", admin_rental_path(status: 'Completed', id: rental.id), method: :patch, class: 'btn btn-small green' %>
+            <div class="row valign">
+              <div class="col m3 offset-m3">
+                <%= button_to "Mark as Paid", admin_rental_path(status: 'Paid', id: rental.id), method: :patch, class: 'btn btn-small blue' %>
+                <%= button_to "Cancel", admin_rental_path(status: 'Cancelled', id: rental.id), method: :patch, class: 'btn btn-small red' %>
+              </div>
+              <div class="col m3">
+                <%= button_to "Mark as Out", admin_rental_path(status: 'Out', id: rental.id), method: :patch, class: 'btn btn-small purple' %>
+                <%= button_to "Complete", admin_rental_path(status: 'Completed', id: rental.id), method: :patch, class: 'btn btn-small green' %>
+              </div>
+            </div>
           </td>
         </tr>
         <% end %>
