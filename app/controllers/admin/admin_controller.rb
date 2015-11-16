@@ -16,6 +16,9 @@ class Admin::AdminController < Admin::BaseController
   def paid
   end
 
+  def out
+  end
+
   private
 
   def set_rentals

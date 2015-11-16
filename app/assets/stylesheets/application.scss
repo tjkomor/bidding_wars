@@ -158,6 +158,10 @@ tr input[type=text] {
   border-bottom: 1px solid #ccc;
 }
 
+.valign {
+  padding-top: 25px;
+}
+
 .cancelled {
   background-color: #ffebee;
 }
@@ -176,4 +180,8 @@ tr input[type=text] {
 
 .collection {
   border: none;
+}
+
+.out {
+  background-color: #ede7f6;
 }
