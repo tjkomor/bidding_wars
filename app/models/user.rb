@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     if self.rentals.empty?
       false
     else
-      self.rentals.last.items
+      self.rentals.first.items
     end
   end
 end

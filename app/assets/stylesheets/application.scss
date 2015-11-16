@@ -45,14 +45,18 @@ nav {
   background-color: rgb(255, 255, 255);
 }
 
+.toast {
+  top: 75px;
+}
+
 .flash_notice {
+  background-color: #4caf50;
   text-align: center;
-  color: green;
 }
 
 .flash_error {
+  background-color: #f44336;
   text-align: center;
-  color: red;
 }
 
 .item {
