@@ -3,6 +3,21 @@ class Admin::ItemsController < Admin::BaseController
     @item = Item.new
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "Item Updated!"
+      redirect_to admin_items_path
+    else
+      flash[:error] = @item.errors.full_messages.join(', ')
+      redirect_to admin_items_path
+    end
+  end
+
   def index
     @items = Item.all
   end
