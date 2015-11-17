@@ -24,7 +24,7 @@ class UsersController < UsersBaseController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update(edit_user_params)
       flash[:notice] = 'User Updated!'
       redirect_to dashboard_path
@@ -34,14 +34,21 @@ class UsersController < UsersBaseController
     end
   end
 
+  def destroy
+    current_user.active = false
+    session.delete(:user_id)
+    flash[:notice] = "Your account has been deactivated"
+    redirect_to root_path
+  end
+
   private
 
   def user_params
-    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active)
   end
 
   def edit_user_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active)
   end
 
   def address_params

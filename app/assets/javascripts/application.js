@@ -20,4 +20,6 @@ jQuery(document).ready(function($) {
     $(".clickable").click(function() {
         window.document.location = $(this).data("url");
     });
+
+    $('.modal-trigger').leanModal();
 });
