@@ -198,3 +198,27 @@ tr input[type=text] {
 .hidden {
   display: none;
 }
+
+.modal {
+  max-height: 300px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.align {
+  padding-top: 30px;
+}
+
+.small {
+  height: 50px;
+}
+
+.modal input[type=text] {
+  text-align: center;
+  display: inline;
+  width: 40px;
+}
+
+.modal input[readonly='readonly'] {
+  color: red;
+}

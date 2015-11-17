@@ -16,19 +16,20 @@
 //= require_tree .
 
 
-jQuery(document).ready(function($) {
-    $(".clickable").click(function() {
-        window.document.location = $(this).data("url");
-    });
-});
-
 $(document).ready(function(){
-   $('.modal-trigger').leanModal();
- });
+  $(".clickable").click(function() {
+     window.document.location = $(this).data("url");
+  });
 
- $(document).ready(function(){
-   $("#submit-days").click(function() {
-     var days = document.querySelector('#days-field').value
-     document.querySelector('#days').innerHTML = days
+  $('.modal-trigger').leanModal();
+
+
+  $("#submit-days").on('click', function() {
+     var days = document.querySelector('#days-field').value;
+     console.log(days)
+     var pricePerDay = document.querySelector('.price_per_day').innerHTML
+     var total = days * pricePerDay;
+     document.querySelector('#days').value = days;
+     document.querySelector('#total').value = total;
    });
  });
