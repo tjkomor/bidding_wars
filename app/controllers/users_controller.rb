@@ -44,11 +44,11 @@ class UsersController < UsersBaseController
   private
 
   def user_params
-    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active)
   end
 
   def edit_user_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active)
   end
 
   def address_params
