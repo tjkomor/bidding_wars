@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <% @items.each do |item| %>
-      <tr>
+      <tr id="row_item_<%= item.id %>">
         <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
         <td>
           <%= link_to item.name, item_path(item) %><br>
