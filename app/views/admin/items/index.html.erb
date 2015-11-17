@@ -1,0 +1,27 @@
+<div class="col m9 top-margin">
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr id="row_item_<%= item.id %>">
+        <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+        <td>
+          <%= link_to item.name, item_path(item) %><br>
+          <% if item.retired %>
+            <small class='item_no'>Item no longer available</small>
+          <% end %>
+        </td>
+        <td><%= item.description %></td>
+        <td><%= button_to "Edit", edit_admin_item_path(item), method: :get, class: 'btn btn-small blue' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

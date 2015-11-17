@@ -24,8 +24,6 @@ RSpec.describe "User", type: :feature do
       fill_in 'Phone number', with: '101-101-1001'
       click_button 'Update'
 
-      # expect(current_path).to eq(dashboard_path)
-
       expect(page).to have_content("User Updated!")
       expect(page).to have_content("Hello New First Name!")
     end

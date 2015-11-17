@@ -30,7 +30,7 @@ RSpec.describe 'User', type: :feature do
   end
   feature 'Item' do
     it 'can view an item by clicking item name from categories index' do
-      visit category_path(category)
+      visit "/#{category.name}"
       click_link "#{item_one.name}"
 
       expect(current_path).to eq(item_path(item_one))
@@ -42,7 +42,7 @@ RSpec.describe 'User', type: :feature do
   end
   feature 'Item' do
     it 'can view an item by clicking item picture from categories index' do
-      visit category_path(category)
+      visit "/#{category.name}"
       click_link "image_#{item_one.id}"
 
       expect(current_path).to eq(item_path(item_one))
