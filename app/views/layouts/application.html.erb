@@ -42,9 +42,8 @@
   </nav>
 
   <div class="container">
-    <% flash.each do |type, msg| %>
-      <%= content_tag :p, sanitize(msg), class: "flash_#{type}" %>
-      <% end %>
+    <%= render partial: 'partials/flashes' %>
+      <!-- <%#= content_tag :p, '', class: "flash_#{type}", onload: "Materialize.toast('sanitize(msg)', 4000)" %> -->
     <div class="row">
       <div class="sidebar col m3">
         <%= render partial: 'partials/sidenav' %>

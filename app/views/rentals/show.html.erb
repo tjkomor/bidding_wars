@@ -1,36 +1,6 @@
 <div class="col m9 top-margin">
   <h4>Rental #<%= @rental.id %></h4>
-  <table class="bordered">
-    <thead>
-      <tr>
-        <th colspan="1"></th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @rental.items.each do |item| %>
-      <tr>
-        <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
-        <td>
-          <%= link_to item.name, item_path(item) %><br>
-          <% if item.retired %>
-            <small class='item_no'>Item no longer available</small>
-          <% end %>
-        </td>
-        <td><%= item.quantity_of_rental_item(@rental.id) %></td>
-        <td>$<%= item.subtotal_of_rental_item(@rental) %></td>
-      </tr>
-      <% end %>
-      <tr>
-        <td></td>
-        <td>Status: <%= @rental.status %></td>
-        <td>Rental Length: <%= @rental.days_rented %> days</td>
-        <td>Total: $<%= @rental.total_price %></td>
-      </tr>
-    </tbody>
-  </table>
+  <%= render partial: 'partials/rental', locals: {rental: @rental} %>
   <p>Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
   <p>Updated at: <%= @rental.updated_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
 </div>

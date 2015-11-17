@@ -23,7 +23,7 @@ RSpec.describe 'Admin', type: :feature do
       expect(page).to have_content('Completed')
       within(".status_counts") do
         expect(page).to have_content('Completed 1')
-        expect(page).to have_content('Ordered 1')
+        expect(page).to have_content('Out 1')
       end
     end
 

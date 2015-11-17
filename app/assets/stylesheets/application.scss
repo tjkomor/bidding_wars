@@ -45,14 +45,23 @@ nav {
   background-color: rgb(255, 255, 255);
 }
 
+.toast {
+  top: 75px;
+}
+
 .flash_notice {
+  background-color: #4caf50;
   text-align: center;
-  color: green;
+}
+
+.flash_notice a {
+  color: black;
+  margin: 0 10px;
 }
 
 .flash_error {
+  background-color: #f44336;
   text-align: center;
-  color: red;
 }
 
 .item {
@@ -188,4 +197,32 @@ tr input[type=text] {
 
 .out {
   background-color: #ede7f6;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  max-height: 300px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.align {
+  padding-top: 30px;
+}
+
+.small {
+  height: 50px;
+}
+
+.modal input[type=text] {
+  text-align: center;
+  display: inline;
+  width: 40px;
+}
+
+.modal input[readonly='readonly'] {
+  color: red;
 }

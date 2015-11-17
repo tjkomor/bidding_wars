@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   patch '/cart_quantity', to: 'cart_items#quantity'
 
   resources :users, only: [:new, :create, :destroy, :edit, :update] do
-    resources :rentals, only: [:index, :create, :show]
+    resources :rentals, only: [:index, :create, :show, :update]
     resources :addresses, only: [:edit, :update]
   end
   namespace :admin do
