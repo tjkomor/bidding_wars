@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get '/dashboard', to: 'admin#show'
-    resources :categories, only: [:new]
+    resources :categories, only: [:new, :create]
     resources :rentals, only: [:show, :update]
     resources :items, only: [:new, :create, :index, :edit, :update]
     get '/dashboard/completed', to: 'admin#completed'

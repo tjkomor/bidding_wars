@@ -1,1 +1,7 @@
-404 Page Not Found
+<div class="col m9 top-margin">
+  <%= form_for(@category, url: admin_categories_path) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create Category" %>
+  <% end %>
+</div>
