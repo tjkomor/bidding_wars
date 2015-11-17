@@ -12,7 +12,8 @@ RSpec.describe 'User', type: :feature do
       create_rental_items
       login_user
       visit dashboard_path(user_one)
-      click_button "Extend Order"
+      fill_in 'days-field', with: '2'
+      click_button "Submit"
     end
   end
 end
