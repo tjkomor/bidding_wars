@@ -65,7 +65,18 @@
     <div class="col m6 small-top-margin center">
       <h5>Account Details</h5>
       <%= button_to "Rental History", user_rentals_path(@user), method: :get, class: 'btn blue dash-btn' %>
-      <%= button_to "Delete Account", user_path(@user), method: :delete, class: 'btn blue dash-btn' %>
+      <%= link_to "Delete Account", "#modal1", class: 'btn blue dash-btn modal-trigger' %>
+    </div>
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Confirmation</h4>
+      <p>Are you sure you want to deactivate your account?</p>
+    </div>
+    <div class="modal-footer">
+      <%= link_to "Yes", user_path(@user), method: :delete, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
+      <%= link_to "No", dashboard_path, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
     </div>
   </div>
 </div>

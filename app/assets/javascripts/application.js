@@ -23,7 +23,6 @@ $(document).ready(function(){
 
   $('.modal-trigger').leanModal();
 
-
   $("#submit-days").on('click', function() {
      var days = document.querySelector('#days-field').value;
      console.log(days)
