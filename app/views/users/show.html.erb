@@ -11,6 +11,51 @@
     <h5>Please place an order!</h5>
   </div>
   <% end %>
+
+
+
+  <h4 class="center small-top-margin">Current Rentals</h4>
+  <table class="bordered highlight">
+    <thead>
+      <tr>
+        <th>Rental Id</th>
+        <th>Placed On</th>
+        <th>Status</th>
+        <th colspan="2"></th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.rentals.out.each do |rental| %>
+        <tr class="<%= rental.status.downcase %>" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(user_id: @user.id, id: rental.id) %>">
+          <td><%= link_to rental.id, user_rental_path(user_id: @user.id, id: rental.id), class: 'black-text' %> </td>
+          <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
+          <td><%= rental.status %></td>
+          <%= form_tag do %>
+          <td>Extend Rental By: <%= text_field_tag :days, "0", id: 'days-field' %></td>
+          <td><%= submit_tag "Submit", href: '#modal1', id: 'submit-days', class: 'modal-trigger btn blue btn-small btn-margin'%></td>
+
+            <div id="modal1" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <h4>Confirm Order</h4>
+                <p>Price per day: <%= rental.total_per_day %></p>
+                <p>Total amount to extend rental for <span id="days"></span> days:</p>
+                <%= form_tag user_rental_path(rental, user_id: @user.id) %>
+
+                <p id='days'> </p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+              </div>
+            </div>
+
+          <% end %>
+          <td>$<%= rental.total_price %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+
   <div class="row">
     <div class="col m6 small-top-margin center">
       <h5>Edit Account Info</h5>

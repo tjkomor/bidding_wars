@@ -21,3 +21,14 @@ jQuery(document).ready(function($) {
         window.document.location = $(this).data("url");
     });
 });
+
+$(document).ready(function(){
+   $('.modal-trigger').leanModal();
+ });
+
+ $(document).ready(function(){
+   $("#submit-days").click(function() {
+     var days = document.querySelector('#days-field').value
+     document.querySelector('#days').innerHTML = days
+   });
+ });

@@ -54,7 +54,7 @@ RSpec.configure do |config|
 
   def create_rental
     let!(:rental_one) { Rental.create(user_id: User.last.id, days_rented: 5, total_price: 190, status: 'Completed', created_at: "2015-11-11 15:29:36") }
-    let!(:rental_two) { Rental.create(user_id: User.last.id, days_rented: 2, total_price: 28, status: 'Ordered', created_at: "2015-11-11 15:29:36") }
+    let!(:rental_two) { Rental.create(user_id: User.first.id, days_rented: 2, total_price: 28, status: 'Out', created_at: "2015-11-11 15:29:36") }
   end
 
   def create_rental_items
