@@ -2,6 +2,6 @@
   <%= form_for(@brand, url: admin_brands_path) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.submit "Create Brand" %>
+    <%= f.submit "Create Brand", class: "btn blue" %>
   <% end %>
 </div>
