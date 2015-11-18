@@ -1,8 +1,4 @@
-<h3>Please Activate Your Account</h3>
-<p>
-  <%= form_for(@user, url: user_path(user, user: {active: true})) do |f| %>
-    <%= f.label :password, "Create New Password" %>
-    <%= f.password_field :password %>
-    <%= f.submit "Activate", method: :patch %>
-  <% end %>
-</p>
+<div class="col m6 offset-m1">
+  <h3 class="top-margin">Please Activate Your Account</h3>
+    <%= button_to "Activate", user_path(@user, user: {active: true}), method: :patch, class: 'btn blue' %>
+</div>

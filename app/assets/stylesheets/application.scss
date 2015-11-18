@@ -65,8 +65,7 @@ nav {
 }
 
 .item {
-  margin-bottom: 25px;
-  min-height: 425px
+  margin-bottom: 50px;
 }
 
 .item a {
@@ -229,4 +228,9 @@ tr input[type=number] {
 
 .bold {
   font-weight: 700;
+}
+
+.height {
+  max-height: 120px;
+  min-height: 90px;
 }
