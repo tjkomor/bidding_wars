@@ -35,7 +35,7 @@ class UsersController < UsersBaseController
   end
 
   def destroy
-    current_user.active = false
+    current_user.update_attributes(active: false, password: nil)
     session.delete(:user_id)
     flash[:notice] = "Your account has been deactivated"
     redirect_to root_path
