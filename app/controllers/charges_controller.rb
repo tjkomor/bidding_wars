@@ -20,7 +20,9 @@ class ChargesController < ApplicationController
   RentalCreator.create_rental(@cart, session)
   flash[:notice] = "Order was successfully placed"
   session.delete(:cart)
+
   redirect_to user_rentals_path(current_user)
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
