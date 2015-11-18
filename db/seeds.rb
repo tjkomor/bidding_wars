@@ -2,7 +2,7 @@ Category.create!([
   {name: 'Lenses'},
   {name: 'Bodies'},
   {name: 'Accessories'},
-  {name: "Drone"}
+  {name: "Drones"}
   ])
 
 Brand.create!([
