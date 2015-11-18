@@ -28,7 +28,7 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "Item Created!"
       redirect_to admin_dashboard_path
     else
-      flash.now[:error] = @item.errors.full_messages.join(", ")
+      flash.now[:error] = @item.errors.full_messages.first.gsub("can't", "cannot")
       render :new
     end
   end

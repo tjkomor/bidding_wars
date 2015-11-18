@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :brands, only: [:show], param: :name
   resources :cart_items, only: [:create, :destroy, :update]
+  resources :charges
 
   patch '/cart_quantity', to: 'cart_items#quantity'
 
@@ -27,6 +28,5 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/activation', to: 'sessions#activation'
   get '/:category', to: 'categories#show', param: :name
 end

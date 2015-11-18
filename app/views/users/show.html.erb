@@ -31,7 +31,7 @@
           <td><%= link_to rental.id, user_rental_path(user_id: @user.id, id: rental.id), class: 'black-text' %> </td>
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
           <td><%= rental.status %></td>
-          <td class="center align" >Extend Rental By: <%= text_field_tag :days, "0", id: 'days-field' %>
+          <td class="center align" >Extend Rental By: <%= number_field_tag :days, "0", id: 'days-field' %>
           <%= button_tag "Submit", href: "#modal#{rental.id}", id: 'submit-days', class: 'modal-trigger btn blue btn-small btn-margin'%></td>
 
           <div id="modal<%= rental.id %>" class="modal modal-fixed-height modal-fixed-footer">

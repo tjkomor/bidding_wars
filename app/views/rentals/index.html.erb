@@ -23,22 +23,25 @@
   </table>
 
   <h4 class="small-top-margin">Rental History</h4>
-  <table class="bordered highlight">
+  <table class="bordered highlight centered">
     <thead>
       <tr>
         <th>Rental Id</th>
         <th>Placed On</th>
         <th>Status</th>
         <th>Total</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @rentals.each do |rental| %>
-        <tr class="clickable" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(id: rental.id) %>">
-          <td><%= link_to rental.id, user_rental_path(id: rental.id), class: 'black-text' %> </td>
-          <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
-          <td><%= rental.status %></td>
-          <td>$<%= rental.total_price %></td>
+        <tr id="row_rental_<%= rental.id %>">
+          <td class="clickable"data-url="<%= user_rental_path(id: rental.id) %>"><%= link_to rental.id, user_rental_path(id: rental.id), class: 'black-text' %> </td>
+          <td class="clickable"data-url="<%= user_rental_path(id: rental.id) %>"><%= rental.created_at.strftime("%B %d, %Y") %></td>
+          <td class="clickable"data-url="<%= user_rental_path(id: rental.id) %>"><%= rental.status %></td>
+          <td class="clickable"data-url="<%= user_rental_path(id: rental.id) %>">$<%= rental.total_price %></td>
+          <td>
+          </td>
         </tr>
         <% end %>
     </tbody>

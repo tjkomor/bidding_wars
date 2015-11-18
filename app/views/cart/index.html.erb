@@ -21,7 +21,7 @@
         <td><%= item.name %></td>
         <%= form_tag cart_item_path(item), method: :patch do %>
         <td>
-          <%= text_field_tag :quantity, "#{@cart.quantity_of(item.id)}", id: 'quantity-field' %>
+          <%= number_field_tag :quantity, "#{@cart.quantity_of(item.id)}", id: 'quantity-field', min: 0, max: 10%>
         </td>
         <td><%= submit_tag "Update", class: 'btn blue btn-small btn-margin'%></td>
         <% end %>
@@ -38,7 +38,7 @@
         <tr id="num_of_days">
           <%= form_tag cart_quantity_path, method: :patch do %>
           <td>
-            <%= text_field_tag :days, "#{@cart.number_of_days}", id: 'days-field' %>
+            <%= number_field_tag :days, "#{@cart.number_of_days}", id: 'days-field', min: 0, max: 30 %>
           </td>
           <td><%= submit_tag "Update", class: 'btn blue btn-small btn-margin' %></td>
           <td>Rent for <%= @cart.number_of_days %> days</td>
@@ -52,9 +52,27 @@
     </div>
   </div>
   <% if current_user %>
-    <%= button_to "Checkout", user_rentals_path(@user), class: 'btn blue' %>
+  <div class="right">
+    <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Lens Lease Rental"
+              data-amount="<%= @cart.total_price * 100 %>"
+              data-locale="auto">
+              </script>
+    <% end %>
+  </div>
   <% else %>
-    <%= button_to "Checkout", login_path, method: :get, class: 'btn blue' %>
+    <p>Please Login</p>
   <% end %>
+
 </div>
   <% end %>
