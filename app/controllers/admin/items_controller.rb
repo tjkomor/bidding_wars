@@ -13,7 +13,7 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "Item Updated!"
       redirect_to admin_items_path
     else
-      flash[:error] = @item.errors.full_messages.join(', ')
+      flash[:error] = @item.errors.full_messages.first.gsub("can't", "cannot")
       redirect_to admin_items_path
     end
   end

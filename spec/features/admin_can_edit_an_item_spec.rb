@@ -40,5 +40,33 @@ RSpec.describe 'Admin', type: :feature do
         expect(page).to have_css("img[src*='http://static.bhphoto.com/images/images500x500/1410504666000_1082599.jpg']")
       end
     end
+
+    it 'cannot update an item without a name' do
+      create_rental_items
+
+      visit login_path
+
+      fill_in 'Username', with: 'admin'
+      fill_in 'Password', with: 'admin'
+
+      click_button 'Login'
+
+      visit admin_items_path
+
+
+      within("#row_item_#{item_one.id}") do
+        click_button "Edit"
+      end
+
+      fill_in 'Name', with: ''
+      fill_in 'Description', with: 'Best 24.3 megapixel sensor eva'
+      fill_in 'Price', with: '20'
+      find('#categorySelect').find(:xpath, 'option[1]').select_option
+      find('#brandSelect').find(:xpath, 'option[1]').select_option
+      fill_in 'Image url', with: 'http://static.bhphoto.com/images/images500x500/1410504666000_1082599.jpg'
+      click_button("Update Item")
+
+      expect(page).to have_content("Name cannot be blank")
+    end
   end
 end
