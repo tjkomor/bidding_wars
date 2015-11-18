@@ -1,28 +1,6 @@
 class Admin::AdminController < Admin::BaseController
-  before_action :set_rentals
-
   def show
-  end
-
-  def completed
-  end
-
-  def ordered
-  end
-
-  def cancelled
-  end
-
-  def paid
-  end
-
-  def out
-  end
-
-  private
-
-  def set_rentals
+    @admin_dash = true
     @rentals = Rental.all
   end
-
 end
