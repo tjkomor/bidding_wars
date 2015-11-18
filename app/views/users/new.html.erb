@@ -14,7 +14,7 @@
         <%= f.label :email_address %>
         <%= f.text_field :email_address %>
         <%= f.label :phone_number %>
-        <%= f.text_field :phone_number %>
+        <%= f.text_field :phone_number, pattern: '\d{3}[\-]\d{3}[\-]\d{4}', placeholder: "xxx-xxx-xxxx"%>
         <%= f.label :line_one, "Address Line One" %>
         <%= f.text_field :line_one %>
         <%= f.label :line_two, "Address Line Two" %>
@@ -24,9 +24,9 @@
         <%= f.label :state %>
         <%= f.text_field :state %>
         <%= f.label :zip %>
-        <%= f.text_field :zip %>
+        <%= f.text_field :zip, pattern: '\d{5}', placeholder: 'xxxxx'%>
         <%= f.label :country %>
-        <%= f.text_field :country %>
+        <%= f.text_field :country, value: 'USA' %>
         <%= f.submit "Create Account", class: 'btn blue' %>
       <% end %>
     </div>
