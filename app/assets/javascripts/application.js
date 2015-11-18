@@ -31,4 +31,57 @@ $(document).ready(function(){
      document.querySelector('#days').value = days;
      document.querySelector('#total').value = total;
    });
+
+   var $rentals = $('.rental');
+
+   $('#all').on('click', function() {
+     $rentals.each(function (index, rental) {
+       $rental = $(rental);
+       $rental.show();
+     });
+   });
+
+   $('#paid').on('click', function() {
+     $rentals.each(function (index, rental) {
+       $rental = $(rental);
+       if ($rental.data('status') === 'paid') {
+         $rental.show();
+       } else {
+         $rental.hide();
+       }
+     });
+   });
+
+   $('#out').on('click', function() {
+     $rentals.each(function (index, rental) {
+       $rental = $(rental);
+       if ($rental.data('status') === 'out') {
+         $rental.show();
+       } else {
+         $rental.hide();
+       }
+     });
+   });
+
+   $('#cancelled').on('click', function() {
+     $rentals.each(function (index, rental) {
+       $rental = $(rental);
+       if ($rental.data('status') === 'cancelled') {
+         $rental.show();
+       } else {
+         $rental.hide();
+       }
+     });
+   });
+
+   $('#completed').on('click', function() {
+     $rentals.each(function (index, rental) {
+       $rental = $(rental);
+       if ($rental.data('status') === 'completed') {
+         $rental.show();
+       } else {
+         $rental.hide();
+       }
+     });
+   });
  });

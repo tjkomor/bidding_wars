@@ -1,12 +1,12 @@
 <% if current_admin? %>
   <div class="collection with-header status_counts">
-    <h5 class="collection-header"> Admin </h5>
-    <a href="<%= admin_dashboard_path %>" class="collection-item">All<span class="badge"> <%= rentals.count %></span></a>
-    <a href="<%= admin_dashboard_ordered_path %>" class="collection-item">Ordered<span class="badge"> <%= rentals.ordered.count %></span></a>
-    <a href="<%= admin_dashboard_out_path %>" class="collection-item">Out<span class="badge"> <%= rentals.out.count %></span></a>
-    <a href="<%= admin_dashboard_completed_path %>" class="collection-item">Completed<span class="badge"> <%= rentals.completed.count %></span></a>
-    <a href="<%= admin_dashboard_cancelled_path %>" class="collection-item">Cancelled<span class="badge"> <%= rentals.cancelled.count %></span></a>
-    <a href="<%= admin_dashboard_paid_path %>" class="collection-item">Paid<span class="badge"> <%= rentals.paid.count %></span></a>
+    <h5 class="collection-header"> Admin Options </h5>
+    <%= render partial: 'partials/rental_sidenav' if @admin_dash %>
+    <h6 class="collection-header bold"> Items </h6>
+    <%= link_to "Create New Item", new_admin_item_path, class: 'collection-item' %>
+    <%= link_to "Create New Category", new_admin_category_path, class: 'collection-item' %>
+    <%= link_to "Create New Brand", new_admin_brand_path, class: 'collection-item' %>
+    <%= link_to "Show All Rentals", admin_dashboard_path, class: 'collection-item' %>
   </div>
 <% end %>
 

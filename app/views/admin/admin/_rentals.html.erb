@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <% rentals.each do |rental| %>
-        <tr class="clickable <%= rental.status.downcase %>" id="row_rental_<%= rental.id %>" data-url="<%= admin_rental_path(id: rental.id) %>" >
+        <tr class="clickable <%= rental.status.downcase %> rental" id="row_rental_<%= rental.id %>" data-status="<%= rental.status.downcase %>" data-url="<%= admin_rental_path(id: rental.id) %>" >
           <td class="center"><%= link_to rental.id, admin_rental_path(id: rental.id), class: 'black-text' %> </td>
           <td><%= rental.status %></td>
           <td><%= rental.created_at.strftime("%B %d, %Y") %></td>

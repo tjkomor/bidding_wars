@@ -1,0 +1,6 @@
+  <h6 class="collection-header bold"> Filter Rentals</h6>
+  <a href="#" id="all" class="collection-item">All<span class="badge"> <%= @rentals.count %></span></a>
+  <a href="#" id="out" class="collection-item purple-text">Out<span class="badge"> <%= @rentals.out.count %></span></a>
+  <a href="#" id="completed" class="collection-item green-text">Completed<span class="badge"> <%= @rentals.completed.count %></span></a>
+  <a href="#" id="cancelled" class="collection-item red-text">Cancelled<span class="badge"> <%= @rentals.cancelled.count %></span></a>
+  <a href="#" id="paid" class="collection-item blue-text">Paid<span class="badge"> <%= @rentals.paid.count %></span></a>

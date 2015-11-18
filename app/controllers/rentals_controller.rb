@@ -21,5 +21,5 @@ class RentalsController < UsersBaseController
 
   def rental_params
     {user_id: session[:user_id], days_rented: session[:cart]['days'], total_price: @cart.total_price, status: 'Ordered'}
-  end\
+  end
 end
