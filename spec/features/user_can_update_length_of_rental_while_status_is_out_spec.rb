@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'User', type: :feature do
+RSpec.describe 'User', type: :feature, js: true do
   create_category
   create_brand
   create_items
@@ -14,6 +14,10 @@ RSpec.describe 'User', type: :feature do
       visit dashboard_path(user_one)
       fill_in 'days-field', with: '2'
       click_button "Submit"
+      sleep(2)
+      click_on "Agree"
+
+      expect(page).to have_content('$56')
     end
   end
 end
