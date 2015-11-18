@@ -1,4 +1,8 @@
 <h3>Please Activate Your Account</h3>
 <p>
-  <%= button_to "Activate", user_path(user, user: {active: true}), method: :patch %>
+  <%= form_for(@user, url: user_path(user, user: {active: true})) do |f| %>
+    <%= f.label :password, "Create New Password" %>
+    <%= f.password_field :password %>
+    <%= f.submit "Activate", method: :patch %>
+  <% end %>
 </p>
