@@ -10,7 +10,7 @@ class UsersController < UsersBaseController
       @user.addresses.create(address_params)
       redirect_to dashboard_path
     else
-      flash.now[:error] = @user.errors.full_messages.join(", ")
+      flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UsersController < UsersBaseController
       flash[:notice] = 'User Updated!'
       redirect_to dashboard_path
     else
-      flash.now[:errors] = @user.errors.full_messages.join(", ")
+      flash.now[:errors] = @user.errors.full_messages.first.gsub("can't", "cannot")
       render :edit
     end
   end

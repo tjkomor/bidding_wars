@@ -1,10 +1,11 @@
 class AddressesController < ApplicationController
   def edit
-    @addresses = current_user.addresses
+    @address = current_user.addresses.first
   end
 
   def update
-    @address = Address.find(params[:id])
+    user = User.find(params[:user_id])
+    @address = user.addresses.find(params[:id])
     if @address.update(address_params)
       flash[:notice] = "Address Updated!"
       redirect_to dashboard_path

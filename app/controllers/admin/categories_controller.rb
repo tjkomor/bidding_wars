@@ -9,7 +9,7 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:notice] = "New Category Created!"
       redirect_to admin_dashboard_path
     else
-      flash.now[:error] = @category.errors.full_messages.join(", ")
+      flash.now[:error] = @category.errors.full_messages.first.gsub("can't", "cannot")
       render :new
     end
   end
