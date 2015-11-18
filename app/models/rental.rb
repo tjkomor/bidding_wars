@@ -15,10 +15,6 @@ class Rental < ActiveRecord::Base
     (self.total_price / self.days_rented)
   end
 
-  def calculated_price(days)
-    total_per_day * days
-  end
-
   def extend_rental(days, total)
     days  = days.to_i + self.days_rented
     total = total.to_i + self.total_price
