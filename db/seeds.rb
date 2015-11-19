@@ -64,10 +64,10 @@ Address.create!([
 Rental.create!([
   {user_id: 2, days_rented: 5, total_price: 310, status: 'Completed'},
   {user_id: 2, days_rented: 3, total_price: 150, status: 'Completed'},
-  {user_id: 3, days_rented: 3, total_price: 150, status: 'Paid'},
-  {user_id: 4, days_rented: 3, total_price: 150, status: 'Cancelled'},
-  {user_id: 2, days_rented: 3, total_price: 150, status: 'Out'},
-  {user_id: 2, days_rented: 3, total_price: 150, status: 'Paid'}
+  {user_id: 3, days_rented: 3, total_price: 186, status: 'Paid'},
+  {user_id: 4, days_rented: 3, total_price: 192, status: 'Cancelled'},
+  {user_id: 2, days_rented: 4, total_price: 200, status: 'Out'},
+  {user_id: 2, days_rented: 3, total_price: 174, status: 'Paid'}
   ])
 
 RentalItem.create!([
