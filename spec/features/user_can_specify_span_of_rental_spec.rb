@@ -12,7 +12,7 @@ RSpec.describe "User", type: :feature do
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"
       end
-      click_link "View Cart"
+      find("#cart-link").click
       within "#num_of_days" do
         fill_in "days-field", with: "5"
         click_button "Update"

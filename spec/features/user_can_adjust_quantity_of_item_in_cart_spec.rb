@@ -12,7 +12,7 @@ RSpec.describe "User", type: :feature do
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"
       end
-      click_link "View Cart"
+      find("#cart-link").click
       within "#item_row_#{item_one.id}" do
         fill_in 'quantity-field', with: "3"
         click_button "Update"

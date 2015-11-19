@@ -10,7 +10,7 @@ RSpec.describe 'Unauthenticated user', type: :feature do
       add_item_to_cart
       visit cart_path
 
-      expect(page).to have_content("Please Login")
+      expect(page).to have_button("Please Login")
     end
 
     it 'cannot access another users info' do
