@@ -12,7 +12,7 @@ RSpec.describe 'Visitor', type: :feature do
       within("#item_#{item_one.id}") do
         click_button "Add to Cart"
       end
-      click_link "View Cart"
+      find("#cart-link").click
       click_link "Remove"
       expect(current_path).to eq(cart_path)
       expect(page).to have_content("Successfully removed #{item_one.name} from your cart.")

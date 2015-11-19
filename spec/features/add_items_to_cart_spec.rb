@@ -13,7 +13,7 @@ RSpec.describe "Visitor", type: :feature do
         click_button "Add to Cart"
       end
       expect(page).to have_content("#{item_one.name} Added to Cart!")
-      click_link "View Cart"
+      find("#cart-link").click
       expect(current_path).to eq(cart_path)
       expect(page).to have_content("#{item_one.name}")
       expect(page).to have_content("#{item_one.description}")
@@ -22,7 +22,7 @@ RSpec.describe "Visitor", type: :feature do
     feature "cart error" do
       it "returns error message when cart is empty" do
         visit root_path
-        click_link "View Cart"
+        find("#cart-link").click
 
         expect(page).to have_content("Cart is empty. Please add items.")
       end
