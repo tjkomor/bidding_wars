@@ -2,29 +2,15 @@
 
 {<img alt='Stories in Ready' src='https://badge.waffle.io/robbielane/lens_lease.svg?label=backlog&title=Backlog' />}[https://waffle.io/robbielane/lens_lease]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+lens-lease is a ruby on rails web app created by Robbie Lane, Ross Edfort, and Tyler Komoroske. It is a basic e-commerce apllication, where users have the ability to rent camera gear. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ruby version
+  ** 2.2.2
+  
+* [URL](https://lens-lease.herokuapp.com)
 
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+images taken from: bhphotovideo.com
