@@ -234,3 +234,17 @@ tr input[type=number] {
   max-height: 120px;
   min-height: 90px;
 }
+
+.chip {
+  position: absolute;
+  top: 12px;
+  right:8px;
+  font-size: 10px;
+  height: 16px;
+  width: 18px;
+  text-align: center;
+  padding-left: 6px;
+  line-height: 16px;
+  color: #fff;
+  background-color: #ef5350;
+}
