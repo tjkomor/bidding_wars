@@ -55,8 +55,10 @@ User.create!([
   ])
 
 Address.create!([
-  {line_one: '1510 Blake Street', line_two: nil, city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: User.first.id},
-  {line_one: '1234 Oak Street', line_two: 'Apartment 27', city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: User.last.id}
+  {line_one: '1510 Blake Street', line_two: nil, city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: 1},
+  {line_one: '1234 Oak Street', line_two: 'Apartment 27', city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: 2},
+  {line_one: '1000 Elm Street', line_two: nil, city: 'Portlans', state: 'OR', zip: '97212', country: 'USA', user_id: 3},
+  {line_one: '1914 17th Street', line_two: 'Apartment 412', city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: 4}
   ])
 
 Rental.create!([
