@@ -23,6 +23,14 @@ class Cart
     items.values.sum
   end
 
+  def count
+    if items["days"]
+      items.count - 1
+    else
+      items.count
+    end
+  end
+
   def quantity_of(item_id)
     items[item_id.to_s]
   end
