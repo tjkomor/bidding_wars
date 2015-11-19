@@ -11,6 +11,10 @@ lens-lease is a ruby on rails web app created by Robbie Lane, [Ross Edfort](http
   
 * [URL](https://lens-lease.herokuapp.com)
 
-* `git clone https://github.com/robbielane/lens_lease` run `bundle exec install` `rake db:create db:migrate db:seed`, have fun 😬
+* Instructions
+ * `git clone https://github.com/robbielane/lens_lease` 
+ * `bundle exec install` 
+ * `rake db:create db:migrate db:seed`
+ * have fun 😬
 
 images taken from: [B&H Photo](https://bhphotovideo.com)
