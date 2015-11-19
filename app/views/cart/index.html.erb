@@ -71,7 +71,7 @@
     <% end %>
   </div>
   <% else %>
-    <p>Please Login</p>
+    <%= button_to "Please Login", login_path, class: 'btn blue', method: :get %>
   <% end %>
 
 </div>
