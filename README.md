@@ -7,7 +7,7 @@
 lens-lease is a ruby on rails web app created by Robbie Lane, [Ross Edfort](https://github.com/rossedfort), and [Tyler Komoroske](https://github.com/tjkomor). It is a basic e-commerce apllication, where users have the ability to rent camera gear. 
 
 * ruby version
-  ** 2.2.2
+  * 2.2.2
   
 * [URL](https://lens-lease.herokuapp.com)
 
