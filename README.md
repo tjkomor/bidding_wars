@@ -18,3 +18,4 @@ lens-lease is a ruby on rails web app created by Robbie Lane, [Ross Edfort](http
  * have fun 😬
 
 images taken from: [B&H Photo](https://bhphotovideo.com)
+# bidding_wars
