@@ -30,17 +30,15 @@ RSpec.configure do |config|
   end
 
   def create_category
-    let!(:category) { Category.create(name: 'Lenses') }
+    let!(:category) { Category.create(name: 'Video Games') }
   end
 
-  def create_brand
-    let!(:brand) { Brand.create(name: 'Canon') }
+  def create_store
+    let!(:store) { Store.create(name: "Lenny's", status: true) }
   end
 
   def create_items
-    let!(:item_one) { Item.create(name: '70-200 Canon L', description: "portrait lens", price: 12, brand_id: Brand.last.id, category_id: Category.last.id, retired: false, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
-    let!(:item_two) { Item.create(name: '16-35 Canon L', description: "wide angle lens", price: 14, brand_id: Brand.last.id, category_id: Category.last.id, retired: false, image_url: 'http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg') }
-    let!(:item_three) { Item.create(name: 'Canon EOS Rebel T5 DSLR', description: '18 MP APS-C CMOS Sensor', price: 14, image_url: 'http://static.bhphoto.com/images/images500x500/canon_9126b003_eos_a_rebel_t5_dslr_1392227429000_1030209.jpg', category_id:  Category.last.id, brand_id:  Brand.last.id, retired: true) }
+    let!(:item_one) { Item.create(name: 'Casino', description: "classic video game", current_bid: 30, store_id: Store.last.id, category_id: Category.last.id, active: true, image_url: 'https://www.mymediabox.com/wp-content/uploads/2014/03/Atari-Casino.png') }
   end
 
   def create_user

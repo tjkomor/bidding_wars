@@ -4,7 +4,7 @@
       <div id="heading" class="">
         <h1><%= @category.name %></h1>
       </div>
-      <%= render partial: 'partials/item', collection: @category.items.available %>
+      <%= render partial: 'partials/item', collection: @category.items.active %>
     </div>
   </div>
 </div>

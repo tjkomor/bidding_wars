@@ -3,7 +3,10 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :name
       t.string :description
-      t.integer :price
+      t.integer :current_bid
+      t.references :store, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
+      t.boolean :active
 
       t.timestamps null: false
     end

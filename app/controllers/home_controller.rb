@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @new_items = Item.new_arrivals.available
+    @items = active_items
   end
 end
