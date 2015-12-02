@@ -8,14 +8,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<%= render partial: 'partials/navbar' %>
-  <div class="container">
+  <%= render partial: 'partials/navbar' %>
+  <div class="row">
+  <div id="left-nav">
+    <%= render partial: 'partials/sidenav' %>
+  </div>
+  <div class="">
     <%= render partial: 'partials/flashes' %>
-    <div class="row">
-      <div class="sidebar col m3">
-        <%= render partial: 'partials/sidenav' %>
-      </div>
-    <%= yield %>
+      <!-- <div class="sidebar col m3">
+        <%#= render partial: 'partials/sidenav' %>
+      </div> -->
+      <center><%= yield %></center>
+
     </div>
   </div>
 </body>
