@@ -13,13 +13,13 @@
 <div class="collection with-header">
   <h5 class="collection-header"> Categories </h5>
   <% categories.each do |category| %>
-    <%= link_to category.name, "/#{category.name}", class: 'collection-item'%>
+    <%= link_to category.name, "/#{category.slug}", class: 'collection-item'%>
   <% end %>
 </div>
 
 <div class="collection with-header">
   <h5 class="collection-header"> Brands </h5>
-  <% brands.each do |brand| %>
-    <%= link_to brand.name, brand_path(brand), class: 'collection-item'%>
+  <% stores.each do |store| %>
+    <%= link_to store.name, store_path(store), class: 'collection-item'%>
   <% end %>
 </div>

@@ -1,8 +1,12 @@
 class Category < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
+  before_save :set_slug
   has_many :items
 
   def to_param
-    name
+    slug
+  end
+
+  def set_slug
+    self.slug = name.parameterize
   end
 end
