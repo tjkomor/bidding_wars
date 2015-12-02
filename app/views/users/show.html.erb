@@ -2,81 +2,29 @@
   <div class="row top-margin center">
     <h4>Hello <%= @user.first_name %>!</h4>
   </div>
-  <% if @user.recent_rental %>
-    <div class="small-top-margin center">
-      <h5>Are you enjoying your <%= @user.recent_rental.first.name %>?</h5>
-    </div>
-  <% else %>
-  <div class="small-top-margin center">
-    <h5>Please place an order!</h5>
-  </div>
-  <% end %>
+
+<h4 class="center small-top-margin">Active Bids</h4>
+
+<table class="bordered highlight">
+  <thead>
+    <tr>
+      <th>Item Id</th>
+      <th>Latest Bid Date</th>
+      <!-- <th>Status</th> -->
+      <th colspan="1"></th>
+      <th>Latest Bid Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.active_bids.each do |item| %>
+    <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
+    <td><%= item.created_at.strftime("%B %d, %Y") %></td>
+    <td>Active</td>
+    <% end %>
+  </tbody>
+</table>
 
 
+<h4 class="center small-top-margin">Past Orders</h4>
 
-  <h4 class="center small-top-margin">Current Rentals</h4>
-  <table class="bordered highlight">
-    <thead>
-      <tr>
-        <th>Rental Id</th>
-        <th>Placed On</th>
-        <th>Status</th>
-        <th colspan="1"></th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.rentals.out.each do |rental| %>
-        <tr class="<%= rental.status.downcase %>" id="row_rental_<%= rental.id %>" data-url="<%= user_rental_path(user_id: @user.id, id: rental.id) %>">
-          <td><%= link_to rental.id, user_rental_path(user_id: @user.id, id: rental.id), class: 'black-text' %> </td>
-          <td><%= rental.created_at.strftime("%B %d, %Y") %></td>
-          <td><%= rental.status %></td>
-          <td class="center align" >Extend Rental By: <%= number_field_tag :days, "0", id: 'days-field' %>
-          <%= button_tag "Submit", href: "#modal#{rental.id}", id: 'submit-days', class: 'modal-trigger btn blue btn-small btn-margin'%></td>
-
-          <div id="modal<%= rental.id %>" class="modal modal-fixed-height modal-fixed-footer">
-            <div class="modal-content">
-              <h4>Confirm Order</h4>
-              <%= form_tag user_rental_path(rental, user_id: @user.id), method: :patch do %>
-                <p>Price per day: <strong>$<span class='price_per_day'><%= rental.total_per_day %></span></strong></p>
-                <p>Add <%= text_field_tag :days, "", id: 'days', readonly: true %>
-                days for a toatal of: $<%= text_field_tag :total, "", id: 'total', readonly: true %></p>
-            </div>
-            <div class="modal-footer">
-              <%= button_tag "Agree", class: 'modal-action modal-close waves-effect waves-green btn-flat' %>
-              <!-- <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a> -->
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">No, Thanks</a>
-            </div>
-          </div>
-
-          <% end %>
-          <td>$<%= rental.total_price %></td>
-        </tr>
-        <% end %>
-    </tbody>
-  </table>
-
-  <div class="row">
-    <div class="col m6 small-top-margin center">
-      <h5>Edit Account Info</h5>
-      <%= button_to "Edit Info", edit_user_path(@user), method: :get, class: 'btn blue dash-btn' %>
-      <%= button_to "Edit Address", edit_user_address_path(@user, id: 1), method: :get, class: 'btn blue dash-btn' %>
-    </div>
-    <div class="col m6 small-top-margin center">
-      <h5>Account Details</h5>
-      <%= button_to "Rental History", user_rentals_path(@user), method: :get, class: 'btn blue dash-btn' %>
-      <%= link_to "Delete Account", "#modal1", class: 'btn blue dash-btn modal-trigger' %>
-    </div>
-  </div>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Confirmation</h4>
-      <p>Are you sure you want to deactivate your account?</p>
-    </div>
-    <div class="modal-footer">
-      <%= link_to "Yes", user_path(@user), method: :delete, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
-      <%= link_to "No", dashboard_path, class: "modal-action modal-close waves-effect waves-green btn-flat" %>
-    </div>
-  </div>
-</div>
+<!-- table.... -->
