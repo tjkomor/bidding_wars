@@ -2,9 +2,22 @@
   <div class="row">
     <div class="items">
       <div id="heading" class="">
-        <h1>New arrivals</h1>
+        <h1>Featured Stores</h1>
       </div>
-      <%= render partial: 'partials/item', collection: @items %>
+      <%= render partial: 'partials/store', collection: @featured_stores %>
+    </div>
+  </div>
+    <div class="items">
+      <div id="heading" class="">
+        <h1>New Arrivals</h1>
+        <% @items.each do |item| %>
+          <div class="col m4 item" id="item_<%= item.id %>">
+            <h5 class="height"><%= link_to(item.name, item_path(item)) %></h5>
+            <%= link_to(image_tag(item.image_url), item_path(item), id: "image_#{item.id}") %>
+            <p>Price per day: <strong>$<%= item.current_bid %></strong></p>
+            <%= button_to "Bid!", item_path(item), method: :get, class: 'btn blue' %>
+          </div>
+          <%end %>
     </div>
   </div>
 </div>
