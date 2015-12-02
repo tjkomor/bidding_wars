@@ -6,4 +6,8 @@ class Item < ActiveRecord::Base
   has_many :users, through: :bid_histories
 
   scope :active, -> { where(active: true) }
+
+  def increment_bid
+    self.update(current_bid: (self.current_bid + 1))
+  end
 end

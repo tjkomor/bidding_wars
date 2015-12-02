@@ -36,8 +36,6 @@ RSpec.describe 'Guest', type: :feature do
       click_link_or_button "Bid!"
 
       visit '/dashboard'
-      save_and_open_page
-
 
       expect(page).to have_content("#{item_one.name}")
     end
