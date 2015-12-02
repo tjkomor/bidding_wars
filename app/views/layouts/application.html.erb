@@ -9,18 +9,13 @@
 </head>
 <body>
   <%= render partial: 'partials/navbar' %>
-  <div class="row">
-  <div id="left-nav">
-    <%= render partial: 'partials/sidenav' %>
-  </div>
-  <div class="">
+  <!-- <div id="left-nav">
+    <%#= render partial: 'partials/sidenav' %>
+  </div> -->
     <%= render partial: 'partials/flashes' %>
-      <!-- <div class="sidebar col m3">
-        <%#= render partial: 'partials/sidenav' %>
-      </div> -->
-      <center><%= yield %></center>
-
+    <div class="container">
+      <%= yield %>
     </div>
-  </div>
+
 </body>
 </html>
