@@ -7,7 +7,7 @@ class UsersController < UsersBaseController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      @user.addresses.create(address_params)
+      # @user.addresses.create(address_params)
       redirect_to dashboard_path
     else
       flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
@@ -44,7 +44,7 @@ class UsersController < UsersBaseController
   private
 
   def user_params
-    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active)
+    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active, :image_url, :bio)
   end
 
   def edit_user_params

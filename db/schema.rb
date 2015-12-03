@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202034719) do
+ActiveRecord::Schema.define(version: 20151203000825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bid_histories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "bid_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bid_histories", ["item_id"], name: "index_bid_histories_on_item_id", using: :btree
+  add_index "bid_histories", ["user_id"], name: "index_bid_histories_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -56,8 +67,12 @@ ActiveRecord::Schema.define(version: 20151202034719) do
     t.boolean  "active"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "image_url"
+    t.string   "bio"
   end
 
+  add_foreign_key "bid_histories", "items"
+  add_foreign_key "bid_histories", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "stores"
 end

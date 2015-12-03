@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :categories, :stores, :current_user, :current_admin?, :active_items
 
-  def set_cart
-    @cart = Cart.new(session[:cart])
+  def set_bid_tracker
+    @bid_tracker = ActiveBids.new(session[:active_bids])
   end
 
   def categories
@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user && current_user.admin?
+    false
+    # current_user && current_user.admin?
   end
 
   def active_items

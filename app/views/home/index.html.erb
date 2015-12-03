@@ -1,10 +1,16 @@
-<div class="col m9">
   <div class="row">
     <div class="items">
       <div id="heading" class="">
-        <h1>New arrivals</h1>
+        <h2>Featured Stores</h2>
       </div>
-      <%= render partial: 'partials/item', collection: @items %>
+      <%= render partial: 'partials/store', collection: @featured_stores %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="items">
+      <div id="heading" class="">
+        <h2>New Arrivals</h2>
+        <%= render partial: 'partials/item', collection: @items %>
     </div>
   </div>
 </div>

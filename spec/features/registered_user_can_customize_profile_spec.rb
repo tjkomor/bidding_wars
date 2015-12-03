@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Registered user', type: :feature do
   create_user
   feature 'picture' do
-    it 'can be added to profile' do
+    xit 'can be added to profile' do
       visit root_path
-      click_link "Login"
+      click_link "Create Account"
 
       fill_in "Username", with: user_one.username
       fill_in "Password", with: 'password'
@@ -22,7 +22,7 @@ RSpec.describe 'Registered user', type: :feature do
   end
 
   feature 'bio' do
-    it 'can be edited' do
+    xit 'can be edited' do
       visit root_path
       click_link "Login"
 

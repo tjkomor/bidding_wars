@@ -1,18 +1,40 @@
 <br><br>
-<div class="row top-margin">
+<h3><%= @item.name %></h3>
+<div class="row">
   <div class="col m4">
     <%= image_tag(@item.image_url, class: 'item_show') %>
   </div>
 <br><br>
-  <div class="col m4">
-    <h3><%= @item.name %></h3>
+  <div class="col m4 offset-m1">
     <p><%= @item.description %></p>
-    <p>$<%= @item.price %> per day</p>
-    <% if @item.retired %>
-      <small class="item_no">Item no longer available</small><br>
-      <%= button_to('Add to cart', cart_items_path(id: @item.id), disabled: true, class: 'btn blue disabled') %>
+    <p>Current Bid: $<%= @item.current_bid %></p>
+    <p>Time Remaining: --- </p><br><br>
+    <td>
+    <% if current_user %>
+      <% if !@item.active %>
+        <small class="item_no">Item no longer available</small><br>
+        <%= button_to('Bid!', active_bids_path(id: @item.id), disabled: true, class: 'btn blue disabled') %>
+      <% else %>
+        <%= button_to('Bid!', bid_histories_path(item_id: @item.id, bid_amount: (@item.current_bid + 1), user_id: current_user.id), class: 'btn blue') %>
+      <% end %>
     <% else %>
-      <%= button_to('Add to cart', cart_items_path(id: @item.id), class: 'btn blue') %>
-    <% end %>
+        <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Bid!</a>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <p>
+                Please login before placing a bid.
+              </p><br>
+              <div><%= form_for :session, url: login_path do |f| %>
+                <%= f.label :username %>
+                <%= f.text_field :username%>
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+                <%= f.submit "Login" %>
+              <% end %></div>
+              <p> Don't have an account? <%= link_to "Create one here.", new_user_path %> </p>
+            </div>
+          </div>
+      <% end %>
+    </td>
   </div>
 </div>

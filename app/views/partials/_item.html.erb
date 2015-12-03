@@ -1,7 +1,6 @@
 <div class="col m4 item" id="item_<%= item.id %>">
   <h5 class="height"><%= link_to(item.name, item_path(item)) %></h5>
   <%= link_to(image_tag(item.image_url), item_path(item), id: "image_#{item.id}") %>
-  <p class="height"><%= item.description %></p>
-  <p>Price per day: <strong>$<%= item.current_bid %></strong></p>
-  <%= button_to "Bid!", login_path, method: :get, class: 'btn blue' %>
+  <p>Current Bid: <strong>$<%= item.current_bid %></strong></p><br>
+  <%= button_to "See Auction Details", item_path(item), method: :get, class: 'btn home-btn black-text' %>
 </div>
