@@ -1,14 +1,14 @@
 <div class="col m9">
+  <center><h4>User Dashboard</h4></center>
   <div class="row">
-    <h4>Hello <%= @user.first_name %>!</h4>
-  </div>  
-  <div>
-    <%= image_tag(@user.image_url) %>
+  <div class="col m2"><br>
+    <img src="<%=@user.image_url%>", id="user-image">
+    <h4><%= @user.first_name %></h4>
+    <p><br><br>
+      <%= @user.bio %>
+    </p>
   </div>
-  <div>
-    <%= @user.bio %>
-  </div>
-</div>
+  <div class="col m9 offset-m1">
 
 <h4 class="center small-top-margin">Active Bids</h4>
 
@@ -40,3 +40,4 @@
 <h4 class="center small-top-margin">Past Orders</h4>
 
 <!-- table.... -->
+</div>
