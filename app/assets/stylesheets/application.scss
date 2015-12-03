@@ -28,7 +28,16 @@
 body {
   font-family: "Ubuntu", sans-serif;
   background: white;
+  background-image: url("http://i.imgur.com/F3rOqrK.jpg");
+  opacity: 0.96;
 }
+
+#home-card{
+  border-radius: 5%;
+  min-height: 720px;
+  // background: gry;
+}
+
 
 h1 {
   font-family: "Lobster";
@@ -61,7 +70,8 @@ strong {
  }
 
 nav {
-  background-color: white;
+  background-color: gray;
+  opacity: 0.7;
 }
 
 #left-nav {
@@ -117,7 +127,7 @@ nav {
 }
 
 nav ul li a {
-  color: black;
+  color: white;
 }
 
 .item_cart {
