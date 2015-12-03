@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
+
 </head>
 <body>
   <%= render partial: 'partials/navbar' %>
@@ -14,8 +14,10 @@
     <%#= render partial: 'partials/sidenav' %>
   </div> -->
     <%= render partial: 'partials/flashes' %>
-    <div class="container">
-      <%= yield %>
+    <div class="container valign">
+      <div class="card z-depth-5" id="home-card"><br>
+        <%= yield %>
+      </div>
     </div>
 
 </body>
