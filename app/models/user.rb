@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   has_many :items, through: :bid_histories
 
   def active_bids
-    self.items.active
+    self.items.active.uniq
+  end
+
+  def last_bid(item)
+    item = Item.find(item.id)
+    last_bid = BidHistory.where(item_id: item, user_id: self.id).order("created_at desc").first
+    last_bid.bid_amount
   end
 end

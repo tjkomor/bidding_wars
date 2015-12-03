@@ -1,5 +1,5 @@
 <div class="col m9">
-  <div class="row top-margin center">
+  <div class="row">
     <h4>Hello <%= @user.first_name %>!</h4>
   </div>  
   <div>
@@ -19,14 +19,19 @@
       <th>Latest Bid Date</th>
       <!-- <th>Status</th> -->
       <th colspan="1"></th>
+      <th>Your Last Bid Price</th>
       <th>Latest Bid Price</th>
     </tr>
   </thead>
   <tbody>
     <% @user.active_bids.each do |item| %>
-    <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
-    <td><%= item.created_at.strftime("%B %d, %Y") %></td>
-    <td>Active</td>
+      <tr>
+      <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
+      <td><%= item.created_at.strftime("%B %d, %Y") %></td>
+      <td>Active</td>
+      <td>$ <%= @user.last_bid(item) %></td>
+      <td> $<%= item.current_bid %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
