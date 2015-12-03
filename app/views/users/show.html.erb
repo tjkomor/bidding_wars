@@ -1,7 +1,14 @@
 <div class="col m9">
   <div class="row top-margin center">
     <h4>Hello <%= @user.first_name %>!</h4>
+  </div>  
+  <div>
+    <%= image_tag(@user.image_url) %>
   </div>
+  <div>
+    <%= @user.bio %>
+  </div>
+</div>
 
 <h4 class="center small-top-margin">Active Bids</h4>
 

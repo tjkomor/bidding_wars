@@ -62,7 +62,7 @@ RSpec.configure do |config|
 
   def add_item_to_cart
     visit items_path
-    first(:button, "Add to Cart").click
+    first(:button, "See Auction Details").click
   end
 
   def login_user

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202220209) do
+ActiveRecord::Schema.define(version: 20151203000825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20151202220209) do
     t.boolean  "active"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "image_url"
+    t.string   "bio"
   end
 
   add_foreign_key "bid_histories", "items"
