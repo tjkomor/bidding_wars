@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def store_admin?
-    current_user && current_user.store_admin?
+    if current_user
+      roles = current_user.roles
+      name = roles.last.name
+      name == "store_admin"
+    end
   end
 
   def active_items

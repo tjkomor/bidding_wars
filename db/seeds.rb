@@ -61,8 +61,8 @@ Role.create!([
   {name: "platform_admin"}
   ])
 
-  UserRole.create([
-    {user_id: User.find_by(first_name: "Storeman"), role_id: 2}
+  UserRole.create!([
+    {user_id: User.where(first_name: "Storeman").first.id, role_id: 2}
     ])
 
 # Address.create!([
