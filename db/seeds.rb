@@ -48,11 +48,22 @@ Item.create!([
   ])
 
 User.create!([
-  {username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678', role: 1, active: true},
-  {username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', role: 0, active: true},
-  {username: 'tylerk', password: 'password', first_name: 'Tyler', last_name: 'Komoroske', email_address: 'tylerk@yahoo.com', phone_number: '203-858-9090', role: 0, active: true},
-  {username: 'robbielane', password: 'password', first_name: 'Robbie', last_name: 'Lane', email_address: 'robbielane@gamil.com', phone_number: '111-222-3333', role: 0, active: true}
+  {username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678', active: true},
+  {username: 'store_admin', password: 'password', first_name: 'Storeman', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678', active: true},
+  {username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', active: true},
+  {username: 'tylerk', password: 'password', first_name: 'Tyler', last_name: 'Komoroske', email_address: 'tylerk@yahoo.com', phone_number: '203-858-9090', active: true},
+  {username: 'robbielane', password: 'password', first_name: 'Robbie', last_name: 'Lane', email_address: 'robbielane@gamil.com', phone_number: '111-222-3333', active: true}
   ])
+
+Role.create!([
+  {name: "user"},
+  {name: "store_admin"},
+  {name: "platform_admin"}
+  ])
+
+  UserRole.create!([
+    {user_id: User.where(first_name: "Storeman").first.id, role_id: 2}
+    ])
 
 # Address.create!([
 #   {line_one: '1510 Blake Street', line_two: nil, city: 'Denver', state: 'CO', zip: '80202', country: 'USA', user_id: 1},

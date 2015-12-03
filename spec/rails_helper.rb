@@ -46,6 +46,12 @@ RSpec.configure do |config|
     # let!(:address) { user_one.addresses.create(line_one: "1510 Blake Street", line_two: nil, city: "Denver", state: 'CO', zip: '80202', country: "USA" )}
   end
 
+  def create_roles
+    let!(:user) {Role.create(name: "user")}
+    let!(:store_admin) {Role.create(name: "store_admin")}
+    let!(:platform_admin) {Role.create(name: "platform_admin")}
+  end
+
   def create_admin
     let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'tyler', last_name: 'komoroske', email_address: 'tjk@yahoo.com', phone_number: '518-339-1255', role: 1) }
   end
