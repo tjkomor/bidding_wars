@@ -1,11 +1,11 @@
 <div class="col m9">
   <center><h4>User Dashboard</h4></center>
   <div class="row">
-  <div class="col m2"><br><center>
+  <div class="col m3"><br><center>
     <hr class="intro-divider"><br>
     <img src="<%=@user.image_url%>", id="user-image">
     <h4><%= @user.first_name %></h4>
-    <h5><em><%= @user.last_name %></em></h5>
+    <h5><em><%= @user.last_name %></em></h5><br>
 
   <hr class="intro-divider"><br>
     <p><b>About <%= @user.first_name %>:</b></p><br>
@@ -13,7 +13,7 @@
     <hr class="intro-divider"><br>
     </center>
   </div>
-  <div class="col m9 offset-m1">
+  <div class="col m9">
 
 <h4 class="center small-top-margin">Active Bids</h4>
 
