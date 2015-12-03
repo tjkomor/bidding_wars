@@ -1,12 +1,17 @@
 <div class="col m9">
   <center><h4>User Dashboard</h4></center>
   <div class="row">
-  <div class="col m2"><br>
+  <div class="col m2"><br><center>
+    <hr class="intro-divider"><br>
     <img src="<%=@user.image_url%>", id="user-image">
     <h4><%= @user.first_name %></h4>
-    <p><br><br>
-      <%= @user.bio %>
-    </p>
+    <h5><em><%= @user.last_name %></em></h5>
+
+  <hr class="intro-divider"><br>
+    <p><b>About <%= @user.first_name %>:</b></p><br>
+    <p><em>"<%= @user.bio %>"</em></p><br>
+    <hr class="intro-divider"><br>
+    </center>
   </div>
   <div class="col m9 offset-m1">
 
@@ -17,8 +22,7 @@
     <tr>
       <th>Item Id</th>
       <th>Latest Bid Date</th>
-      <!-- <th>Status</th> -->
-      <th colspan="1"></th>
+      <th>Status</th>
       <th>Your Last Bid Price</th>
       <th>Latest Bid Price</th>
     </tr>
@@ -28,9 +32,9 @@
       <tr>
       <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
       <td><%= item.created_at.strftime("%B %d, %Y") %></td>
-      <td>Active</td>
-      <td>$ <%= @user.last_bid(item) %></td>
-      <td> $<%= item.current_bid %></td>
+      <td><center>Active</center></td>
+      <td> <center>$ <%= @user.last_bid(item) %></center></td>
+      <td> <center>$<%= item.current_bid %></center></td>
     </tr>
     <% end %>
   </tbody>
