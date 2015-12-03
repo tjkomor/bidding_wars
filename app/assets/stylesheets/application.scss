@@ -47,6 +47,12 @@ strong {
 //   opacity: 0.2;
 // }
 
+#user-image{
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+}
+
 .home-btn{
    background: transparent;
    border-style: solid;
