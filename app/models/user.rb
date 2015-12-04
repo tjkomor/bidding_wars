@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :items, through: :bid_histories
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_attached_file :image
 
 
   def set_default_role

@@ -56,7 +56,7 @@ class UsersController < UsersBaseController
   private
 
   def user_params
-    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active, :image_url, :bio)
+    params.require(:info).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active, :image, :bio)
   end
 
   def edit_user_params

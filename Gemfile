@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'stripe'
 gem 'figaro'
 gem 'twilio-ruby'
+gem 'paperclip'
+gem 'aws-sdk'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,6 +44,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'mocha'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
