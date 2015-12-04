@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  before_save :set_default_role
+  # before_save :set_default_role
 
   has_many :bid_histories
   has_many :items, through: :bid_histories
@@ -10,20 +10,20 @@ class User < ActiveRecord::Base
 
 
   def set_default_role
-    roles << Role.find_by(name:"user")
+    roles << Role.find_by(name: "user")
   end
 
   def platform_admin?
     roles.first.name == "platform_admin"
   end
 
- def is_store_admin?
-   roles.first.name == "store_admin"
- end
+  def store_admin?
+    roles.first.name == "store_admin"
+  end
 
- def registered_user?
-   roles.first.name == "user"
- end
+  def registered_user?
+    roles.first.name == "user"
+  end
 
   def active_bids
     self.items.active.uniq
