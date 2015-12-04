@@ -1,0 +1,7 @@
+<div class="col m9 top-margin">
+  <%= form_for(@store, url: admin_stores_path) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create Store", class: "btn blue" %>
+  <% end %>
+</div>

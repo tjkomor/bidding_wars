@@ -52,8 +52,8 @@ RSpec.configure do |config|
     let!(:platform_admin) {Role.create(name: "platform_admin")}
   end
 
-  def create_admin
-    let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'tyler', last_name: 'komoroske', email_address: 'tjk@yahoo.com', phone_number: '518-339-1255', role: 1) }
+  def create_store_admin
+    let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'tyler', last_name: 'komoroske', email_address: 'tjk@yahoo.com', phone_number: '518-339-1255') }
   end
 
   def create_order
