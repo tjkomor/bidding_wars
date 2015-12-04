@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-
   # before_save :set_default_role
 
   has_many :bid_histories
@@ -8,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, through: :user_roles
   has_attached_file :image
+  validates_attachment_content_type :image, content_type: /^image\/(png|gif|jpeg)/, message: "Only images are allowed"
+  # validates :image, attachment_presence: true
 
 
   def set_default_role

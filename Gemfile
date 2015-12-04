@@ -29,7 +29,7 @@ gem 'stripe'
 gem 'figaro'
 gem 'twilio-ruby'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
