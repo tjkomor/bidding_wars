@@ -6,7 +6,7 @@ class Admin::StoresController < Admin::BaseController
   def create
     @store = Store.new(store_params)
     if @store.save
-      @store.status = 'active'
+      @store.status = true
       @store.user_id = current_user.id
       flash[:notice] = "New Store Created!"
       redirect_to admin_dashboard_path
