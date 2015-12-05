@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   # validates :username, presence: true
 
   # before_save :set_default_role
-
+  has_many :stores
   has_many :bid_histories
   has_many :items, through: :bid_histories
   has_many :user_roles

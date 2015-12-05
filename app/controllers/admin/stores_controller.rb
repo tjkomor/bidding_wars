@@ -5,9 +5,10 @@ class Admin::StoresController < Admin::BaseController
 
   def create
     @store = Store.new(store_params)
+
     if @store.save
-      @store.status = true
-      @store.user_id = current_user.id
+      # @store.status = true
+      # @store.user_id = current_user.id
       flash[:notice] = "New Store Created!"
       redirect_to admin_dashboard_path
     else
@@ -19,6 +20,6 @@ class Admin::StoresController < Admin::BaseController
   private
 
   def store_params
-    params.require(:store).permit(:name)
+    params.require(:store).permit(:name, :user_id, :status)
   end
 end

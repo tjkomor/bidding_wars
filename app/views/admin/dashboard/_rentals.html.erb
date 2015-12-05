@@ -1,5 +1,8 @@
 <div class="col m9 small-top-margin">
+  <div class="card">
+
 <h3 class="center">Admin Dashboard</h3>
+<h2>Total Sales</h2>
 <div class="row">
   <div class="small-top-margin center">
     <div class="col m3">
@@ -13,6 +16,14 @@
     </div>
   </div>
 </div>
+
+<div class="collection with-header status_counts">
+    <h5 class="collection-header"> Admin </h5>
+    <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @items.count %></span></a>
+    <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @items.active.count %></span></a>
+    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @customers %></span></a>
+    <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @orders.count %></span></a>
+    </div>
   <h5 class="small-top-margin center">Bids</h5>
   <table class="bordered highlight">
     <thead>
@@ -36,4 +47,5 @@
       <% end %>
     </tbody>
   </table>
+</div>
 </div>

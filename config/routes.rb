@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
+    get '/dashboard/customers', to: 'dashboard#customers'
     resources :categories, only: [:new, :create]
-    resources :rentals, only: [:show, :update]
+    resources :orders, only: [:show, :update, :index]
     resources :items, only: [:new, :create, :index, :edit, :update]
     resources :stores, only: [:new, :create]
   end
