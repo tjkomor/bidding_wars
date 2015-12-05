@@ -1,7 +1,8 @@
 <br><br>
-<h3><%= @item.name %></h3>
+<h3 class="white-text"><%= @item.name %></h3>
 <div class="row">
-  <div class="col m4">
+  <div class="card">
+      <div class="col m4">
     <%= image_tag(@item.image_url, class: 'item_show') %>
   </div>
 <br><br>
@@ -26,7 +27,7 @@
               </p><br>
               <div><%= form_for :session, url: login_path do |f| %>
                 <%= f.label :username %>
-                <%= f.text_field :username%>
+                <%= f.text_field :username %><br>
                 <%= f.label :password %>
                 <%= f.password_field :password %>
                 <%= f.submit "Login" %>
@@ -37,4 +38,5 @@
       <% end %>
     </td>
   </div>
+</div>
 </div>

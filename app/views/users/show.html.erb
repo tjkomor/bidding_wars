@@ -11,6 +11,7 @@
   <hr class="intro-divider"><br>
     <p><b>About <%= @user.first_name %>:</b></p><br>
     <p><em>"<%= @user.bio %>"</em></p><br>
+    <%= link_to "Edit Info", edit_user_path(@user) %>
     <hr class="intro-divider"><br>
     </center>
   </div>

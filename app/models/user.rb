@@ -1,5 +1,15 @@
 class User < ActiveRecord::Base
   has_secure_password
+
+  validates :password, presence: true
+  validates :email_address, presence: true
+  validates :phone_number, presence: true
+  validates :username, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  # validates :username, presence: true
+  # validates :username, presence: true
+
   # before_save :set_default_role
 
   has_many :bid_histories
