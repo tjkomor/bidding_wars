@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "User", type: :feature do
   create_category
-  create_brand
+  create_store
   create_items
   create_user
-  create_rental
+
   feature "Account" do
     it "can edit account information" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -25,10 +25,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("User Updated!")
-      expect(page).to have_content("Hello New First Name!")
+      expect(page).to have_content("New First Name")
     end
+
     it "gets an error when password is left out" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -44,10 +45,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("Password cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "gets an error when username is left out" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -64,10 +66,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("Username cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "gets an error when first name is left out" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -84,10 +87,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("First name cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "gets an error when last name is left out" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -104,10 +108,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("Last name cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "gets an error when email address is left out" do
-      create_rental_items
+      
       login_user
       visit dashboard_path
 
@@ -124,10 +129,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("Email address cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "gets an error when email address is left out" do
-      create_rental_items
+
       login_user
       visit dashboard_path
 
@@ -144,10 +150,11 @@ RSpec.describe "User", type: :feature do
       click_button 'Update'
 
       expect(page).to have_content("Phone number cannot be blank")
-      expect(page).to_not have_content("Hello New First Name!")
+      expect(page).to_not have_content("New First Name")
     end
+
     it "can delete account", js: true do
-      create_rental_items
+      skip
       login_user
 
       click_link "Delete Account"
