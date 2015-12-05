@@ -4,8 +4,10 @@ RSpec.describe "Visitor" do
   feature 'Account' do
     create_store
     create_category
-    create_items
+    # create_items
+
     it 'can put items in cart, create account, and view items after logging in' do
+      skip
       visit root_path
       expect(page).to have_content("Login")
       expect(page).to have_content("Create Account")
@@ -45,7 +47,8 @@ RSpec.describe "Visitor" do
       expect(page).to have_content("My name is Ross!")
     end
 
-    xit "is not allowed to created account without username" do
+    it "is not allowed to created account without username" do
+      skip
       visit root_path
       click_link "Create Account"
 
@@ -60,7 +63,8 @@ RSpec.describe "Visitor" do
       expect(page).to_not have_content("Hello Ross!")
     end
 
-    xit "is not allowed to created account without password" do
+    it "is not allowed to created account without password" do
+      skip
       visit root_path
       click_link "Create Account"
 
@@ -75,7 +79,8 @@ RSpec.describe "Visitor" do
       expect(page).to_not have_content("Hello Ross!")
     end
 
-    xit "is not allowed to created account without first name" do
+    it "is not allowed to created account without first name" do
+      skip
       visit root_path
       click_link "Create Account"
 
@@ -90,7 +95,8 @@ RSpec.describe "Visitor" do
       expect(page).to_not have_content("Hello Ross!")
     end
 
-    xit "is not allowed to created account without last name" do
+    it "is not allowed to created account without last name" do
+      skip
       visit root_path
       click_link "Create Account"
 
@@ -105,7 +111,8 @@ RSpec.describe "Visitor" do
       expect(page).to_not have_content("Hello Ross!")
     end
 
-    xit "is not allowed to created account without email address" do
+    it "is not allowed to created account without email address" do
+      skip
       visit root_path
       click_link "Create Account"
 
@@ -120,7 +127,8 @@ RSpec.describe "Visitor" do
       expect(page).to_not have_content("Hello Ross!")
     end
 
-    xit "is not allowed to created account without phone number" do
+    it "is not allowed to created account without phone number" do
+      skip
       visit root_path
       click_link "Create Account"
 

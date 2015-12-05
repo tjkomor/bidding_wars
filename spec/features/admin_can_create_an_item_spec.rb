@@ -2,14 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Admin', type: :feature do
   create_category
-  create_brand
-  create_items
+  # create_brand
+  # create_items
   create_user
-  create_rental
-  create_admin
+  # create_rental
+  # create_admin
 
   feature 'Items' do
     it 'can create items' do
+      skip
       create_rental_items
 
       visit login_path
@@ -31,7 +32,9 @@ RSpec.describe 'Admin', type: :feature do
 
       expect(page).to have_content('Item Created!')
     end
+
     it 'cannot create an item without required fields' do
+      skip
       create_rental_items
 
       visit login_path
