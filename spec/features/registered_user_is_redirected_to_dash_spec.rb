@@ -12,7 +12,7 @@ RSpec.describe 'Registered user', type: :feature do
 
       click_button "Login"
 
-      expect(page).to have_content("My Dashboard")
+      expect(page).to have_content("User Dashboard")
       expect(page).to_not have_content("Login")
     end
   end

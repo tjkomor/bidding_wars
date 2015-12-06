@@ -112,7 +112,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when email address is left out" do
-      
+
       login_user
       visit dashboard_path
 

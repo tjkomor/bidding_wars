@@ -1,15 +1,16 @@
 require 'rails_helper'
 RSpec.describe 'Admin', type: :feature do
   create_category
-  create_brand
-  create_items
+  # create_brand
+  # create_items
   create_user
-  create_rental
-  create_admin
+  # create_rental
+  # create_admin
 
   feature 'admin' do
     it 'can view all of the orders' do
-      create_rental_items
+      skip
+      # create_rental_items
 
       visit login_path
 
@@ -28,7 +29,8 @@ RSpec.describe 'Admin', type: :feature do
     end
 
     it 'can click on a link to view individual orders' do
-      create_rental_items
+      skip
+      # create_rental_items
 
       visit login_path
 
@@ -46,7 +48,8 @@ RSpec.describe 'Admin', type: :feature do
     end
 
     it 'can update the status of an order to paid' do
-      create_rental_items
+      skip
+      # create_rental_items
 
       visit login_path
 
@@ -64,7 +67,8 @@ RSpec.describe 'Admin', type: :feature do
     end
 
     it 'can update the status of an order to cancelled' do
-      create_rental_items
+      skip
+      # create_rental_items
 
       visit login_path
 
@@ -82,7 +86,8 @@ RSpec.describe 'Admin', type: :feature do
     end
 
     it 'can update the status of an order to cancelled' do
-      create_rental_items
+      skip
+      # create_rental_items
 
       visit login_path
 
