@@ -17,4 +17,8 @@ class Item < ActiveRecord::Base
     amount = self.bid_histories.maximum(:bid_amount)
     self.bid_histories.where(bid_amount: amount)
   end
+
+  def auction_close_time
+    self.created_at + (auction_length - 7).hours
+  end
 end
