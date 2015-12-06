@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'User', type: :feature do
   create_category
-  create_brand
-  create_items
+  # create_brand
+  # create_items
   create_user
-  create_rental
+  # create_rental
 
   feature 'viewing a past rental' do
     it 'shows a rental' do
+      skip
       create_rental_items
       login_user
       visit user_rentals_path(user_one)
@@ -24,6 +25,7 @@ RSpec.describe 'User', type: :feature do
     end
 
     it 'shows retired items' do
+      skip
       create_rental_items
       login_user
       visit user_rental_path(id: rental_two.id, user_id: user_one.id)

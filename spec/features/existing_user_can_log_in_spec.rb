@@ -11,9 +11,9 @@ RSpec.describe "User" do
       fill_in "Password", with: 'password'
 
       click_button "Login"
-
+      
       expect(page).to_not have_content("Login")
-      expect(page).to have_content("Logged in as: rossedfort")
+      expect(page).to have_content("#{user_one.first_name}'s Dash")
     end
 
     it "cannot log in with invalid credentials" do
@@ -24,7 +24,7 @@ RSpec.describe "User" do
       fill_in "Password", with: 'rickross'
 
       click_button "Login"
-      
+
       expect(page).to have_content("Invalid Credentials")
       expect(page).to_not have_content("Logged in as: rossedfort")
     end

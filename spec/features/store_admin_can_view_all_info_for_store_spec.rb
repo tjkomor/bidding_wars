@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe 'Admin', type: :feature do
+
   feature 'views' do
     create_category
     create_roles

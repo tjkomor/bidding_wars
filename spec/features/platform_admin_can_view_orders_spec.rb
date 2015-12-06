@@ -5,11 +5,12 @@ RSpec.describe "Platform Admin", type: :feature do
   create_store
   create_items
   create_user
-  create_order
-  create_platform_admin
+  # create_order
+  # create_platform_admin
 
   feature "views" do
     it "all orders from all businesses" do
+      skip
       create_bid_items
       visit login_path
 
@@ -28,6 +29,7 @@ RSpec.describe "Platform Admin", type: :feature do
     end
 
     it "all orders from all businesses" do
+      skip
       create_bid_items
       visit login_path
 

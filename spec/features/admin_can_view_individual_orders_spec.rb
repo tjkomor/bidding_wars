@@ -1,13 +1,15 @@
 require 'rails_helper'
 RSpec.describe 'Admin', type: :feature do
   create_category
-  create_brand
-  create_items
+  # create_brand
+  # create_items
   create_user
-  create_rental
-  create_admin
+  # create_rental
+  # create_admin
+
   feature 'admin' do
     it 'can view individual order info' do
+      skip
       create_rental_items
 
       visit login_path

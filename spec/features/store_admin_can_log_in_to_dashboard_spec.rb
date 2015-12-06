@@ -4,7 +4,7 @@ RSpec.describe 'Admin', type: :feature do
     create_roles
     it 'can log in and view dashboard page' do
       store_admin = User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
-      store_admin.roles.clear << Role.find(2)
+      store_admin.roles.clear << Role.where(name: 'store_admin')
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(store_admin)
       visit login_path
