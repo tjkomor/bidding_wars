@@ -6,8 +6,6 @@
       <li><a href="/items" class='dropdown-button' data-activates='dropdown1'>Shop Categories</a></li>
       <li><a href="#" class='dropdown-button' data-activates='dropdown2'>Shop Stores</a></li>
       <li><%= link_to "Shop All", items_path %></li>
-      <li><%= link_to "Dashboard", dashboard_path %></li>
-      <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
       <% elsif current_user %>
       <li><a href="/items" class='dropdown-button' data-activates='dropdown1'>Shop Categories</a></li>
       <li><a href="#" class='dropdown-button' data-activates='dropdown2'>Shop Stores</a></li>
@@ -32,8 +30,12 @@
     </ul>
 
     <ul class="right">
-      <% if current_user %>
+      <% if current_user && current_user.store_admin? %>
+      <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
       <li><%= link_to "#{current_user.first_name.capitalize}'s Dashboard", dashboard_path %></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% elsif current_user %>
+        <li><%= link_to "#{current_user.first_name.capitalize}'s Dashboard", dashboard_path %></li>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <!-- <li class="cart" id="cart"><a class="black-text" id="cart-link" href="/dashboard"><i class="material-icons">assessment</i><div class="chip"> <%#= current_user.active_bids.count %></div></a></li> -->
       <% else %>
