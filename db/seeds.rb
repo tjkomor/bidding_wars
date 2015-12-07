@@ -52,6 +52,7 @@ User.create!([
   {username: 'store_admin', password: 'password', first_name: 'Storeman', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678', active: true},
   {username: 'rossedfort', password: 'password', first_name: 'Ross', last_name: 'Edfort', email_address: 'rossedfort@yahoo.com', phone_number: '908-698-9024', active: true},
   {username: 'tylerk', password: 'password', first_name: 'Tyler', last_name: 'Komoroske', email_address: 'tylerk@yahoo.com', phone_number: '203-858-9090', active: true},
+  {username: 'platformadmin', password: 'platformadmin', first_name: 'Clemson', last_name: 'Tigers', email_address: 'gotigers@gmail.com', phone_number: '555-234-5678', active: true},
   {username: 'robbielane', password: 'password', first_name: 'Robbie', last_name: 'Lane', email_address: 'robbielane@gamil.com', phone_number: '111-222-3333', active: true}
   ])
 

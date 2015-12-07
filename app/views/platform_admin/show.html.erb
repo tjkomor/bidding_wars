@@ -1,0 +1,22 @@
+<div class="col m9 small-top-margin">
+  <div class="card">
+
+<h3 class="center">Admin Dashboard</h3>
+<h2>Total Sales</h2>
+<div class="row">
+  <div class="small-top-margin center">
+    <div class="col m3">
+      <%= button_to "Add New Item", new_platform_admin_item_path, method: :get, class: 'btn blue dash-btn-big' %>
+    </div>
+    <div class="col m3">
+      <%= button_to "View Items", platform_admin_items_path, method: :get, class: 'btn blue dash-btn-big' %>
+    </div>
+    <div class="col m3">
+      <%= button_to "New Category", new_platform_admin_category_path, method: :get, class: 'btn blue dash-btn-big' %>
+    </div>
+    <div class="col m3">
+      <%= button_to "New Store", new_platform_admin_store_path, method: :get, class: 'btn blue dash-btn-big' %>
+    </div>
+
+  </div>
+</div>

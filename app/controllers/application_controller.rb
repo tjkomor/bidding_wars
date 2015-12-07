@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :categories, :stores, :current_user, :store_admin?, :active_items
+  helper_method :categories, :stores, :current_user, :store_admin?, :platform_admin?, :active_items
 
   def set_bid_tracker
     @bid_tracker = ActiveBids.new(session[:active_bids])
@@ -25,6 +25,17 @@ class ApplicationController < ActionController::Base
         roles = current_user.roles
         name = roles.last.name
         name == "store_admin"
+      end
+    end
+  end
+
+  def platform_admin?
+    if current_user
+      if current_user_role.nil?
+      else
+        roles = current_user.roles
+        name = roles.last.name
+        name == "platform_admin"
       end
     end
   end
