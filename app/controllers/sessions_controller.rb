@@ -3,7 +3,9 @@ class SessionsController < ApplicationController
   @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      if store_admin?
+      if platform_admin?
+        redirect_to platform_admin_dashboard_path
+      elsif store_admin?
         redirect_to admin_dashboard_path
       elsif @user.active
         redirect_to dashboard_path
