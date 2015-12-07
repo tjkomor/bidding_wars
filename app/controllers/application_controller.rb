@@ -41,8 +41,11 @@ class ApplicationController < ActionController::Base
   end
 
   def active_items
-    Item.where(active: true).all
+    Item.where(active: true).all.select do |item|
+      item.is_open
+    end
   end
+
 
 
   private

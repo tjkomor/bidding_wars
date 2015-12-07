@@ -7,13 +7,13 @@
   </div>
 <br><br>
   <div class="col m4 offset-m1">
-    <p><%= @item.description %></p>
-    <p>Current Bid: $<%= @item.current_bid %></p>
+    <p><%= @item.description %></p><br>
+    <p>Current Bid: $<%= @item.current_bid %></p><br>
     <p>This auction closes on: <%= @item.auction_close_time.strftime('%B, %d') %> at <%= @item.auction_close_time.strftime('%r') %>.</p><br><br>
     <td>
     <% if current_user %>
-      <% if !@item.active %>
-        <small class="item_no">Item no longer available</small><br>
+      <% if !@item.active || !@item.is_open %>
+        <small class="item_no">Item no longer available.</small><br>
         <%= button_to('Bid!', '#', disabled: true, class: 'btn blue disabled') %>
       <% else %>
         <%= button_to('Bid!', bid_histories_path(item_id: @item.id, bid_amount: (@item.current_bid + 1), user_id: current_user.id), class: 'btn blue') %>

@@ -19,7 +19,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def index
-    @items = Item.all
+    @items = current_user.stores.first.store_active_items
   end
 
   def create
