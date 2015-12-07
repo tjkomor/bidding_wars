@@ -57,17 +57,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.won_bids.each do |item| %>
-    <%unless item.nil? %>
+    <% @user.won_bids.each do |order| %>
       <tr>
-      <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
-      <td><%= item.created_at.strftime("%B %d, %Y") %></td>
+      <td><%= link_to order.item.name, item_path(order.item.id), class: 'black-text' %> </td>
+      <td><%= order.item.created_at.strftime("%B %d, %Y") %></td>
       <td><center>Active</center></td>
-      <td> <center>$ <%= @user.last_bid(item) %></center></td>
-      <td> <center>$<%= item.current_bid %></center></td>
+      <td> <center>$ <%= @user.last_bid(order.item) %></center></td>
+      <td> <center>$<%= order.item.current_bid %></center></td>
     </tr>
-    <% end %>
-
     <% end %>
   </tbody>
 </table></div>
