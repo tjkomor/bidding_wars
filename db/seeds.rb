@@ -3,10 +3,10 @@ class Seed
     seed = Seed.new
     # seed.generate_items
     # seed.generate_stores
+    seed.generate_store_admin_and_stores
     seed.generate_categories_with_items
     seed.generate_roles
     seed.generate_users
-    seed.generate_store_admin_and_stores
     # seed.generate_platform_admin
     # seed.generate_orders
   end
@@ -51,7 +51,6 @@ class Seed
                         last_name: Faker::Name.last_name,
                         email_address: Faker::Internet.email,
                         phone_number: Faker::PhoneNumber.phone_number,
-
                         active: true,
                         bio: Faker::Lorem.paragraph,
                         image: image
@@ -131,6 +130,7 @@ class Seed
           description: Faker::Lorem.paragraph,
           current_bid: Faker::Number.number(2),
           active: true,
+          store_id: Faker::Number.between(1,10),
 
           auction_length: Faker::Number.between(24, 48),
           image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200")
