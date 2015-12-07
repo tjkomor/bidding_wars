@@ -29,4 +29,16 @@ class Store < ActiveRecord::Base
       item.time_closed && item.active && !item.winning_bid.empty?
     end
   end
+
+  def customers
+    customers = {}
+    self.orders.each do |order|
+      if !customers.keys.include?(User.find(order.user_id))
+        customers[User.find(order.user_id)] = [Item.find(order.item_id)]
+      else
+        customers[User.find(order.user_id)] << Item.find(order.item_id)
+      end
+    end
+    customers
+  end
 end
