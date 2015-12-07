@@ -22,6 +22,7 @@ class Seed
 
   def generate_store_admin_and_stores
     image = File.open(Dir.glob(File.join(Rails.root,'lib/assets/', '*')).sample)
+    andrew_image = File.open(File.join(Rails.root,'lib/assets/andrew_carmer.jpg'))
 
     andrew = User.create!(username: "andrew@turing.io",
                           password: "password",
@@ -31,7 +32,7 @@ class Seed
                           phone_number: "#{Faker::Number.number(3)}-#{Faker::Number.number(3)}-#{Faker::Number.number(4)}",
                           active: true,
                           bio: "Andrew’s extensive business and hospitality experience gives him a unique, pragmatic approach to people and learning. Before joining the Turing team Andrew was - among other, perhaps more traditional, things - a bicycle currier, mud jacker, and artisan pickle maker.",
-                          image: image
+                          image: andrew_image
                           )
     andrew.roles = Role.first(2)
 
@@ -77,6 +78,7 @@ class Seed
   end
 
   def generate_users
+    josh_image = File.open(File.join(Rails.root,'lib/assets/josh_mejia.jpg'))
     image = File.open(Dir.glob(File.join(Rails.root,'lib/assets/', '*')).sample)
 
     josh = User.create!(username: "josh@turing.io",
@@ -87,7 +89,7 @@ class Seed
                 phone_number: Faker::PhoneNumber.phone_number,
                 active: true,
                 bio: "Always looking for the his next challenge, Josh walked away from blue collar jobs to pursue web development in 2007. Working first as a software developer in the energy industry, Josh enjoyed playing a small part in an innovative field that would lead to large, worldwide change.",
-                image: image
+                image: josh_image
                 )
     josh.roles << Role.first
 
