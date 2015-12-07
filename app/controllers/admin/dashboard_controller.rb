@@ -5,9 +5,9 @@ class Admin::DashboardController < Admin::BaseController
     if @store.nil?
       redirect_to new_admin_store_path
     else
-      @orders = @store.store_past_items
+      @orders = @store.orders
       winning_customers = @orders.map do |order|
-        BidHistory.where(item_id: order.id).where(bid_amount: order.winning_bid).first
+        BidHistory.where(item_id: order.item_id).where(bid_amount: order.item.winning_bid).first
       end
       @customers = winning_customers
     end

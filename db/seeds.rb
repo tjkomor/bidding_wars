@@ -7,8 +7,11 @@ class Seed
     seed.generate_store_admin_and_stores
     seed.generate_categories_with_items
     seed.generate_users
+    seed.generate_bids
+    seed.generate_pending_bids
+
     # seed.generate_platform_admin
-    # seed.generate_orders
+    seed.generate_orders
   end
 
   def generate_roles
@@ -110,7 +113,54 @@ class Seed
     end
   end
 
+  def generate_bids
+    100.times do |i|
+      user  = User.find(Random.new.rand(1..50))
+      item  = Item.find(Random.new.rand(1..100))
+      if item.is_open
+        bid_amount = item.current_bid + 5
+        bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
+        puts "Bid #{i}: Order for #{user.username} and #{item.name} created!"
+      end
+    end
+  end
 
+  def generate_pending_bids
+    100.times do |i|
+      user  = User.find(Random.new.rand(1..50))
+      item  = Item.find(Random.new.rand(1..100))
+      if item.is_pending
+        bid_amount = item.current_bid + 5
+        bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
+        puts "Bid #{i}: Order for #{user.username} and #{item.name} created!"
+      end
+    end
+  end
+
+  def generate_andrew_store_pending_bids
+    user = User.where(username: "andrew@turing.io").first
+    bidder  = User.find(Random.new.rand(1..50))
+    user.store.items.each do |item|
+      if item.is_pending
+        bid_amount = item.current_bid + 5
+        bid = BidHistory.create!(user_id: bidder.id, item_id: item.id, bid_amount: bid_amount)
+        puts "Bid #{i}: Order for #{bidder.username} and #{item.name} created!"
+      end
+    end
+  end
+
+  def generate_orders
+    Item.closed.each do |item|
+      user  = User.find(Random.new.rand(1..50))
+      # item  = Item.closed.find(Random.new.rand(1..100))
+      if !item.is_open
+        bid_amount = item.current_bid + 5
+        bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
+        order = Order.create!(user_id: user.id, item_id: item.id, amount: bid_amount, store_id: item.store.id)
+        puts "Bid: Order for #{user.username} and #{item.name} created!"
+      end
+    end
+  end
 
   # def generate_orders
   #   100.times do |i|
@@ -133,6 +183,30 @@ class Seed
           store_id: Faker::Number.between(1,10),
 
           auction_length: Faker::Number.between(24, 48),
+          image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200")
+        puts "Item #{i}: #{item.name} created!"
+      end
+      10.times do |i|
+        item = category.items.create!(
+          name: Faker::Commerce.product_name,
+          description: Faker::Lorem.paragraph,
+          current_bid: Faker::Number.number(2),
+          active: false,
+          store_id: Faker::Number.between(1,10),
+
+          auction_length: Faker::Number.between(-40, -10),
+          image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200")
+        puts "Item #{i}: #{item.name} created!"
+      end
+      10.times do |i|
+        item = category.items.create!(
+          name: Faker::Commerce.product_name,
+          description: Faker::Lorem.paragraph,
+          current_bid: Faker::Number.number(2),
+          active: true,
+          store_id: Faker::Number.between(1,10),
+
+          auction_length: Faker::Number.between(-40, -10),
           image_url: "http://robohash.org/#{i}.png?set=set2&bgset=bg1&size=200x200")
         puts "Item #{i}: #{item.name} created!"
       end
