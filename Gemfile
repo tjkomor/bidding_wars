@@ -30,6 +30,7 @@ gem 'figaro'
 gem 'twilio-ruby'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
