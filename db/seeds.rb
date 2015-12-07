@@ -29,11 +29,11 @@ class Seed
                           last_name: "Carmer",
                           email_address: "andrew@turing.io",
                           phone_number: "#{Faker::Number.number(3)}-#{Faker::Number.number(3)}-#{Faker::Number.number(4)}",
-                          role: "store_admin",
                           active: true,
                           bio: "Andrew’s extensive business and hospitality experience gives him a unique, pragmatic approach to people and learning. Before joining the Turing team Andrew was - among other, perhaps more traditional, things - a bicycle currier, mud jacker, and artisan pickle maker.",
                           image: image
                           )
+    andrew.roles = Role.first(2)
 
     andrew.stores.create!(
             name: Faker::Company.name,
@@ -50,11 +50,12 @@ class Seed
                         last_name: Faker::Name.last_name,
                         email_address: Faker::Internet.email,
                         phone_number: Faker::PhoneNumber.phone_number,
-                        role: "store_admin",
+
                         active: true,
                         bio: Faker::Lorem.paragraph,
                         image: image
                         )
+      store_admin.roles << Role.first(2)
 
       store_admin.stores.create!(
                 name: Faker::Company.name,
@@ -78,17 +79,17 @@ class Seed
   def generate_users
     image = File.open(Dir.glob(File.join(Rails.root,'lib/assets/', '*')).sample)
 
-    User.create!(username: "josh@turing.io",
+    josh = User.create!(username: "josh@turing.io",
                  password: "password",
                 first_name: "Josh",
                 last_name: "Mejia",
                 email_address: "josh@turing.io",
                 phone_number: Faker::PhoneNumber.phone_number,
-                role: "user",
                 active: true,
                 bio: "Always looking for the his next challenge, Josh walked away from blue collar jobs to pursue web development in 2007. Working first as a software developer in the energy industry, Josh enjoyed playing a small part in an innovative field that would lead to large, worldwide change.",
                 image: image
                 )
+    josh.roles << Role.first
 
     99.times do |i|
       user = User.create!(
@@ -98,11 +99,12 @@ class Seed
         last_name: Faker::Name.last_name,
         email_address: Faker::Internet.email,
         phone_number: Faker::PhoneNumber.phone_number,
-        role: "user",
         active: true,
         bio: Faker::Lorem.paragraph,
         image: image
         )
+
+        user.roles << Role.first
       puts "User #{i}: #{user.username} - #{user.email_address} created!"
     end
   end
