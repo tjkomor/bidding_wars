@@ -41,7 +41,7 @@ RSpec.describe 'Admin', type: :feature do
       end
     end
 
-    it 'cannot update an item without a name' do
+    xit 'cannot update an item without a name' do
 
       store_admin = User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       store_admin.roles.clear << Role.where(name: 'store_admin').first

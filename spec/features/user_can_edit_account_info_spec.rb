@@ -4,17 +4,23 @@ RSpec.describe "User", type: :feature do
   create_category
   create_store
   create_items
+  create_roles
   create_user
+  create_store_admin
 
   feature "Account" do
-    it "can edit account information" do
 
-      login_user
+    it "can edit account information" do
+      admin_one.roles.clear << Role.where(name: 'store_admin').first
+      user_one.roles.clear << Role.where(name: 'user').first
+
+      login_store_admin
+
       visit dashboard_path
 
       click_link_or_button "Edit Info"
 
-      expect(current_path).to eq(edit_user_path(user_one))
+      expect(current_path).to eq(edit_user_path(admin_one))
 
       fill_in 'Username', with: 'NewUsername'
       fill_in 'Password', with: 'newpassword'
@@ -29,7 +35,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when password is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 
@@ -49,7 +55,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when username is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 
@@ -70,7 +76,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when first name is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 
@@ -91,7 +97,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when last name is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 
@@ -112,7 +118,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when email address is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 
@@ -133,7 +139,7 @@ RSpec.describe "User", type: :feature do
     end
 
     it "gets an error when email address is left out" do
-
+      user_one.roles.clear << Role.where(name: 'user').first
       login_user
       visit dashboard_path
 

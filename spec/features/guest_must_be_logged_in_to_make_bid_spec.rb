@@ -5,8 +5,10 @@ RSpec.describe 'Guest', type: :feature do
   create_category
   create_items
   create_user
+  create_roles
   feature 'Bidding' do
     it 'must be logged in' do
+      user_one.roles.clear << Role.where(name: 'user').first
       visit root_path
 
       click_link "Video Games"

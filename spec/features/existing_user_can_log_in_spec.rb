@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "User" do
   create_user
+  create_roles
   feature "Login" do
     it "can log in" do
+      user_one.roles.clear << Role.where(name: 'user').first
       visit root_path
       click_link "Login"
 
@@ -11,7 +13,7 @@ RSpec.describe "User" do
       fill_in "Password", with: 'password'
 
       click_button "Login"
-      
+
       expect(page).to_not have_content("Login")
       expect(page).to have_content("#{user_one.first_name}'s Dash")
     end

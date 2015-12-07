@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Registered user', type: :feature do
   create_user
+  create_roles
   feature 'successful login' do
     it 'is redirected to dashboard' do
+      user_one.roles.clear << Role.where(name: 'user').first
       visit root_path
       click_link "Login"
 

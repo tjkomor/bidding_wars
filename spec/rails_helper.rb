@@ -53,7 +53,7 @@ RSpec.configure do |config|
   end
 
   def create_store_admin
-    let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'tyler', last_name: 'komoroske', email_address: 'tjk@yahoo.com', phone_number: '518-339-1255') }
+    let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678') }
   end
 
   def create_order
@@ -75,6 +75,13 @@ RSpec.configure do |config|
     visit login_path
     fill_in 'Username', with: 'rossedfort'
     fill_in 'Password', with: 'password'
+    click_button "Login"
+  end
+
+  def login_store_admin
+    visit login_path
+    fill_in 'Username', with: 'admin'
+    fill_in 'Password', with: 'admin'
     click_button "Login"
   end
 end
