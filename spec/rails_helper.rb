@@ -56,6 +56,10 @@ RSpec.configure do |config|
     let!(:admin_one) { User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678') }
   end
 
+  def create_platform_admin
+    let!(:platform_admin) { User.create(username: 'platform_admin', password: 'platform_admin', first_name: 'Clemson', last_name: 'Tigers', email_address: 'gotigers@gmail.com', phone_number: '555-234-5678') }
+  end
+
   def create_order
     let!(:order_one) { Order.create(user_id: User.last.id, total_price: 190, status: 'Completed', created_at: "2015-11-11 15:29:36") }
   end

@@ -5,6 +5,7 @@ class UsersController < UsersBaseController
   end
 
   def create
+    byebug
     @user = User.new(user_params)
     @role = params[:role]
     if @role == 'user'
@@ -17,11 +18,20 @@ class UsersController < UsersBaseController
         flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
         render :new
       end
-    else
+    elsif @role == 'store_admin'
       if @user.save
         session[:user_id] = @user.id
         @user.roles << Role.where(name: 'store_admin').first
         redirect_to new_admin_store_path
+      else
+        flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
+        render :new
+      end
+    else
+      if @user.save
+        session[:user_id] = @user.id
+        @user.roles << Role.where(name: 'platform_admin').first
+        redirect_to platform_admin_dashboard_path
       else
         flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
         render :new
