@@ -15,7 +15,7 @@ class Item < ActiveRecord::Base
 
   def winning_bid
     amount = self.bid_histories.maximum(:bid_amount)
-    self.bid_histories.where(bid_amount: amount)
+    self.bid_histories.where(bid_amount: amount).all
   end
 
   def auction_close_time
@@ -26,7 +26,11 @@ class Item < ActiveRecord::Base
     active && (Time.now - 7.hours) < auction_close_time
   end
 
-  def closed
+  def is_pending
+    active && (Time.now - 7.hours) >= auction_close_time
+  end
+
+  def time_closed
     (Time.now - 7.hours) >= auction_close_time
   end
 end

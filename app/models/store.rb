@@ -2,6 +2,7 @@ class Store < ActiveRecord::Base
   before_save :set_slug
   belongs_to :user
   has_many :items
+  has_many :orders
 
   def to_param
     slug
@@ -19,7 +20,13 @@ class Store < ActiveRecord::Base
 
   def store_past_items
     self.items.select do |item|
-      item.closed
+      item.time_closed
+    end
+  end
+
+  def pending_bids
+    self.items.select do |item|
+      item.time_closed && item.active && !item.winning_bid.empty?
     end
   end
 end

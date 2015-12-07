@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   # before_save :set_default_role
   has_many :stores
+  has_many :orders
   has_many :bid_histories
   has_many :items, through: :bid_histories
   has_many :user_roles
@@ -51,20 +52,21 @@ class User < ActiveRecord::Base
     user_bids = BidHistory.where(user_id: self.id).all
     bids = []
     user_bids.each do |bid|
-      if bid.item.is_open
+      if bid.item.is_open || bid.item.is_pending
         bids << bid.item
       end
     end
-    bids
+    bids.uniq
   end
 
   def won_bids
-    bids = self.bid_histories
-    ordered_bids = bids.map do |bid|
-      if (bid.user_id == bid.item.winning_bid.first.user_id) && bid.item.closed
-        bid.item
-      end
-    end
-    ordered_bids.uniq
+    # bids = self.bid_histories
+    # ordered_bids = bids.map do |bid|
+    #   if (bid.user_id == bid.item.winning_bid.first.user_id) && bid.item.closed
+    #     bid.item
+    #   end
+    # end
+    # ordered_bids.uniq
+    self.orders
   end
 end
