@@ -72,9 +72,9 @@ class Seed
     seed = Seed.new
     # seed.generate_items
     # seed.generate_stores
+    seed.generate_roles
     seed.generate_store_admin_and_stores
     seed.generate_categories_with_items
-    seed.generate_roles
     seed.generate_users
     # seed.generate_platform_admin
     # seed.generate_orders
@@ -103,7 +103,7 @@ class Seed
                           bio: "Andrew’s extensive business and hospitality experience gives him a unique, pragmatic approach to people and learning. Before joining the Turing team Andrew was - among other, perhaps more traditional, things - a bicycle currier, mud jacker, and artisan pickle maker.",
                           image: andrew_image
                           )
-    andrew.roles = Role.first(2)
+    andrew.roles  << Role.where(name: "store_admin").all.first
 
     andrew.stores.create!(
             name: Faker::Company.name,
@@ -124,7 +124,7 @@ class Seed
                         bio: Faker::Lorem.paragraph,
                         image: image
                         )
-      store_admin.roles << Role.first(2)
+      store_admin.roles << Role.where(name: "store_admin").all.first
 
       store_admin.stores.create!(
                 name: Faker::Company.name,
