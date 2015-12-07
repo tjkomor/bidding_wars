@@ -10,4 +10,10 @@ class Store < ActiveRecord::Base
   def set_slug
     self.slug = name.parameterize
   end
+
+  def store_active_items
+    self.items.where(active: true).all.select do |item|
+      item.is_open
+    end
+  end
 end

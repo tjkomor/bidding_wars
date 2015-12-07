@@ -19,13 +19,13 @@
 
     <ul id="dropdown2" class="dropdown-content">
       <% stores.each do |store| %>
-        <%= link_to store.name, "stores/#{store.slug}", class: 'collection-item black-text'%>
+        <li><%= link_to store.name, "stores/#{store.slug}", class: 'collection-item black-text'%></li>
       <% end %>
     </ul>
 
     <ul id="dropdown1" class="dropdown-content">
       <% categories.each do |category| %>
-        <%= link_to category.name, "/#{category.slug}", class: 'collection-item black-text'%>
+        <li><%= link_to category.name, "/#{category.slug}", class: 'collection-item black-text'%></li>
       <% end %>
     </ul>
 
