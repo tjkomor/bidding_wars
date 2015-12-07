@@ -9,6 +9,7 @@ class Seed
     seed.generate_users
     seed.generate_bids
     seed.generate_pending_bids
+    seed.generate_andrew_store_pending_bids
 
     # seed.generate_platform_admin
     seed.generate_orders
@@ -120,6 +121,7 @@ class Seed
       if item.is_open
         bid_amount = item.current_bid + 5
         bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
+        item.update(current_bid: bid_amount)
         puts "Bid #{i}: Order for #{user.username} and #{item.name} created!"
       end
     end
@@ -132,19 +134,22 @@ class Seed
       if item.is_pending
         bid_amount = item.current_bid + 5
         bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
-        puts "Bid #{i}: Order for #{user.username} and #{item.name} created!"
+        item.update(current_bid: bid_amount)
+        puts "Bid: Order for #{user.username} and #{item.name} created!"
       end
     end
   end
 
   def generate_andrew_store_pending_bids
     user = User.where(username: "andrew@turing.io").first
+    store = Store.where(user_id: user.id).first
     bidder  = User.find(Random.new.rand(1..50))
-    user.store.items.each do |item|
+    store.items.each do |item|
       if item.is_pending
         bid_amount = item.current_bid + 5
         bid = BidHistory.create!(user_id: bidder.id, item_id: item.id, bid_amount: bid_amount)
-        puts "Bid #{i}: Order for #{bidder.username} and #{item.name} created!"
+        item.update(current_bid: bid_amount)
+        puts "Bid: Order for #{bidder.username} and #{item.name} created!"
       end
     end
   end
@@ -156,6 +161,7 @@ class Seed
       if !item.is_open
         bid_amount = item.current_bid + 5
         bid = BidHistory.create!(user_id: user.id, item_id: item.id, bid_amount: bid_amount)
+        item.update(current_bid: bid_amount)
         order = Order.create!(user_id: user.id, item_id: item.id, amount: bid_amount, store_id: item.store.id)
         puts "Bid: Order for #{user.username} and #{item.name} created!"
       end
