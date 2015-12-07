@@ -5,6 +5,7 @@ class UsersController < UsersBaseController
   end
 
   def create
+    byebug
     @user = User.new(user_params)
     @role = params[:role]
     if @role == 'user'

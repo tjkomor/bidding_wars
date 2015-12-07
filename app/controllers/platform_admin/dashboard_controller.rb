@@ -1,4 +1,4 @@
-class PlatformAdmin::DashboardController < Admin::BaseController
+class PlatformAdmin::DashboardController < PlatformAdmin::BaseController
   def show
   end
 end
