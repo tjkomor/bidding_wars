@@ -7,15 +7,13 @@ class Admin::DashboardController < Admin::BaseController
       redirect_to new_admin_store_path
     else
       @items = @store.items
-      @orders = @items.closed
+      @orders = @store.store_past_items
       winning_customers = @orders.map do |order|
         BidHistory.where(item_id: order.id).where(bid_amount: order.winning_bid).first
       end
-      @customers = winning_customers.count
+      @customers = winning_customers
     end
   end
-
-
 
   def customers
   end

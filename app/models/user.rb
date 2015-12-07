@@ -46,4 +46,25 @@ class User < ActiveRecord::Base
     last_bid = BidHistory.where(item_id: item, user_id: self.id).order("created_at desc").first
     last_bid.bid_amount
   end
+
+  def open_bids
+    user_bids = BidHistory.where(user_id: self.id).all
+    bids = []
+    user_bids.each do |bid|
+      if bid.item.is_open
+        bids << bid.item
+      end
+    end
+    bids
+  end
+
+  def won_bids
+    bids = self.bid_histories
+    ordered_bids = bids.map do |bid|
+      if (bid.user_id == bid.item.winning_bid.first.user_id) && bid.item.closed
+        bid.item
+      end
+    end
+    ordered_bids.uniq
+  end
 end

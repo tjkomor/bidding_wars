@@ -16,4 +16,10 @@ class Store < ActiveRecord::Base
       item.is_open
     end
   end
+
+  def store_past_items
+    self.items.select do |item|
+      item.closed
+    end
+  end
 end

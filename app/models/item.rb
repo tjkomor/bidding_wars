@@ -25,4 +25,8 @@ class Item < ActiveRecord::Base
   def is_open
     active && (Time.now - 7.hours) < auction_close_time
   end
+
+  def closed
+    (Time.now - 7.hours) >= auction_close_time
+  end
 end

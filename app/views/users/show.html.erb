@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.active_bids.each do |item| %>
+    <% @user.open_bids.each do |item| %>
       <tr>
       <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
       <td><%= item.created_at.strftime("%B %d, %Y") %></td>
@@ -46,6 +46,29 @@
 
 <h4 class="center small-top-margin">Past Orders</h4>
 
-<!-- table.... -->
-</div>
+<table class="bordered highlight">
+  <thead>
+    <tr>
+      <th>Item Id</th>
+      <th>Latest Bid Date</th>
+      <th>Status</th>
+      <th>Your Last Bid Price</th>
+      <th>Latest Bid Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.won_bids.each do |item| %>
+    <%unless item.nil? %>
+      <tr>
+      <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
+      <td><%= item.created_at.strftime("%B %d, %Y") %></td>
+      <td><center>Active</center></td>
+      <td> <center>$ <%= @user.last_bid(item) %></center></td>
+      <td> <center>$<%= item.current_bid %></center></td>
+    </tr>
+    <% end %>
+
+    <% end %>
+  </tbody>
+</table></div>
 </div>
