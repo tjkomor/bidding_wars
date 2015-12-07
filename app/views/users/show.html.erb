@@ -4,7 +4,7 @@
   <div class="row">
   <div class="col m3"><br><center>
     <hr class="intro-divider"><br>
-    <%= image_tag(@user.image.url) %>
+    <%= image_tag(@user.image.url, class: 'circle') %>
     <!-- <img src="<%#=@user.image_url%>", id="user-image"> -->
     <h4><%= @user.first_name %></h4>
     <h5><em><%= @user.last_name %></em></h5><br>
