@@ -45,7 +45,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'mocha'
   gem 'selenium-webdriver'
-  gem 'dotenv-rails'
 end
 
 group :development do
