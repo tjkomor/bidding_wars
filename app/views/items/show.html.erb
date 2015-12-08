@@ -16,7 +16,17 @@
         <small class="item_no">Item no longer available.</small><br>
         <%= button_to('Bid!', '#', disabled: true, class: 'btn blue disabled') %>
       <% else %>
-        <%= button_to('Bid!', bid_histories_path(item_id: @item.id, bid_amount: (@item.current_bid + 1), user_id: current_user.id), class: 'btn blue') %>
+        <%= form_for(BidHistory.new) do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <div class="row">
+            <div class="col m4">
+              <%= f.number_field :bid_amount, min: (@item.current_bid + 1), placeholder: 'Bid', id: "bid_amount" %>
+            </div>
+          </div>
+          <%= f.submit "Bid!", class: 'btn blue' %>
+        <% end %>
+        <!-- <%#= button_to('Bid!', bid_histories_path(item_id: @item.id, bid_amount: (@item.current_bid + ), user_id: current_user.id), class: 'btn blue') %> -->
       <% end %>
     <% else %>
         <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Bid!</a>
