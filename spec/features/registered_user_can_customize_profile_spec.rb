@@ -5,7 +5,6 @@ RSpec.describe 'Registered user', type: :feature do
   feature 'picture' do
 
     it 'can be added to profile' do
-      skip
       visit root_path
       click_link "Create Account"
 

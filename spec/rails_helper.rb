@@ -64,12 +64,6 @@ RSpec.configure do |config|
     let!(:order_one) { Order.create(user_id: User.last.id, total_price: 190, status: 'Completed', created_at: "2015-11-11 15:29:36") }
   end
 
-  def create_rental_items
-    RentalItem.create(rental_id: rental_one.id, item_id: item_one.id, quantity: 2)
-    RentalItem.create(rental_id: rental_one.id, item_id: item_two.id, quantity: 1)
-    RentalItem.create(rental_id: rental_two.id, item_id: item_three.id, quantity: 1)
-  end
-
   def add_item_to_cart
     visit items_path
     first(:button, "See Auction Details").click

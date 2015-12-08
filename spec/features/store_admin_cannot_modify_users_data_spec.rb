@@ -1,10 +1,11 @@
 require 'rails_helper'
-RSpec.describe 'Admin', type: :feature do
+RSpec.describe 'store admin', type: :feature do
+  create_category
   create_store_admin
   create_user
-  
-  feature 'admin' do
-    it 'cannot modify users account data' do
+
+  feature 'cannot modify' do
+    it 'users account data' do
       skip
       visit login_path
 
