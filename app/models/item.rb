@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  validates_presence_of :name
   belongs_to :store
   belongs_to :category
 

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Visitor", type: :feature do
   create_category
-  # create_brand
-  # create_items
+  create_store
+  create_items
   create_user
   feature "cart" do
     it "can add an item" do
@@ -11,14 +11,14 @@ RSpec.describe "Visitor", type: :feature do
       login_user
       visit items_path
       within("#item_#{item_one.id}") do
-        click_button "Add to Cart"
+        click_button "See Auction Details"
       end
-      expect(page).to have_content("#{item_one.name} Added to Cart!")
+      expect(page).to have_content("#{item_one.name} Added to Watch List!")
       find("#cart-link").click
       expect(current_path).to eq(cart_path)
       expect(page).to have_content("#{item_one.name}")
       expect(page).to have_content("#{item_one.description}")
-      expect(page).to have_content("$#{item_one.price} per day")
+      expect(page).to have_content("$#{item_one.current_bid}")
     end
 
     feature "cart error" do

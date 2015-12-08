@@ -2,15 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Admin", type: :feature do
   create_category
-  # create_brand
-  # create_items
+  create_items
   create_user
-  # create_rental
-  # create_admin
 
-  feature "Category" do
-    it "can create a category" do
-      skip
+  feature "can create" do
+    xit "a category" do
       create_rental_items
       visit login_path
 
@@ -26,8 +22,7 @@ RSpec.describe "Admin", type: :feature do
       expect(page).to have_content("Bags")
     end
 
-    it "cannot create a category with no name" do
-      skip
+    xit "cannot create a category with no name" do
       create_rental_items
       visit login_path
 

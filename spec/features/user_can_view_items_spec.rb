@@ -22,7 +22,7 @@ RSpec.describe 'User', type: :feature do
       expect(current_path).to eq(item_path(item_one))
       expect(page).to have_content(item_one.name)
       expect(page).to have_content(item_one.description)
-      expect(page).to have_content("$#{item_one.price} per day")
+      expect(page).to have_content("$#{item_one.current_bid}")
       expect(page).to have_css("img[src*='http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg']")
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe 'User', type: :feature do
       expect(current_path).to eq(item_path(item_one))
       expect(page).to have_content(item_one.name)
       expect(page).to have_content(item_one.description)
-      expect(page).to have_content("$#{item_one.price} per day")
+      expect(page).to have_content("$#{item_one.current_bid}")
       expect(page).to have_css("img[src*='http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg']")
     end
   end
@@ -50,7 +50,7 @@ RSpec.describe 'User', type: :feature do
       expect(current_path).to eq(item_path(item_one))
       expect(page).to have_content(item_one.name)
       expect(page).to have_content(item_one.description)
-      expect(page).to have_content("$#{item_one.price} per day")
+      expect(page).to have_content("$#{item_one.current_bid}")
       expect(page).to have_css("img[src*='http://www.bhphotovideo.com/images/images1000x1000/sony_sel1635z_vario_tessar_t_e_16_35mm_1082052.jpg']")
     end
   end
