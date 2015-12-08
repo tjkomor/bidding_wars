@@ -7,6 +7,8 @@
           <th colspan="1"></th>
           <th>Name</th>
           <th>Description</th>
+          <th>Latest Bid Price</th>
+          <th>Closing Date</th>
           <th></th>
         </tr>
       </thead>
@@ -21,6 +23,8 @@
             <% end %>
           </td>
           <td><%= item.description %></td>
+          <td>$ <%= item.current_bid %></td>
+          <td><%= item.auction_close_time.strftime('%B, %d') %></td>
           <td><%= button_to "Edit", edit_admin_item_path(item), method: :get, class: 'btn btn-small blue' %></td>
         </tr>
         <% end %>

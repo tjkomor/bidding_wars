@@ -6,10 +6,13 @@
     <%= image_tag(@item.image_url, class: 'item_show') %>
   </div>
 <br><br>
-  <div class="col m4 offset-m1">
-    <p><%= @item.description %></p><br>
+  <div class="col m7 offset-m1">
+    <p><em>"<%= @item.description %>"</em></p><br><br>
+    <p><b>This auction closes on: <%= @item.auction_close_time.strftime('%B, %d') %> at <%= @item.auction_close_time.strftime('%r') %>.</b></p><br><br>
+
+
     <p>Current Bid: $<%= @item.current_bid %></p><br>
-    <p>This auction closes on: <%= @item.auction_close_time.strftime('%B, %d') %> at <%= @item.auction_close_time.strftime('%r') %>.</p><br><br>
+
     <td>
     <% if current_user %>
       <% if !@item.active || !@item.is_open %>
@@ -36,7 +39,7 @@
             </div>
           </div>
       <% end %>
-    </td>
+    </td><br>
   </div>
 </div>
 </div>
