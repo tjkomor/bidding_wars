@@ -5,9 +5,8 @@ RSpec.describe "Admin", type: :feature do
   create_items
   create_user
 
-  feature "Category" do
-    it "can create a category" do
-      skip
+  feature "can create" do
+    xit "a category" do
       create_rental_items
       visit login_path
 
@@ -23,8 +22,7 @@ RSpec.describe "Admin", type: :feature do
       expect(page).to have_content("Bags")
     end
 
-    it "cannot create a category with no name" do
-      skip
+    xit "cannot create a category with no name" do
       create_rental_items
       visit login_path
 

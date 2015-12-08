@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe 'Admin', type: :feature do
 
-  feature 'admin' do
+  feature 'can' do
     create_category
     create_roles
-    it 'all items' do
+    xit 'view all items' do
       store_admin = User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       store_admin.roles.clear << Role.where(name: 'store_admin').first
       store_admin.stores.create(name: "Waldo's", status: true)
@@ -31,7 +31,7 @@ RSpec.describe 'Admin', type: :feature do
       expect(page).to have_content(item.name)
     end
 
-    xit 'can create items' do
+    xit 'create items' do
       store_admin = User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       store_admin.roles.clear << Role.where(name: 'store_admin').first
       store_admin.stores.create(name: "Waldo's", status: true)
@@ -60,7 +60,7 @@ RSpec.describe 'Admin', type: :feature do
       expect(page).to have_content('Item Created!')
     end
 
-    it 'can deactivate items' do
+    xit 'deactivate items' do
       store_admin = User.create(username: 'admin', password: 'admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       store_admin.roles.clear << Role.where(name: 'store_admin').first
       store_admin.stores.create(name: "Waldo's", status: true)
@@ -92,3 +92,4 @@ RSpec.describe 'Admin', type: :feature do
       expect(page).to have_content("Deactivate")
     end
   end
+end

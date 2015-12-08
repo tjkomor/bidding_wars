@@ -5,7 +5,7 @@ RSpec.describe 'store admin', type: :feature do
   create_user
 
   feature 'can update' do
-    it 'the status of an order to paid' do
+    xit 'the status of an order to paid' do
       skip
       visit login_path
 
@@ -21,9 +21,9 @@ RSpec.describe 'store admin', type: :feature do
         expect(page).to have_content("Paid")
       end
     end
-  end
 
-    it 'the status of an order to cancelled' do
+
+    xit 'the status of an order to cancelled' do
       skip
       visit login_path
 

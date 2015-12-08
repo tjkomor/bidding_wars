@@ -5,8 +5,7 @@ RSpec.describe 'store admin', type: :feature do
   create_user
 
   feature 'can view' do
-    it 'all of the orders' do
-      skip
+    xit 'all of the orders' do
       visit login_path
 
       fill_in "Username", with: 'admin'
@@ -23,8 +22,7 @@ RSpec.describe 'store admin', type: :feature do
       end
     end
 
-    it 'can click on a link to view individual orders' do
-      skip
+    xit 'can click on a link to view individual orders' do
       visit login_path
 
       fill_in "Username", with: 'admin'
