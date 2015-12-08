@@ -20,32 +20,7 @@
     <h5 class="collection-header"> Admin </h5>
     <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
     <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
-    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @customers.count %></span></a>
+    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @customers.keys.count %></span></a>
     <a href="<%= admin_orders_pending_path %>" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
     <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @orders.count %></span></a>
     </div>
-  <h5 class="small-top-margin center">Bids</h5>
-  <table class="bordered highlight">
-    <thead>
-      <tr>
-        <th>Item Id</th>
-        <th>Latest Bid Date</th>
-        <th>Status</th>
-        <th>Your Last Bid Price</th>
-        <th>Latest Bid Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% current_user.active_bids.each do |item| %>
-        <tr>
-        <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
-        <td><%= item.created_at.strftime("%B %d, %Y") %></td>
-        <td><center>Active</center></td>
-        <td> <center>$ <%= @user.last_bid(item) %></center></td>
-        <td> <center>$<%= item.current_bid %></center></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-</div>
