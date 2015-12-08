@@ -8,9 +8,8 @@ class Item < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :closed, -> { where(active: false) }
 
-
-  def increment_bid
-    self.update(current_bid: (self.current_bid + 1))
+  def increment_bid(bid_amount)
+    self.update(current_bid: bid_amount.to_i)
   end
 
   def winning_bid
