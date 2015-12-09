@@ -25,6 +25,18 @@ class Store < ActiveRecord::Base
     self.update(status: "Active")
   end
 
+  def deactivate
+    self.update(status: "Deactivated")
+  end
+
+  def check_status
+    if self.status == "Pending" || self.status == 'Deactivated'
+      self.activate
+    else
+      self.deactivate
+    end
+  end
+
   def store_past_items
     self.items.select do |item|
       item.time_closed

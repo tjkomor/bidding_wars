@@ -10,11 +10,12 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
 
   def update
     store = update_store
-    store.activate
+    store.check_status
     redirect_to platform_admin_store_path(store)
   end
 
   private
+
 
   def update_store
     Store.find_by(id: params[:id])
