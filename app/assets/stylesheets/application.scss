@@ -27,12 +27,14 @@
 
 body {
   font-family: "Ubuntu", sans-serif;
-  background: white;
-  background-image: url("http://i.imgur.com/gtx8uzm.jpg");
+  // background: white;
+  background: url("http://i.imgur.com/gtx8uzm.jpg") no-repeat center fixed;
   opacity: 0.96;
-  background-style: no-repeat;
-  width: 100%;
-}
+  // background-style: no-repeat;
+  -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;}
 
 #container {
   background-color: rgba(0,0,0,0.5)
