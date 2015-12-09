@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col m6 offset-m3"><br>
         <h4>Create Account</h4>
-        <%= form_for(:info, url: users_path(role: params[:role], store: params[:store])) do |f| %>
+        <%= form_for(:info, url: admin_users_path(store: current_user.stores.first)) do |f| %>
           <%= f.label :username %>
           <%= f.text_field :username %>
           <%= f.label :password %>

@@ -1,7 +1,9 @@
-<div class="col m9 top-margin">
-  <%= form_for(@category, url: admin_categories_path) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit "Create Category", class: "btn blue" %>
-  <% end %>
+<div class="col m9">
+  <div class="card">
+    <%= form_for(@category, url: admin_categories_path) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit "Create Category", class: "btn blue" %>
+    <% end %>
+  </div>
 </div>
