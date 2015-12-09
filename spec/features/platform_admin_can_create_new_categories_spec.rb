@@ -33,3 +33,5 @@ RSpec.describe "Platform Admin", type: :feature do
         expect(page).to have_content("Furniture")
       end
     end
+  end
+end

@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /^image\/(png|gif|jpeg)/, message: "Only images are allowed"
   # validates :image, attachment_presence: true
 
-
   def set_default_role
     roles << Role.find_by(name: "user")
   end
