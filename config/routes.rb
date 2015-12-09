@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :platform_admin do
     get '/dashboard', to: 'dashboard#show'
     resources :stores, only: [:index, :show]
+    resources :categories, only: [:new, :create]
   end
 
   get '/dashboard', to: 'users#show'

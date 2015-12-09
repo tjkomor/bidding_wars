@@ -61,7 +61,7 @@ RSpec.configure do |config|
   end
 
   def create_order
-    let!(:order_one) { Order.create(user_id: User.last.id, total_price: 190, status: 'Completed', created_at: "2015-11-11 15:29:36") }
+    let!(:order_one) { Order.create(user_id: User.last.id, amount: 30, created_at: "2015-11-11 15:29:36") }
   end
 
   def add_item_to_cart

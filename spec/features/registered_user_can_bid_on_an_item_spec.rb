@@ -33,6 +33,11 @@ RSpec.describe 'Registered user', type: :feature do
 
       expect(page).to have_content("You have successfully bid $40 on Casino!")
       expect(page).to have_content("Current Bid: $40")
+
+      visit dashboard_path
+
+      expect(page).to have_content('Casino')
+      expect(page).to have_content('$40')
     end
   end
 end
