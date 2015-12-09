@@ -34,7 +34,7 @@ RSpec.configure do |config|
   end
 
   def create_store
-    let!(:store) { Store.create(name: "Lenny's", status: true) }
+    let!(:store) { Store.create(name: "Lenny's") }
   end
 
   def create_items
