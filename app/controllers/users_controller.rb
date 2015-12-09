@@ -1,40 +1,26 @@
 class UsersController < UsersBaseController
   def new
-    @role = params[:role]
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    @role = params[:role]
-    if @role == 'user'
-      if @user.save
-        session[:user_id] = @user.id
-        @user.roles << Role.where(name: 'user').first
-        # @user.addresses.create(address_params)
+    role = params[:role]
+    if @user.save
+      session[:user_id] = @user.id
+      if role == 'user'
+        @user.roles << user_role_object
         redirect_to dashboard_path
-      else
-        flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
-        render :new
-      end
-    elsif @role == 'store_admin'
-      if @user.save
-        session[:user_id] = @user.id
-        @user.roles << Role.where(name: 'store_admin').first
+      elsif role == 'store_admin'
+        @user.roles << store_admin_role_object
         redirect_to new_admin_store_path
-      else
-        flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
-        render :new
+      elsif role == 'platform_admin'
+        @user.roles << platform_admin_role_object
+        redirect_to platform_admin_dashboard_path
       end
     else
-      if @user.save
-        session[:user_id] = @user.id
-        @user.roles << Role.where(name: 'platform_admin').first
-        redirect_to platform_admin_dashboard_path
-      else
-        flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
-        render :new
-      end
+      flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
+      render :new
     end
   end
 
@@ -72,9 +58,5 @@ class UsersController < UsersBaseController
 
   def edit_user_params
     params.require(:user).permit(:username, :password, :first_name, :last_name, :email_address, :phone_number, :active, :image, :bio)
-  end
-
-  def address_params
-    params.require(:info).permit(:line_one, :line_two, :city, :state, :zip, :country)
   end
 end

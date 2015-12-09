@@ -46,6 +46,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_role_object
+    Role.where(name: 'user').first
+  end
+
+  def store_admin_role_object
+    Role.where(name: 'store_admin').first
+  end
+
+  def platform_admin_role_object
+    Role.where(name: 'platform_admin').first
+  end
+
 
 
   private
