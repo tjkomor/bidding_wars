@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    user = User.find(params[:user_id])
+    user = find_user
     @address = user.addresses.find(params[:id])
     if @address.update(address_params)
       flash[:notice] = "Address Updated!"
@@ -18,5 +18,9 @@ class AddressesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:line_one, :line_two, :city, :state, :zip, :country, :user_id)
+  end
+
+  def find_user
+    User.find(params[:user_id])
   end
 end

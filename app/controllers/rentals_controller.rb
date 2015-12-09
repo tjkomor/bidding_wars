@@ -11,9 +11,15 @@ class RentalsController < UsersBaseController
   end
 
   def update
-    @rental = Rental.find(params[:id])
+    @rental = find_rental
     @rental.extend_rental(params[:days], params[:total])
     flash[:notice] = "Successfully Extended Rental"
     redirect_to :back
+  end
+
+  private
+
+  def find_rental
+    Rental.find(params[:id])
   end
 end

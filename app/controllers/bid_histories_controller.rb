@@ -3,7 +3,7 @@ class BidHistoriesController < ApplicationController
   def create
     @bid = BidHistory.new(bid_params)
     if @bid.save
-      item = Item.where(id: params[:bid_history][:item_id]).all
+      item = find_item
       item.first.increment_bid(params[:bid_history][:bid_amount])
       flash[:notice] = "You have successfully bid $#{item.first.bid_histories.last.bid_amount} on #{item.first.name}!"
       redirect_to :back
@@ -17,5 +17,9 @@ class BidHistoriesController < ApplicationController
 
   def bid_params
     params.require(:bid_history).permit(:bid_amount, :user_id, :item_id)
+  end
+
+  def find_item
+    Item.where(id: params[:bid_history][:item_id]).all
   end
 end

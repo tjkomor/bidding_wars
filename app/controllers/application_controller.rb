@@ -40,6 +40,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  private
+
   def active_items
     Item.where(active: true).all.select do |item|
       item.is_open
@@ -57,10 +60,6 @@ class ApplicationController < ActionController::Base
   def platform_admin_role_object
     Role.where(name: 'platform_admin').first
   end
-
-
-
-  private
 
   def current_user_role
     roles = current_user.roles
