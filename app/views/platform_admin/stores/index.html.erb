@@ -1,3 +1,36 @@
-<% @stores.each do |store| %>
-  <%= button_to store.name, platform_admin_store_path(store), method: :get %>
-<% end %>
+<div class="col m9"><br>
+  <center><h1 class="white-text"> All Stores </h1></center>
+  <div class="card">
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+        <tr id="store-<%= store.id %>">
+          <td><%= link_to store.name, platform_admin_store_path(store) %></td>
+          <% if store.status %>
+            <td>Active</td>
+          <% else %>
+            <td>Pending</td>
+          <% end %>
+          <td>
+            <% if store.status %>
+              <%= button_to "Deactivate", platform_admin_stores_path(store.id) %>
+            <% else %>
+              <%= button_to "Activate", platform_admin_stores_path(store.id) %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

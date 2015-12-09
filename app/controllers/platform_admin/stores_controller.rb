@@ -4,8 +4,15 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
   end
 
   def show
-    @store = Store.find_by(slug: params[:id])
+    byebug
+    @store = Store.find_by(id: params[:id])
     @user = @store.user
     @created = @store.created_at.strftime('%B %d, %Y')
+  end
+
+  def create
+    store = Store.find_by(id: params[:format])
+    store.activate
+    redirect_to platform_admin_store_path(store)
   end
 end
