@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20151209011014) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "store_admins", force: :cascade do |t|
+    t.integer  "store_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "store_admins", ["store_id"], name: "index_store_admins_on_store_id", using: :btree
+  add_index "store_admins", ["user_id"], name: "index_store_admins_on_user_id", using: :btree
+
   create_table "stores", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
@@ -116,6 +126,8 @@ ActiveRecord::Schema.define(version: 20151209011014) do
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"
+  add_foreign_key "store_admins", "stores"
+  add_foreign_key "store_admins", "users"
   add_foreign_key "stores", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

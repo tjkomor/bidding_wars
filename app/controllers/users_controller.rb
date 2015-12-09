@@ -8,15 +8,15 @@ class UsersController < UsersBaseController
     role = params[:role]
     if @user.save
       session[:user_id] = @user.id
-      if role == 'user'
-        @user.roles << user_role_object
-        redirect_to dashboard_path
-      elsif role == 'store_admin'
+      if role == 'store_admin'
         @user.roles << store_admin_role_object
         redirect_to new_admin_store_path
       elsif role == 'platform_admin'
         @user.roles << platform_admin_role_object
         redirect_to platform_admin_dashboard_path
+      else
+        @user.roles << user_role_object
+        redirect_to dashboard_path
       end
     else
       flash.now[:error] = @user.errors.full_messages.first.gsub("can't", "cannot")
