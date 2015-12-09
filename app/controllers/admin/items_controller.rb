@@ -4,11 +4,11 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = find_item
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = find_item
     if @item.update(item_params)
       flash[:notice] = "Item Updated!"
       redirect_to admin_items_path
@@ -34,6 +34,10 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   private
+
+  def find_item
+    Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :current_bid, :image_url, :store_id, :category_id, :auction_length, :active)

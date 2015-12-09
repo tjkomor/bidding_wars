@@ -1,7 +1,7 @@
 class Admin::DashboardController < Admin::BaseController
   def show
     @admin_dash = true
-    @store = Store.where(user_id: current_user.id).first
+    @store = find_store
     if @store.nil?
       redirect_to new_admin_store_path
     else
@@ -17,5 +17,11 @@ class Admin::DashboardController < Admin::BaseController
     store = Store.where(user_id: current_user.id).first
     @customers = store.customers
     # store.orders.map{|order| [User.find(order.user_id), order.item.name]}
+  end
+
+  private
+
+  def find_store
+    Store.where(user_id: current_user.id).first
   end
 end
