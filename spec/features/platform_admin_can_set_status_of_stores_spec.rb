@@ -32,12 +32,7 @@ RSpec.describe "Platform Admin", type: :feature do
         click_button "Activate"
       end
 
-      expect(page).to have_content("#{store.name}")
       expect(page).to have_content("Active")
-      expect(page).to have_content('John Smith')
-      expect(page).to have_content('Phone Number: 555-234-5678')
-      expect(page).to have_content('Email: johnsmith@gmail.com')
-      expect(page).to have_content('Joined on: December 09, 2015')
     end
   end
 end
