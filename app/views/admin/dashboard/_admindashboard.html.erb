@@ -1,7 +1,7 @@
 <div class="col m9 small-top-margin">
   <div class="card">
 
-<h3 class="center">Admin Dashboard</h3>
+<h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
 <div class="row">
   <div class="small-top-margin center">
     <div class="col m3">
@@ -13,6 +13,9 @@
     <div class="col m3">
       <%= button_to "New Category", new_admin_category_path, method: :get, class: 'btn blue dash-btn-big' %>
     </div>
+    <div class="col m3">
+      <%= button_to "Add New Administrator", new_user_path(role: "store_admin", store: @store), method: :get, class: 'btn blue dash-btn-big' %>
+    </div>
   </div>
 </div>
 
@@ -20,7 +23,7 @@
     <h5 class="collection-header"> Admin </h5>
     <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
     <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
-    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @customers.keys.count %></span></a>
+    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
     <a href="<%= admin_orders_pending_path %>" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
-    <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @orders.count %></span></a>
+    <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
     </div>

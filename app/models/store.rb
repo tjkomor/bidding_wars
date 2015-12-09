@@ -3,6 +3,9 @@ class Store < ActiveRecord::Base
   belongs_to :user
   has_many :items
   has_many :orders
+  has_many :store_admins
+  has_many :users, through: :store_admins
+
 
   def to_param
     slug

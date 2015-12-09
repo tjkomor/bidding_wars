@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:new, :create]
     resources :orders, only: [:show, :update, :index, :new, :create]
     resources :items, only: [:new, :create, :index, :edit, :update]
-    resources :stores, only: [:new, :create]
+    resources :stores, only: [:new, :create, :update, :edit]
   end
 
   namespace :platform_admin do
