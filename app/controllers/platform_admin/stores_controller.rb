@@ -5,7 +5,6 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
 
   def show
     @store = find_store
-    @user = @store.user
     @created = @store.created_at.strftime('%B %d, %Y')
   end
 
