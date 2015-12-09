@@ -18,6 +18,10 @@ class Store < ActiveRecord::Base
     end
   end
 
+  def activate
+    self.status = true
+  end
+
   def store_past_items
     self.items.select do |item|
       item.time_closed
