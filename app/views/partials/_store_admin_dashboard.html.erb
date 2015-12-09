@@ -2,6 +2,7 @@
   <div class="card">
 
 <h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
+<em><center> Store Status: <%= @store.status %> </center></em> 
 <div class="row">
   <div class="small-top-margin center">
     <div class="col m3">
@@ -17,10 +18,11 @@
 </div>
 
 <div class="collection with-header status_counts">
-    <h5 class="collection-header"> Admin </h5>
-    <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
-    <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
-    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
-    <a href="<%= admin_orders_pending_path %>" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
-    <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
-    </div>
+  <h5 class="collection-header"> Admin </h5>
+  <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
+  <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
+  <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
+  <a href="<%= admin_orders_pending_path %>" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
+  <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
+  <a href="#" class="collection-item"> Total Sales <span class="badge">$ <%= @store.total_sales %> </span></a>
+</div>
