@@ -33,7 +33,7 @@ RSpec.describe 'Admin', type: :feature do
 
       click_button "Create Account"
 
-      expect(current_path).to have_content(admin_dashboard_path)
+      expect(current_path).to eq(admin_dashboard_path)
 
       click_link 'Logout'
 
