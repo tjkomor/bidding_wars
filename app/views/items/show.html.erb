@@ -2,54 +2,19 @@
 <h3 class="white-text"><%= @item.name %></h3>
 <div class="row">
   <div class="card">
-      <div class="col m4">
-    <%= image_tag(@item.image_url, class: 'item_show') %>
+    <div class="col m4">
+      <%= image_tag(@item.image_url, class: 'item_show') %>
+    </div>
+    <br><br>
+    <div class="col m7 offset-m1">
+      <p><em>"<%= @item.description %>"</em></p><br><br>
+      <p><b>This auction closes on: <%= @item.auction_close_time.strftime('%B, %d') %> at <%= @item.auction_close_time.strftime('%r') %>.</b></p><br><br>
+
+      <p>Current Bid: $<%= @item.current_bid %></p><br>
+
+      <td>
+        <%= render partial: 'partials/bidform' %>
+      </td><br>
+    </div>
   </div>
-<br><br>
-  <div class="col m7 offset-m1">
-    <p><em>"<%= @item.description %>"</em></p><br><br>
-    <p><b>This auction closes on: <%= @item.auction_close_time.strftime('%B, %d') %> at <%= @item.auction_close_time.strftime('%r') %>.</b></p><br><br>
-
-
-    <p>Current Bid: $<%= @item.current_bid %></p><br>
-
-    <td>
-    <% if current_user %>
-      <% if !@item.active || !@item.is_open %>
-        <small class="item_no">Item no longer available.</small><br>
-        <%= button_to('Bid!', '#', disabled: true, class: 'btn blue disabled') %>
-      <% else %>
-        <%= form_for(BidHistory.new) do |f| %>
-          <%= f.hidden_field :item_id, value: @item.id %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <div class="row">
-            <div class="col m4">
-              <%= f.number_field :bid_amount, min: (@item.current_bid + 1), placeholder: 'Bid', id: "bid_amount" %>
-            </div>
-          </div>
-          <%= f.submit "Bid!", class: 'btn blue' %>
-        <% end %>
-        <!-- <%#= button_to('Bid!', bid_histories_path(item_id: @item.id, bid_amount: (@item.current_bid + ), user_id: current_user.id), class: 'btn blue') %> -->
-      <% end %>
-    <% else %>
-        <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Bid!</a>
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <p>
-                Please login before placing a bid.
-              </p><br>
-              <div><%= form_for :session, url: login_path do |f| %>
-                <%= f.label :username %>
-                <%= f.text_field :username %><br>
-                <%= f.label :password %>
-                <%= f.password_field :password %>
-                <%= f.submit "Login" %>
-              <% end %></div>
-              <p> Don't have an account? <%= link_to "Create one here.", new_user_path %> </p>
-            </div>
-          </div>
-      <% end %>
-    </td><br>
-  </div>
-</div>
 </div>

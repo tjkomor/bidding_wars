@@ -1,71 +1,71 @@
 <div class="col m9">
   <div class="card">
-      <center><h4>User Dashboard</h4></center>
-  <div class="row">
-  <div class="col m3"><br><center>
-    <hr class="intro-divider"><br>
-    <%= image_tag(@user.image.url, class: 'circle') %>
-    <!-- <img src="<%#=@user.image_url%>", id="user-image"> -->
-    <h4><%= @user.first_name %></h4>
-    <h5><em><%= @user.last_name %></em></h5><br>
+    <center><h4>User Dashboard</h4></center>
+    <div class="row">
+      <div class="col m3"><br><center>
+        <hr class="intro-divider"><br>
+        <%= image_tag(@user.image.url, class: 'circle') %>
+        <h4><%= @user.first_name %></h4>
+        <h5><em><%= @user.last_name %></em></h5><br>
 
-  <hr class="intro-divider"><br>
-    <p><b>About <%= @user.first_name %>:</b></p><br>
-    <p><em>"<%= @user.bio %>"</em></p><br>
-    <%= link_to "Edit Info", edit_user_path(@user) %>
-    <hr class="intro-divider"><br>
-    </center>
+        <hr class="intro-divider"><br>
+        <p><b>About <%= @user.first_name %>:</b></p><br>
+        <p><em>"<%= @user.bio %>"</em></p><br>
+        <%= link_to "Edit Info", edit_user_path(@user) %>
+        <hr class="intro-divider"><br>
+      </center>
+    </div>
+    <div class="col m9">
+
+      <h4 class="center small-top-margin">Active Bids</h4>
+
+      <table class="bordered highlight">
+        <thead>
+          <tr>
+            <th>Item Id</th>
+            <th>Latest Bid Date</th>
+            <th>Status</th>
+            <th>Your Last Bid Price</th>
+            <th>Latest Bid Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.open_bids.each do |item| %>
+          <tr>
+            <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
+            <td><%= item.created_at.strftime("%B %d, %Y") %></td>
+            <td><center>Active</center></td>
+            <td> <center>$ <%= @user.last_bid(item) %></center></td>
+            <td> <center>$<%= item.current_bid %></center></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <h4 class="center small-top-margin">Past Orders</h4>
+
+      <table class="bordered highlight">
+        <thead>
+          <tr>
+            <th>Item Id</th>
+            <th>Latest Bid Date</th>
+            <th>Status</th>
+            <th>Your Last Bid Price</th>
+            <th>Latest Bid Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.won_bids.each do |order| %>
+          <tr>
+            <td><%= link_to order.item.name, item_path(order.item.id), class: 'black-text' %> </td>
+            <td><%= order.item.created_at.strftime("%B %d, %Y") %></td>
+            <td><center>Active</center></td>
+            <td> <center>$ <%= @user.last_bid(order.item) %></center></td>
+            <td> <center>$<%= order.item.current_bid %></center></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table></div>
+    </div>
   </div>
-  <div class="col m9">
-
-<h4 class="center small-top-margin">Active Bids</h4>
-
-<table class="bordered highlight">
-  <thead>
-    <tr>
-      <th>Item Id</th>
-      <th>Latest Bid Date</th>
-      <th>Status</th>
-      <th>Your Last Bid Price</th>
-      <th>Latest Bid Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.open_bids.each do |item| %>
-      <tr>
-      <td><%= link_to item.name, item_path(item.id), class: 'black-text' %> </td>
-      <td><%= item.created_at.strftime("%B %d, %Y") %></td>
-      <td><center>Active</center></td>
-      <td> <center>$ <%= @user.last_bid(item) %></center></td>
-      <td> <center>$<%= item.current_bid %></center></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<h4 class="center small-top-margin">Past Orders</h4>
-
-<table class="bordered highlight">
-  <thead>
-    <tr>
-      <th>Item Id</th>
-      <th>Latest Bid Date</th>
-      <th>Status</th>
-      <th>Your Last Bid Price</th>
-      <th>Latest Bid Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.won_bids.each do |order| %>
-      <tr>
-      <td><%= link_to order.item.name, item_path(order.item.id), class: 'black-text' %> </td>
-      <td><%= order.item.created_at.strftime("%B %d, %Y") %></td>
-      <td><center>Active</center></td>
-      <td> <center>$ <%= @user.last_bid(order.item) %></center></td>
-      <td> <center>$<%= order.item.current_bid %></center></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table></div>
 </div>
