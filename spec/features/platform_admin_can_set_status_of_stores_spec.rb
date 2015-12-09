@@ -4,7 +4,7 @@ RSpec.describe "Platform Admin", type: :feature do
   create_category
   create_store
   create_items
-  create_user
+  create_store_admin
   create_order
   create_roles
 
@@ -12,7 +12,9 @@ RSpec.describe "Platform Admin", type: :feature do
     it "of new stores" do
       platform_admin = User.create(username: 'platform_admin', password: 'platform_admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       platform_admin.roles.clear << Role.where(name: 'platform_admin').first
-      user_one.stores.create(name: "Tyler", status: false)
+      admin_one.roles.clear << Role.where(name: 'store_admin').first
+      new_store = admin_one.stores.create(name: "Tyler")
+
       visit login_path
 
       fill_in "Username", with: 'platform_admin'
@@ -31,11 +33,11 @@ RSpec.describe "Platform Admin", type: :feature do
       end
 
       expect(page).to have_content("#{store.name}")
-      expect(page).to have_content("Deactivate")
+      expect(page).to have_content("Active")
       expect(page).to have_content('John Smith')
       expect(page).to have_content('Phone Number: 555-234-5678')
       expect(page).to have_content('Email: johnsmith@gmail.com')
-      expect(page).to have_content('Joined on: December 08, 2015')
+      expect(page).to have_content('Joined on: December 09, 2015')
     end
   end
 end

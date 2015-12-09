@@ -19,7 +19,7 @@ class Store < ActiveRecord::Base
   end
 
   def activate
-    self.status = true
+    self.update(status: "Active")
   end
 
   def store_past_items

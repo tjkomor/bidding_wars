@@ -7,6 +7,7 @@ class Admin::StoresController < Admin::BaseController
     @store = Store.new(store_params)
 
     if @store.save
+
       # @store.status = true
       # @store.user_id = current_user.id
       flash[:notice] = "New Store Created!"

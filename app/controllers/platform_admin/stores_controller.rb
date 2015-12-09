@@ -9,19 +9,19 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
     @created = @store.created_at.strftime('%B %d, %Y')
   end
 
-  def create
-    store = create_store
+  def update
+    store = update_store
     store.activate
     redirect_to platform_admin_store_path(store)
   end
 
   private
 
-  def create_store
-    Store.find_by(id: params[:format])
+  def update_store
+    Store.find_by(id: params[:id])
   end
 
   def find_store
-    Store.find_by(id: params[:id])
+    Store.find_by(slug: params[:id])
   end
 end
