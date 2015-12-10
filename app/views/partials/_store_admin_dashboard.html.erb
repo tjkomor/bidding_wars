@@ -1,14 +1,9 @@
 <div class="col m12 small-top-margin">
   <div class="card">
 
-<h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
-Status: <%= @store.status %>
-<div class="row">
-  <div class="small-top-margin center">
-    <div class="col m3">
-      <%= button_to "Add New Item", new_admin_item_path(@store), method: :get, class: 'btn blue dash-btn-big' %>
     <h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
     <em><center> Store Status: <%= @store.status %> </center></em><br>
+
     <div class="row">
         <div class="col m3 offset-m3"><center>
           <%= button_to "Add New Item", new_admin_item_path, method: :get, class: 'btn blue dash-btn-big' %>
