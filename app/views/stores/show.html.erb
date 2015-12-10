@@ -2,7 +2,9 @@
   <div class="items">
     <div id="heading" class="">
       <% if @store.status != "Active"  %>
+      <div class="card">
         <h1>This page does not exist.</h1>
+      </div>
       <% else %>
           <h1 class="white-text"><%= @store.name %></h1>
         </div>
