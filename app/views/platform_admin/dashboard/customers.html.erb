@@ -1,0 +1,27 @@
+<div class="col m9"><br>
+  <center><h1 class="white-text"> Past Order Customers </h1></center>
+  <div class="card">
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Name</th>
+          <th>Item Purchased</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer, items| %>
+        <tr id="row_item_<%= customer.id %>">
+          <td><%= image_tag(customer.image.url, class: 'item_cart') %></td>
+          <td> <%= link_to customer.first_name, user_path(customer.id) %></a><br></td>
+          <td><% items.each do |item| %>
+            <%= item.name %><br>
+            <% end %>
+          <br></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

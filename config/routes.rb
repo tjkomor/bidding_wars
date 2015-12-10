@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#show'
     post '/stores/status', to: 'stores#status'
     get '/items/active', to: 'items#active'
+    get '/dashboard/customers', to: 'dashboard#customers'
     resources :users, only: [:new, :create, :destroy, :edit, :update]
     resources :stores, only: [:index, :show, :update, :edit]
     resources :categories, only: [:new, :create]
