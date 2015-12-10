@@ -28,11 +28,11 @@ RSpec.describe "Visitor", type: :feature do
       end
     end
 
-    xit "can view items by store" do
+    it "can view items by store" do
       visit root_path
       click_link "Shop Stores"
 
-      within('#dropdown1') do
+      within("#dropdown#{}") do
         click_link "Lenny's"
       end
 
