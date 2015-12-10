@@ -6,6 +6,8 @@ class Store < ActiveRecord::Base
   has_many :store_admins
   has_many :users, through: :store_admins
 
+  scope :active, -> { where(status: "Active") }
+
 
 
   def to_param
@@ -61,5 +63,9 @@ class Store < ActiveRecord::Base
       end
     end
     customers
+  end
+
+  def total_sales
+    self.items.closed.inject(0){|sum, item| sum + item.winning_bid.first.bid_amount}
   end
 end

@@ -1,5 +1,5 @@
 <% if current_user %>
-  <% if !@item.active || !@item.is_open %>
+  <% if !@item.is_open %>
   <small class="item_no">Item no longer available.</small><br>
   <%= button_to('Bid!', '#', disabled: true, class: 'btn blue disabled') %>
   <% else %>

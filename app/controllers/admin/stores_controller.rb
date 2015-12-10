@@ -7,8 +7,6 @@ class Admin::StoresController < Admin::BaseController
     @store = Store.new(store_params)
     if @store.save
       @store.store_admins.create(user_id: current_user.id, store_id: @store.id)
-      # @store.status = true
-      # @store.user_id = current_user.id
       flash[:notice] = "New Store Created!"
       redirect_to admin_dashboard_path
     else
@@ -18,10 +16,18 @@ class Admin::StoresController < Admin::BaseController
   end
 
   def edit
+    @store = current_user.stores.first
   end
 
   def update
-
+    @store = current_user.stores.first
+    if @store.update(store_params)
+      flash[:notice] = "Store Name Updated!"
+      redirect_to admin_dashboard_path
+    else
+      flash[:error] = @store.errors.full_messages.first.gsub("can't", "cannot")
+      redirect_to admin_store_path
+    end
   end
 
   private
