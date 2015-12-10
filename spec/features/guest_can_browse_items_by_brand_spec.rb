@@ -33,21 +33,5 @@ RSpec.describe "Visitor", type: :feature do
         expect(page).to have_content(item_one.current_bid)
       end
     end
-
-    it "can view items by store" do
-      skip
-      visit root_path
-      click_link "Shop Stores"
-
-      save_and_open_page
-      within("#dropdown1") do
-        click_link "Lenny's"
-      end
-
-      within('.items') do
-        expect(page).to have_content(item_one.name)
-        expect(page).to have_content(item_one.current_bid)
-      end
-    end
   end
 end
