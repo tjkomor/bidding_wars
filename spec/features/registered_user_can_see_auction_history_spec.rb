@@ -11,8 +11,7 @@ RSpec.describe 'Registered user', type: :feature do
   feature 'auction history' do
     it 'it shows recent orders on dashboard' do
       skip
-
-      user_one.roles << Role.first
+      user_one.roles << Role.where(name: "user").first
 
       visit root_path
       click_link "Login"
