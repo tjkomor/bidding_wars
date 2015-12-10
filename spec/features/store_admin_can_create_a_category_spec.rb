@@ -31,18 +31,22 @@ RSpec.describe "Admin", type: :feature do
       expect(page).to have_content("Bags")
     end
 
-    xit "cannot create a category with no name" do
-      create_rental_items
+    it "cannot create a category with no name" do
+      admin_one.roles << Role.where(name: 'store_admin').first
+      admin_one.stores.create(name: "Lenny's")
       visit login_path
 
       fill_in "Username", with: "admin"
       fill_in "Password", with: "admin"
       click_button "Login"
+
       click_button "New Category"
-      expect(current_path).to eq(new_admin_category_path)
+
       fill_in "Name", with: ""
+
       click_button "Create Category"
-      expect(current_path).to eq(admin_categories_path)
+
+      # expect(current_path).to eq(admin_categories_path)
       expect(page).to have_content("Name cannot be blank")
     end
   end
