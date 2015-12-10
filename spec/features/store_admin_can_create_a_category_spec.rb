@@ -45,8 +45,7 @@ RSpec.describe "Admin", type: :feature do
       fill_in "Name", with: ""
 
       click_button "Create Category"
-
-      # expect(current_path).to eq(admin_categories_path)
+      
       expect(page).to have_content("Name cannot be blank")
     end
   end
