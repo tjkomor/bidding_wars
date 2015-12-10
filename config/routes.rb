@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#show'
     resources :stores, only: [:index, :show, :update]
     resources :categories, only: [:new, :create]
+    resources :items, only: [:new, :create, :index, :edit, :update]
   end
 
   get '/dashboard', to: 'users#show'

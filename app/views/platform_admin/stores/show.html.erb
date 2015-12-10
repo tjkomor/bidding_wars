@@ -1,29 +1,37 @@
 <%#= render partial: '/partials/store_admin_dashboard', locals: { store: @store } %>
 
-
 <div class="col m12 small-top-margin">
   <div class="card">
-<h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
-Status: <%= @store.status %>
-<div class="row">
-  <div class="small-top-margin center">
-    <div class="col m3">
-      <%= button_to "Add New Item", new_admin_item_path(@store), method: :get, class: 'btn blue dash-btn-big' %>
+    <h3 class="center" id="title"> <%= @store.name %> Admin Dashboard</h3>
+    <em><center> Store Status: <%= @store.status %> </center></em><br>
+
+
+  <div class="row">
+      <div class="col m3 offset-m3"><center>
+        <%= button_to "Add New Item", new_platform_admin_item_path(@store), method: :get, class: 'btn blue dash-btn-big' %>
+      </center></div>
+      <div class="col m3"><center>
+        <%= button_to "New Category", "#", method: :get, class: 'btn blue dash-btn-big' %>
+      </center></div>
     </div>
-    <div class="col m3">
-      <%= button_to "New Category", new_admin_category_path, method: :get, class: 'btn blue dash-btn-big' %>
+  <div class="row">
+    <div class="col m3 offset-m3"><center>
+      <%= button_to "Edit Store Info", "#", method: :get, class: 'btn blue dash-btn-big' %>
+    </center></div>
+      <div class="col m3"><center>
+        <%= button_to "Add New Administrator", "#", method: :get, class: 'btn blue dash-btn-big' %>
+      </center></div>
     </div>
-    <div class="col m3">
-      <%= button_to "Add New Administrator", new_admin_user_path(store: @store), method: :get, class: 'btn blue dash-btn-big' %>
-    </div>
-  </div>
-</div>
+
+
 
 <div class="collection with-header status_counts">
     <h5 class="collection-header"> Admin </h5>
-    <a href="<%= admin_items_path %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
-    <a href="<%= admin_items_path %>" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
-    <a href="<%= admin_dashboard_customers_path %>" class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
-    <a href="<%= admin_orders_pending_path %>" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
-    <a href="<%= admin_orders_path %>" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
-    </div>
+    <a href="<%= platform_admin_items_path(@store) %>" class="collection-item">View All Items<span class="badge"> <%= @store.items.count %></span></a>
+    <a href="#" class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
+    <a href="#" class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
+    <a href="#" class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
+    <a href="#" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
+  </div>
+</div>
+</div>
