@@ -11,6 +11,8 @@ RSpec.describe 'Guest', type: :feature do
       user_one.roles.clear << Role.where(name: 'user').first
       visit root_path
 
+      store.activate
+
       click_link "Video Games"
 
       within("#item_#{item_one.id}") do

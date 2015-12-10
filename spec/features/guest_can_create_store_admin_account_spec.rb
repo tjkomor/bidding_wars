@@ -7,7 +7,7 @@ RSpec.describe 'Guest', type: :feature do
       visit root_path
 
       click_link "Create Business Account"
-      
+
       fill_in "Username", with: 'rossedfort'
       fill_in "Password", with: 'rickross'
       fill_in 'First name', with: 'Ross'
@@ -25,10 +25,6 @@ RSpec.describe 'Guest', type: :feature do
       expect(current_path).to eq(admin_dashboard_path)
 
       expect(page).to have_content('Admin Dashboard')
-
-      visit '/stores/lenny-s'
-
-      expect(page).to have_content("Lenny's")
     end
   end
 end

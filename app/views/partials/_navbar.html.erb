@@ -17,15 +17,6 @@
       <% end %>
     </ul>
 
-    <!-- <ul id="dropdown2" class="dropdown-content">
-      <% stores.each do |store| %>
-        <% if store.status == "Active" %>
-          <%= link_to store.name, "/stores/#{store.slug}", class: 'collection-item black-text'%>
-        <% else %>
-        <% end %>
-      <% end %>
-    </ul> -->
-
     <ul id="dropdown1" class="dropdown-content">
       <% categories.each do |category| %>
         <li><%= link_to category.name, "/#{category.slug}", class: 'collection-item black-text'%></li>
@@ -35,6 +26,10 @@
     <ul class="right">
       <% if current_user && current_user.store_admin? %>
       <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+      <li><%= link_to "#{current_user.first_name.capitalize}'s Dashboard", dashboard_path %></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% elsif current_user && current_user.platform_admin?%>
+      <li><%= link_to "Platform Admin Dashboard", platform_admin_dashboard_path %></li>
       <li><%= link_to "#{current_user.first_name.capitalize}'s Dashboard", dashboard_path %></li>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
       <% elsif current_user %>

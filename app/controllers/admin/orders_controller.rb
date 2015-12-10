@@ -15,13 +15,13 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def pending
-    @store = Store.where(user_id: current_user.id).first
+    @store = find_store
   end
 
   private
 
   def find_store
-    Store.where(user_id: current_user.id).first
+    current_user.stores.first
   end
 
   def order_params

@@ -9,7 +9,7 @@ RSpec.describe "Platform Admin", type: :feature do
   create_roles
 
   feature "adds item" do
-    xit "to store" do
+    it "to store" do
       platform_admin = User.create(username: 'platform_admin', password: 'platform_admin', first_name: 'John', last_name: 'Smith', email_address: 'johnsmith@gmail.com', phone_number: '555-234-5678')
       platform_admin.roles.clear << Role.all
       admin_one.roles.clear << Role.where(name: 'store_admin').first
@@ -29,6 +29,8 @@ RSpec.describe "Platform Admin", type: :feature do
         click_button "Activate"
       end
 
+      expect(current_path).to eq(platform_admin_store_path(new_store))
+
       click_button "Add New Item"
 
       fill_in 'Name', with: 'Nikon D750 DSLR Camera'
@@ -44,7 +46,7 @@ RSpec.describe "Platform Admin", type: :feature do
 
       expect(page).to have_content("Admin Dashboard")
 
-      click_button("View All Items")
+      click_link("View All Items")
 
       expect(page).to have_content("Nikon D750 DSLR Camera")
     end

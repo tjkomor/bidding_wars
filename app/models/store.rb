@@ -65,6 +65,12 @@ class Store < ActiveRecord::Base
   end
 
   def total_sales
-    self.items.closed.inject(0){|sum, item| sum + item.winning_bid.first.bid_amount}
+    self.items.closed.inject(0) do |sum, item|
+      if !item.cancelled
+        sum + item.winning_bid.first.bid_amount
+      else
+        sum + 0
+      end
+    end
   end
 end
