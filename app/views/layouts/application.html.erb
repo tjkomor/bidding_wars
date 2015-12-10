@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LensLease</title>
+  <title>Collector's Corner</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -10,15 +10,9 @@
 </head>
 <body>
   <%= render partial: 'partials/navbar' %>
-  <!-- <div id="left-nav">
-    <%#= render partial: 'partials/sidenav' %>
-  </div> -->
     <%= render partial: 'partials/flashes' %>
     <div class="container valign">
       <div class="" id="container">
-
-      <!-- <div class="z-depth-2" id="home-card">
-      </div> -->
       <div id="yeild">
         <%= yield %>
       </div>
