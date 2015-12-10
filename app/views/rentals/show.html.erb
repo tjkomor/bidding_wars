@@ -1,6 +1,0 @@
-<div class="col m9 top-margin">
-  <h4>Rental #<%= @rental.id %></h4>
-  <%= render partial: 'partials/rental', locals: {rental: @rental} %>
-  <p>Order placed at: <%= @rental.created_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
-  <p>Updated at: <%= @rental.updated_at.in_time_zone(-7).strftime("%I:%M%p - %m/%d/%Y") %></p>
-</div>
