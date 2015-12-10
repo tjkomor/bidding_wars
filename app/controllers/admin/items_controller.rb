@@ -10,6 +10,7 @@ class Admin::ItemsController < Admin::BaseController
   def update
     @item = find_item
     if @item.update(item_params)
+      @item.set_permissions
       flash[:notice] = "Item Updated!"
       redirect_to admin_items_path
     else
@@ -19,7 +20,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def index
-    @items = current_user.stores.first.store_active_items
+    @items = current_user.stores.first.items
   end
 
   def create
@@ -33,6 +34,7 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+
   private
 
   def find_item
@@ -40,6 +42,6 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :current_bid, :image_url, :store_id, :category_id, :auction_length, :active)
+    params.require(:item).permit(:name, :description, :current_bid, :image_url, :store_id, :category_id, :auction_length, :cancelled, :active)
   end
 end

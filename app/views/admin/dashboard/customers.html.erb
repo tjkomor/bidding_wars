@@ -14,7 +14,7 @@
         <% @customers.each do |customer, items| %>
         <tr id="row_item_<%= customer.id %>">
           <td><%= image_tag(customer.image.url, class: 'item_cart') %></td>
-          <td><%= customer.first_name %><br></td>
+          <td> <%= link_to customer.first_name, user_path(customer.id) %></a><br></td>
           <td><% items.each do |item| %>
             <%= item.name %><br>
             <% end %>
