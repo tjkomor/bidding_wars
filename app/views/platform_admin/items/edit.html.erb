@@ -1,0 +1,20 @@
+<div class="col m9 top-margin">
+  <div class="card">
+    <h3>Edit  Item</h3>
+    <%= form_for(@item, html: {multipart: true}, url: platform_admin_item_path(@item)) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :current_bid %>
+    <%= f.text_field :current_bid %>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "browser-default", id: "categorySelect"} %>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+    <%= f.check_box :cancelled %>
+    <%= f.label :cancelled, "Cancel Auction" %><br>
+    <%= f.submit "Update Item" %><br>
+    <% end %>
+  </div>
+</div>
