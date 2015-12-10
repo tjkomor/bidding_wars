@@ -1,0 +1,36 @@
+<div class="col m9"><br>
+  <center><h1 class="white-text"> Store's Pending Orders </h1></center>
+  <div class="card">
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th colspan="1"></th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>
+            Winning Customer
+          </th>
+          <th> Final Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @store.pending_bids.each do |item| %>
+        <tr id="row_item_<%= item.id %>">
+          <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
+          <td>
+            <%= link_to item.name, item_path(item) %><br>
+            <% if !item.active %>
+              <small class='item_no'>Item no longer available</small>
+            <% end %>
+          </td>
+          <td><%= item.description %></td>
+          <td>
+            <%= item.winning_bid.first.user.first_name %>
+          </td>
+          <td><%= button_to "Finalize Order", admin_orders_path(item_id: item.id, store_id: @store.id), class: 'btn btn-small blue' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
