@@ -24,9 +24,14 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @item = Item.new(item_params)
+
     if @item.save
-      flash[:notice] = "Item Created!"
-      redirect_to admin_dashboard_path
+      if current_user.platform_admin?
+        flash[:notice] = "Item Created!"
+        redirect_to platform_admin_store_path(@item.store_id)
+      else
+        redirect_to admin_dashboard_path
+      end
     else
       flash.now[:error] = @item.errors.full_messages.first.gsub("can't", "cannot")
       render :new

@@ -7,6 +7,7 @@ class Store < ActiveRecord::Base
   has_many :users, through: :store_admins
 
 
+
   def to_param
     slug
   end
@@ -31,6 +32,7 @@ class Store < ActiveRecord::Base
 
   def check_status
     if self.status == "Pending" || self.status == 'Deactivated'
+      binding.pry
       self.activate
     else
       self.deactivate

@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def platform_admin?
-    roles.first.name == "platform_admin"
+    roles.last.name == "platform_admin"
   end
 
   def store_admin?

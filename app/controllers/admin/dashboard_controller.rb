@@ -2,7 +2,8 @@ class Admin::DashboardController < Admin::BaseController
   def show
     @admin_dash = true
     @store = current_user.stores.first
-    if @store.nil?
+  
+    if @store.nil? && !current_user.roles.exists?(name: 'platform_admin')
       redirect_to new_admin_store_path
     end
   end

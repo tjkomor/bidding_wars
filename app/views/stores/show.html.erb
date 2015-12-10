@@ -1,8 +1,12 @@
 <div class="row">
   <div class="items">
     <div id="heading" class="">
-      <h1 class="white-text"><%= @store.name %></h1>
-    </div>
-    <%= render partial: 'partials/item', collection: @store.items.active %>
+      <% if @store.status != "Active"  %>
+        <h1>This page does not exist.</h1>
+      <% else %>
+          <h1 class="white-text"><%= @store.name %></h1>
+        </div>
+        <%= render partial: 'partials/item', collection: @store.items.active %>
+      <% end %>
   </div>
 </div>

@@ -42,7 +42,7 @@ class Seed
 
     andrew.stores.create!(
             name: Faker::Company.name,
-            status: "active"
+            status: "Active"
             )
 
     puts "Andrew (store admin) and Store: #{andrew.stores.last.name} was created!"
@@ -63,7 +63,7 @@ class Seed
 
       store_admin.stores.create!(
                 name: Faker::Company.name,
-                status: "active"
+                status: "Active"
         )
 
       puts "Store Admin #{i}: #{store_admin.username} and Store: #{store_admin.stores.last.name} created!"

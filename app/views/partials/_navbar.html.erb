@@ -19,8 +19,10 @@
 
     <ul id="dropdown2" class="dropdown-content">
       <% stores.each do |store| %>
-        <%= link_to store.name, "/stores/#{store.slug}", class: 'collection-item black-text'%>
-
+        <% if store.status == "Active" %>
+          <%= link_to store.name, "/stores/#{store.slug}", class: 'collection-item black-text'%>
+        <% else %>
+        <% end %>
       <% end %>
     </ul>
 
