@@ -18,7 +18,7 @@
           <td><%= image_tag(item.image_url, class: 'item_cart') %></td>
           <td>
             <%= link_to item.name, item_path(item) %><br>
-            <% if !item.active || item.cancelled %>
+            <% if !item.active %>
               <small class='item_no'>Item no longer available</small>
             <% end %>
           </td>
