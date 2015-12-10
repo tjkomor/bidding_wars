@@ -11,15 +11,15 @@
         <%= button_to "Add New Item", new_platform_admin_item_path(@store), method: :get, class: 'btn blue dash-btn-big' %>
       </center></div>
       <div class="col m3"><center>
-        <%= button_to "New Category", "#", method: :get, class: 'btn blue dash-btn-big' %>
+        <%= button_to "New Category", new_platform_admin_category_path, method: :get, class: 'btn blue dash-btn-big' %>
       </center></div>
     </div>
   <div class="row">
     <div class="col m3 offset-m3"><center>
-      <%= button_to "Edit Store Info", "#", method: :get, class: 'btn blue dash-btn-big' %>
+      <%= button_to "Edit Store Info", edit_platform_admin_store_path(@store), method: :get, class: 'btn blue dash-btn-big' %>
     </center></div>
       <div class="col m3"><center>
-        <%= button_to "Add New Administrator", "#", method: :get, class: 'btn blue dash-btn-big' %>
+        <%= button_to "Add New Administrator", new_platform_admin_user_path(store: @store), method: :get, class: 'btn blue dash-btn-big' %>
       </center></div>
     </div>
 

@@ -1,0 +1,10 @@
+<div class="col m9 top-margin">
+  <div class="card">
+    <h3>Edit Store</h3>
+    <%= form_for(@store, url: platform_admin_store_path(@store)) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Edit" %><br>
+    <% end %>
+  </div>
+</div>
