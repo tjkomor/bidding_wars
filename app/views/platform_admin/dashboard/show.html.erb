@@ -7,14 +7,14 @@
   <div class="small-top-margin center">
     <div class="col m5 offset-m1">
       <%= button_to "View Stores", platform_admin_stores_path, method: :get, class: 'btn black dash-btn-big' %>
+    <h3 class="center">Platform Admin Dashboard</h3>
+    <div class="row">
+      <div class="small-top-margin center"><center>
+        <%= button_to "View Stores", platform_admin_stores_path, method: :get, class: 'btn black dash-btn-big' %>
+      </center></div>
     </div>
-    <div class="col m3">
-      <%= button_to "Create New Category", new_platform_admin_category_path, method: :get, class: 'btn black dash-btn-big' %>
+    <div class="row">
+      <center><%= button_to "Create New Category", new_platform_admin_category_path, method: :get, class: 'btn black dash-btn-big' %></center>
     </div>
-    <!-- <div class="col m3">
-      <%#= button_to "View Pending Stores", platform_admin_stores_path, method: :get, class: 'btn blue dash-btn-big' %>
-    </div> -->
   </div>
-</div>
-</div>
 </div>
