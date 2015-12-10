@@ -1,11 +1,16 @@
 require 'rails_helper'
 RSpec.describe 'store admin', type: :feature do
+  create_store
   create_category
   create_items
+  create_store_admin
+  create_roles
   create_user
 
   feature 'can view' do
-    xit 'all of the orders' do
+    it 'all of the orders' do
+      admin_one.roles << Role.where(name: 'store_admin')
+      admin_one.stores.create(name: "Leons")
       visit login_path
 
       fill_in "Username", with: 'admin'
@@ -13,6 +18,10 @@ RSpec.describe 'store admin', type: :feature do
 
       click_button "Login"
 
+
+      click_link "View Past Orders"
+
+      save_and_open_page
       expect(page).to have_content('190')
       expect(page).to have_content('5')
       expect(page).to have_content('Completed')
