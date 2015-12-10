@@ -30,7 +30,7 @@ RSpec.describe 'Admin', type: :feature do
 
       expect(current_path).to eq(platform_admin_store_path(store))
 
-      click_button 'Add New Administrator'
+      click_button 'Add New Admin'
 
       fill_in "Username", with: 'rossedfort'
       fill_in "Password", with: 'rickross'
