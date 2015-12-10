@@ -4,25 +4,25 @@
       <a href="/" class="brand-logo center white-text">Collector's Corner</a>
     <% if current_user && current_user.store_admin? %>
       <li><a href="/items" class='dropdown-button' data-activates='dropdown1'>Shop Categories</a></li>
-      <li><a href="#" class='dropdown-button' data-activates='dropdown2'>Shop Stores</a></li>
+      <li><a href="/stores" data-activates='dropdown2'>Shop Stores</a></li>
       <li><%= link_to "Shop All", items_path %></li>
       <% elsif current_user %>
       <li><a href="/items" class='dropdown-button' data-activates='dropdown1'>Shop Categories</a></li>
-      <li><a href="#" class='dropdown-button' data-activates='dropdown2'>Shop Stores</a></li>
+      <li><a href="/stores" data-activates='dropdown2'>Shop Stores</a></li>
       <li><%= link_to "Shop All", items_path %></li>
       <% else %>
       <li><a href="/items" class='dropdown-button' data-activates='dropdown1'>Shop Categories</a></li>
-      <li><a href="#" class='dropdown-button' data-activates='dropdown2'>Shop Stores</a></li>
+      <li><a href="/stores" data-activates='dropdown2'>Shop Stores</a></li>
       <li><%= link_to "Shop All", items_path %></li>
       <% end %>
     </ul>
 
-    <ul id="dropdown2" class="dropdown-content">
+    <!-- <ul id="dropdown2" class="dropdown-content">
       <% stores.each do |store| %>
         <%= link_to store.name, "/stores/#{store.slug}", class: 'collection-item black-text'%>
 
       <% end %>
-    </ul>
+    </ul> -->
 
     <ul id="dropdown1" class="dropdown-content">
       <% categories.each do |category| %>

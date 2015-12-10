@@ -1,4 +1,8 @@
 class StoresController < ApplicationController
+  def index
+    @stores = Store.all.active
+  end
+
   def show
     @store = find_store
   end
