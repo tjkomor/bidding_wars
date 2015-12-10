@@ -115,7 +115,7 @@ class Seed
   end
 
   def generate_platform_admin
-    josh_image = File.open(File.join(Rails.root,'lib/assets/josh_mejia.jpg'))
+    josh_image = File.open(File.join(Rails.root,'lib/assets/jorge_tellez.jpg'))
     image = File.open(Dir.glob(File.join(Rails.root,'lib/assets/', '*')).sample)
 
     josh = User.create!(username: "jorge@turing.io",
