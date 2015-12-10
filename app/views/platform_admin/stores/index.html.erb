@@ -16,9 +16,9 @@
             <td> <%= store.status %> </td>
           <td>
             <% if store.status == "Active" %>
-              <%= button_to "Deactivate", platform_admin_store_path(store.id), method: :put %>
+              <%= button_to "Deactivate", platform_admin_stores_status_path(store.id), method: :status %>
             <% else %>
-              <%= button_to "Activate", platform_admin_store_path(store.id), method: :put %>
+              <%= button_to "Activate", platform_admin_stores_status_path(store.id), method: :status %>
             <% end %>
           </td>
         </tr>
