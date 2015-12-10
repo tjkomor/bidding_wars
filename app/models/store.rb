@@ -6,6 +6,8 @@ class Store < ActiveRecord::Base
   has_many :store_admins
   has_many :users, through: :store_admins
 
+  scope :active, -> { where(status: "Active") }
+
 
   def to_param
     slug
