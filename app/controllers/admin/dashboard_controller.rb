@@ -8,8 +8,7 @@ class Admin::DashboardController < Admin::BaseController
   end
 
   def customers
-    store = Store.where(user_id: current_user.id).first
-    @customers = store.customers
+    @customers = current_user.stores.first.customers
   end
 
   private

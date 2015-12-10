@@ -14,8 +14,12 @@ class Item < ActiveRecord::Base
   end
 
   def winning_bid
-    amount = self.bid_histories.maximum(:bid_amount)
-    self.bid_histories.where(bid_amount: amount).all
+    if cancelled
+      nil
+    else
+      amount = self.bid_histories.maximum(:bid_amount)
+      self.bid_histories.where(bid_amount: amount).all
+    end
   end
 
   def auction_close_time
@@ -23,14 +27,20 @@ class Item < ActiveRecord::Base
   end
 
   def is_open
-    active && (Time.now - 7.hours) < auction_close_time
+    active && ((Time.now - 7.hours) < auction_close_time) && !cancelled
   end
 
   def is_pending
-    active && (Time.now - 7.hours) >= auction_close_time
+    active && ((Time.now - 7.hours) >= auction_close_time) && !cancelled
   end
 
   def time_closed
     (Time.now - 7.hours) >= auction_close_time
+  end
+
+  def set_permissions
+    if self.cancelled
+      self.update(active: false)
+    end
   end
 end

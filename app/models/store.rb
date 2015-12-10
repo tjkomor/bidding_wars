@@ -60,4 +60,8 @@ class Store < ActiveRecord::Base
     end
     customers
   end
+
+  def total_sales
+    self.items.closed.inject(0){|sum, item| sum + item.winning_bid.first.bid_amount}
+  end
 end
