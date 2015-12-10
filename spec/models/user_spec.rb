@@ -35,6 +35,8 @@ RSpec.describe User, type: :model do
     expect(user_one).to be_valid
     expect(user_two).to be_invalid
   end
+
+  it { should have_many(:roles) }
 end
 
 

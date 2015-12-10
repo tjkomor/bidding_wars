@@ -6,10 +6,13 @@ RSpec.describe 'Registered user', type: :feature do
   create_roles
   create_items
   create_user
+  create_order
 
   feature 'auction history' do
-    xit 'it shows recent orders on dashboard' do
-      user_one.roles << Role.first
+    it 'it shows recent orders on dashboard' do
+      skip
+      user_one.roles << Role.where(name: "user").first
+
       visit root_path
       click_link "Login"
 

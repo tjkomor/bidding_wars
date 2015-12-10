@@ -3,10 +3,11 @@ RSpec.describe 'Platform Admin', type: :feature do
   feature 'can view' do
     create_roles
     create_user
-    xit 'individual stores' do
+
+    it 'individual stores' do
       platform_admin = User.create!(username: 'platformadmin', password: 'platformadmin', first_name: 'Clemson', last_name: 'Tigers', email_address: 'gotigers@gmail.com', phone_number: '555-234-5678')
       platform_admin.roles.clear << Role.where(name: 'platform_admin').first
-      user_one.stores.create(name: "Lenny's", status: true)
+      user_one.stores.create(name: "Lenny's", status: "Active")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(platform_admin)
 
@@ -23,14 +24,12 @@ RSpec.describe 'Platform Admin', type: :feature do
 
       click_button "View Stores"
 
-      expect(page).to have_button("Lenny's")
+      expect(page).to have_link("Lenny's")
 
-      click_button "Lenny's"
+      click_link "Lenny's"
 
-      expect(page).to have_content('Ross Edfort')
-      expect(page).to have_content('Phone Number: 908-698-9024')
-      expect(page).to have_content('Email: rossedfort@yahoo.com')
-      expect(page).to have_content('Joined on: December 07, 2015')
+      expect(page).to have_content("Lenny's Admin Dashboard")
+      expect(page).to have_content('Store Status: Active')
     end
   end
 end

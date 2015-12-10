@@ -15,6 +15,11 @@ RSpec.describe Store, type: :model do
     expect(store.users.first.first_name).to eq("John")
     expect(store.users.last.first_name).to eq("Mike")
     expect(store.users.count).to eq(2)
-
   end
+
+  it { should belong_to(:user) }
+  it { should have_many(:items) }
+  it { should have_many(:orders) }
+  it { should have_many(:store_admins) }
+  it { should have_many(:users) }
 end

@@ -9,7 +9,6 @@ class Store < ActiveRecord::Base
   scope :active, -> { where(status: "Active") }
 
 
-
   def to_param
     slug
   end

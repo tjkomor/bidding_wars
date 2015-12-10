@@ -5,9 +5,13 @@ RSpec.describe 'User', type: :feature do
   create_user
   create_items
   create_roles
+
   feature 'sees' do
-    xit 'time left on auction' do
+    it 'date auction closes' do
       user_one.roles.clear << Role.where(name: 'user').first
+      date = item_one.auction_close_time.strftime('%B, %d')
+      time = item_one.auction_close_time.strftime('%r')
+
       visit login_path
 
       fill_in 'Username', with: 'rossedfort'
@@ -17,7 +21,7 @@ RSpec.describe 'User', type: :feature do
 
       visit "/items/#{item_one.id}"
 
-      expect(page).to have_content()
+      expect(page).to have_content("This auction closes on: #{date} at #{time}.")
     end
   end
 end

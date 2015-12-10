@@ -45,6 +45,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'mocha'
   gem 'selenium-webdriver'
+  gem 'shoulda'
 end
 
 group :development do

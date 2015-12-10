@@ -34,11 +34,13 @@ RSpec.describe "Visitor", type: :feature do
       end
     end
 
-    xit "can view items by store" do
+    it "can view items by store" do
+      skip
       visit root_path
       click_link "Shop Stores"
 
-      within('#dropdown1') do
+      save_and_open_page
+      within("#dropdown1") do
         click_link "Lenny's"
       end
 
