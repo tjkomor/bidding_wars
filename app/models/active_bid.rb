@@ -1,3 +1,2 @@
-class ActiveBid < ActiveRecord::Base
-  
+class ActiveBid < ActiveRecord::Base  
 end

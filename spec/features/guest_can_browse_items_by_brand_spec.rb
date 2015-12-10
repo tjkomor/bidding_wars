@@ -39,6 +39,7 @@ RSpec.describe "Visitor", type: :feature do
       visit root_path
       click_link "Shop Stores"
 
+      save_and_open_page
       within("#dropdown1") do
         click_link "Lenny's"
       end

@@ -158,18 +158,5 @@ RSpec.describe "User", type: :feature do
       expect(page).to have_content("Phone number cannot be blank")
       expect(page).to_not have_content("New First Name")
     end
-
-    it "can delete account", js: true do
-      skip
-      login_user
-
-      click_link "Delete Account"
-      sleep(1)
-      click_on "Yes"
-
-      expect(page).to have_content("Login")
-      expect(page).to have_content("Your account has been deactivated")
-      expect(current_path).to eq(root_path)
-    end
   end
 end
