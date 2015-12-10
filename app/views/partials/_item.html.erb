@@ -1,8 +1,11 @@
 <div class="col m4 item" id="item_<%= item.id %>">
   <div class="card medium">
-    <h5 class="height"><%= link_to(item.name, item_path(item)) %></h5>
-    <%= link_to(image_tag(item.image_url), item_path(item), id: "image_#{item.id}") %>
-    <p>Current Bid: <strong>$<%= item.current_bid %></strong></p><br>
-    <%= button_to "See Auction Details", item_path(item), method: :get, class: 'btn home-btn black-text' %>
+    <% if item.store.status == "Active" %>
+      <h5 class="height"><%= link_to(item.name, item_path(item)) %></h5>
+      <%= link_to(image_tag(item.image_url), item_path(item), id: "image_#{item.id}") %>
+      <p>Current Bid: <strong>$<%= item.current_bid %></strong></p><br>
+      <%= button_to "See Auction Details", item_path(item), method: :get, class: 'btn home-btn black-text' %>
+    <% else %>
+    <% end %>
   </div>
 </div>

@@ -9,6 +9,7 @@ class Store < ActiveRecord::Base
   scope :active, -> { where(status: "Active") }
 
 
+
   def to_param
     slug
   end
@@ -33,6 +34,7 @@ class Store < ActiveRecord::Base
 
   def check_status
     if self.status == "Pending" || self.status == 'Deactivated'
+      binding.pry
       self.activate
     else
       self.deactivate

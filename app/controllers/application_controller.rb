@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
   end
 
   def platform_admin_role_object
-    Role.where(name: 'platform_admin').first
+    Role.where(name: 'platform_admin')
   end
 
   def current_user_role

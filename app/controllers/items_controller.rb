@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    binding.pry
     @item = find_item
   end
 

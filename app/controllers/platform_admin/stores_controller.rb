@@ -4,8 +4,7 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
   end
 
   def show
-    @store = find_store
-    @created = @store.created_at.strftime('%B %d, %Y')
+    @store = Store.find_by(slug: params[:id])
   end
 
   def update
@@ -21,7 +20,8 @@ class PlatformAdmin::StoresController < PlatformAdmin::BaseController
     Store.find_by(id: params[:id])
   end
 
-  def find_store
-    Store.find_by(slug: params[:id])
-  end
+  # def find_store
+  #   binding.pry
+  #   Store.find_by(slug: params[:id])
+  # end
 end
