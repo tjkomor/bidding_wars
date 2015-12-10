@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   namespace :platform_admin do
     get '/dashboard', to: 'dashboard#show'
     post '/stores/status', to: 'stores#status'
+    get '/items/active', to: 'items#active'
     resources :users, only: [:new, :create, :destroy, :edit, :update]
     resources :stores, only: [:index, :show, :update, :edit]
     resources :categories, only: [:new, :create]

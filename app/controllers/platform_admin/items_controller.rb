@@ -34,7 +34,10 @@ class PlatformAdmin::ItemsController < PlatformAdmin::BaseController
       flash[:error] = @item.errors.full_messages.first.gsub("can't", "cannot")
       redirect_to platform_admin_items_path
     end
+  end
 
+  def active
+    @store = Store.find_by(id: params[:id])
   end
 
 private
