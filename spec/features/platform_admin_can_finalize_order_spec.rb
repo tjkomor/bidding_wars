@@ -31,6 +31,10 @@ RSpec.describe 'Platform Admin', type: :feature do
 
       expect(page).to have_content('Ross')
       expect(page).to have_content('Casino')
+
+      click_button "Finalize Order"
+
+      expect(page).to have_content "Store's Past Orders"
     end
   end
 end
