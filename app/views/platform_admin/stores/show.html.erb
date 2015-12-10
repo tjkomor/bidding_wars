@@ -31,7 +31,7 @@
     <a href="<%= platform_admin_items_active_path(id: @store.id) %> " class="collection-item">View Active Auctions<span class="badge"> <%= @store.store_active_items.count %></span></a>
     <a href="<%= platform_admin_dashboard_customers_path(@store, id: @store.slug) %> " class="collection-item">View Customers<span class="badge"> <%= @store.customers.keys.count %></span></a>
     <a href="<%= platform_admin_orders_pending_path(@store, slug: params[:id]) %> " class="collection-item">View Pending Orders<span class="badge"> <%= @store.pending_bids.count %></span></a>
-    <a href="#" class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
+    <a href="<%= platform_admin_orders_path(@store, slug: params[:id]) %> " class="collection-item">View Past Orders<span class="badge"> <%= @store.orders.count %></span></a>
   </div>
 </div>
 </div>
