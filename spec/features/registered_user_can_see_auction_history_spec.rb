@@ -8,7 +8,7 @@ RSpec.describe 'Registered user', type: :feature do
   create_user
 
   feature 'auction history' do
-    it 'it shows recent orders on dashboard' do
+    xit 'it shows recent orders on dashboard' do
       user_one.roles << Role.first
       visit root_path
       click_link "Login"
@@ -17,7 +17,7 @@ RSpec.describe 'Registered user', type: :feature do
       fill_in "Password", with: 'password'
 
       click_button "Login"
-  
+
       expect(page).to have_content('Casino')
       expect(page).to have_content("30")
     end

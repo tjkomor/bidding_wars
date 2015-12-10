@@ -8,6 +8,9 @@ RSpec.describe "Visitor", type: :feature do
 
     it "can view items" do
       visit root_path
+
+      store.activate
+
       click_link "Shop All"
 
       within('.items') do
@@ -18,6 +21,9 @@ RSpec.describe "Visitor", type: :feature do
 
     it "can view items by category" do
       visit root_path
+
+      store.activate
+
       click_link "Shop Categories"
 
       click_link "Video Games"

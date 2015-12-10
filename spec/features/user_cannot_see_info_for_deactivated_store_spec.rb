@@ -18,7 +18,6 @@ RSpec.describe 'User', type: :feature do
       click_button "Login"
 
       visit store_path(store)
-      save_and_open_page
       expect(page).to have_content("This page does not exist.")
     end
   end

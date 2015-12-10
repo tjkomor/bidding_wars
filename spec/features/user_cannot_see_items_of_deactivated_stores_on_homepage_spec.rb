@@ -9,7 +9,7 @@ RSpec.describe 'User', type: :feature do
   feature 'cannot see' do
     it 'info for deactivated store' do
       user_one.roles.clear << Role.where(name: 'user').first
-      store.items.create(name: 'Casino', description: "classic video game", current_bid: 30, store_id: Store.last.id, category_id: Category.last.id, active: true, image_url: 'https://www.mymediabox.com/wp-content/uploads/2014/03/Atari-Casino.png', auction_length: 48 )
+      store.items.create(name: 'Casino', description: "classic video game", current_bid: 30, category_id: Category.last.id, active: true, image_url: 'https://www.mymediabox.com/wp-content/uploads/2014/03/Atari-Casino.png', auction_length: 48 )
       visit login_path
 
       fill_in "Username", with: 'rossedfort'
@@ -20,13 +20,17 @@ RSpec.describe 'User', type: :feature do
       visit items_path
 
       expect(page).to_not have_content('Casino')
-    
-      store.status = "Active"
+
+      store.activate
+
+      visit items_path
 
 
       expect(page).to have_content('Casino')
 
       store.deactivate
+
+      visit items_path
 
       expect(page).to_not have_content('Casino')
     end

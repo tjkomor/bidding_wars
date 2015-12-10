@@ -11,7 +11,6 @@ RSpec.describe 'Registered user', type: :feature do
       fill_in "Username", with: user_one.username
       fill_in "Password", with: 'password'
 
-      save_and_open_page
       click_button "Login"
 
       expect(page).to have_content("My Dashboard")

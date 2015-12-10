@@ -11,6 +11,8 @@ RSpec.describe 'Registered user', type: :feature do
     it 'a bid text box to enter bid amount' do
       user_one.roles << Role.first
 
+      store.activate
+
       visit root_path
       click_link "Login"
 

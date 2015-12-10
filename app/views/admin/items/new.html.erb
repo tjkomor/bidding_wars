@@ -10,7 +10,7 @@
       <%= f.text_field :current_bid %>
       <%= f.label :category_id %>
       <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "browser-default", id: "categorySelect"} %>
-      <%= f.hidden_field :store_id, value: Store.find_by(slug: params[:format]).id %>
+      <%= f.hidden_field :store_id, value: current_user.stores.first.id %>
       <%= f.hidden_field :active, value: true %>
       <%= f.label :auction_length %>
       <%= f.text_field :auction_length %>
