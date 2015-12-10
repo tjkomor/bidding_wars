@@ -20,7 +20,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def index
-    @items = current_user.stores.first.items
+    @items = user_store.items
   end
 
   def create
@@ -34,11 +34,19 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+  def active
+    @items = user_store.store_active_items
+  end
+
 
   private
 
   def find_item
     Item.find(params[:id])
+  end
+
+  def user_store
+    current_user.stores.first
   end
 
   def item_params
