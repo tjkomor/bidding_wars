@@ -27,7 +27,7 @@
           <td>
             <%= item.winning_bid.first.user.first_name %>
           </td>
-          <td><%= button_to "Finalize Order", admin_orders_path(item_id: item.id, store_id: @store.id), class: 'btn btn-small blue' %></td>
+          <td><%= button_to "Finalize Order", platform_admin_orders_path(item_id: item.id, store_id: @store.id), class: 'btn btn-small blue' %></td>
         </tr>
         <% end %>
       </tbody>

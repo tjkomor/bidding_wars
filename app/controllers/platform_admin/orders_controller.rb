@@ -1,6 +1,6 @@
 class PlatformAdmin::OrdersController < PlatformAdmin::BaseController
   def index
-    @store = find_store
+    @store = Store.find_by(slug: params[:format])
   end
 
   def new
@@ -8,10 +8,10 @@ class PlatformAdmin::OrdersController < PlatformAdmin::BaseController
   end
 
   def create
-    @store = find_store
+    @store = Store.find(params[:store_id])
     @store.orders.create!(item_id: params[:item_id], user_id: find_winning_bid_user, amount: winning_bid_amount)
     find_item.update(active: false)
-    redirect_to admin_orders_path
+    redirect_to platform_admin_orders_path(@store)
   end
 
   def pending
