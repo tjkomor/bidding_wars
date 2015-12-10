@@ -11,6 +11,7 @@ RSpec.describe 'Registered user', type: :feature do
   feature 'auction history' do
     it 'it shows recent orders on dashboard' do
       skip
+
       user_one.roles << Role.first
 
       visit root_path
@@ -21,7 +22,6 @@ RSpec.describe 'Registered user', type: :feature do
 
       click_button "Login"
 
-      save_and_open_page
       expect(page).to have_content('Casino')
       expect(page).to have_content("30")
     end

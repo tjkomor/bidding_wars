@@ -11,7 +11,7 @@ class Seed
     seed.generate_pending_bids
     seed.generate_andrew_store_pending_bids
 
-    # seed.generate_platform_admin
+    seed.generate_platform_admin
     seed.generate_orders
   end
 
@@ -112,6 +112,23 @@ class Seed
         user.roles << Role.first
       puts "User #{i}: #{user.username} - #{user.email_address} created!"
     end
+  end
+
+  def generate_platform_admin
+    josh_image = File.open(File.join(Rails.root,'lib/assets/josh_mejia.jpg'))
+    image = File.open(Dir.glob(File.join(Rails.root,'lib/assets/', '*')).sample)
+
+    josh = User.create!(username: "jorge@turing.io",
+                 password: "password",
+                first_name: "Jorge",
+                last_name: "Tellez",
+                email_address: "jorge@turing.io",
+                phone_number: Faker::PhoneNumber.phone_number,
+                active: true,
+                bio: "Always looking for the his next challenge, Jorge walked away from blue collar jobs to pursue web development in 2007. Working first as a software developer in the energy industry, Jorge enjoyed playing a small part in an innovative field that would lead to large, worldwide change.",
+                image: josh_image
+                )
+    josh.roles << Role.last
   end
 
   def generate_bids

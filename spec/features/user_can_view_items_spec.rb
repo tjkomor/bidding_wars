@@ -7,6 +7,7 @@ RSpec.describe 'User', type: :feature do
 
   feature 'Item' do
     it 'can view an item in store page' do
+      store.activate
       visit 'stores/lenny-s'
 
       expect(page).to have_content(item_one.name)

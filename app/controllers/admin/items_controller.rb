@@ -20,18 +20,22 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def index
-    @items = current_user.stores.first.items
+    @items = user_store.items
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "Item Created!"
-      redirect_to admin_dashboard_path
+        flash[:notice] = "Item Created!"
+        redirect_to admin_dashboard_path
     else
       flash.now[:error] = @item.errors.full_messages.first.gsub("can't", "cannot")
       render :new
     end
+  end
+
+  def active
+    @items = user_store.store_active_items
   end
 
 
@@ -39,6 +43,10 @@ class Admin::ItemsController < Admin::BaseController
 
   def find_item
     Item.find(params[:id])
+  end
+
+  def user_store
+    current_user.stores.first
   end
 
   def item_params

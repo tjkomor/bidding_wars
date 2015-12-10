@@ -64,7 +64,6 @@ RSpec.describe 'Admin', type: :feature do
       find('#categorySelect').find(:xpath, 'option[1]').select_option
       fill_in 'Image url', with: 'http://static.bhphoto.com/images/images500x500/1410504666000_1082599.jpg'
       click_button("Update Item")
-      save_and_open_page
       expect(page).to have_content("Name cannot be blank")
     end
   end
