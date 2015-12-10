@@ -21,7 +21,7 @@ RSpec.describe 'Admin', type: :feature do
 
       expect(page).to have_content('View Active Auctions')
 
-      click_button 'Add New Administrator'
+      click_button 'Add New Admin'
 
       fill_in "Username", with: 'rossedfort'
       fill_in "Password", with: 'rickross'
