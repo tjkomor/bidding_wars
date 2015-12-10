@@ -44,6 +44,7 @@ RSpec.describe 'Admin', type: :feature do
 
       expect(current_path).to eq(platform_admin_store_path(store))
 
+
       click_link 'Logout'
 
       visit login_path
